@@ -11,7 +11,7 @@
 </head>
 <%@ page import="java.util.Date" %>
 <body>
-<h2>Hello Heroku! I am JSP</h2>
+<h2>Hello Dillon! I am JSP</h2>
 <strong>Current Time is</strong>: <%=new Date() %>
 <p>Try a: </p>
 <button onclick="window.location.assign(servletURL+'/hello');">Simple servlet </button>
