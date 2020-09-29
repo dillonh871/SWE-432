@@ -74,11 +74,11 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
 
    if (operation.equals(OperationAB))
    {
-      rslt = new String(lhsVal + rhsVal);
+      rslt = new String(lhsVal + " " + rhsVal);
    }
    else if (operation.equals(OperationBA))
    {
-      rslt = new String(rhsVal + lhsVal);
+      rslt = new String(rhsVal + " " + lhsVal);
    }
    //David: (6) adds multiplication action's resolution
    /*else if (operation.equals(OperationMult))
@@ -166,7 +166,7 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println(" <input type=\"submit\" value=\"" + OperationBA + "\" name=\"Operation\">");
    // David: (3) adds multiplication button
    //out.println(" <input type=\"submit\" value=\"" + OperationMult + "\" name=\"Operation\">");
-   out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
+   //out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
    out.println("</form>");
    out.println("");
    out.println("</body>");
