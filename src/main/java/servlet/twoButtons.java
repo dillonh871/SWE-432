@@ -68,7 +68,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    }
    else if (operation.equals(OperationBA))
    {
-      rslt = new Float(rhsVal + lhsVal);
+      rslt = new String(rhsVal + lhsVal);
    }
 
    response.setContentType("text/html");
