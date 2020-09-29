@@ -51,7 +51,7 @@ static String OperationMult = "Multiply";
 // Other strings.
 static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
 
-/** *****************************************************
+/* *****************************************************
  *  Overrides HttpServlet's doPost().
  *  Converts the values in the form, performs the operation
  *  indicated by the submit button, and sends the results
@@ -81,10 +81,10 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
       rslt = new String(rhsVal + lhsVal);
    }
    //David: (6) adds multiplication action's resolution
-   else if (operation.equals(OperationMult))
+   /*else if (operation.equals(OperationMult))
    {
       rslt = new Float(lhsVal.floatValue() * rhsVal.floatValue());
-   }
+   }*/
 
    response.setContentType("text/html");
    PrintWriter out = response.getWriter();
@@ -165,7 +165,7 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println(" <input type=\"submit\" value=\"" + OperationAB + "\" name=\"Operation\">");
    out.println(" <input type=\"submit\" value=\"" + OperationBA + "\" name=\"Operation\">");
    // David: (3) adds multiplication button
-   out.println(" <input type=\"submit\" value=\"" + OperationMult + "\" name=\"Operation\">");
+   //out.println(" <input type=\"submit\" value=\"" + OperationMult + "\" name=\"Operation\">");
    out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
    out.println("</form>");
    out.println("");
