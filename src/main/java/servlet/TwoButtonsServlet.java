@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 //David: (1) adds servlet mapping annotation
 import javax.servlet.annotation.WebServlet;
 @WebServlet( name = "twoButtons", urlPatterns = {"/twoButtons"} )
-
+'
 // twoButtons class
 // CONSTRUCTOR: no constructor specified (default)
 //
@@ -43,8 +43,8 @@ static String Path    = "";
 static String Servlet = "twoButtons";
 
 // Button labels
-static String OperationAdd = "Add";
-static String OperationSub = "Subtract";
+static String OperationAB = "Concat to AB";
+static String OperationBA = "Concat to BA";
 //David: (2) adds Multiplication label
 static String OperationMult = "Multiply";
 
@@ -61,24 +61,24 @@ static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
 public void doPost (HttpServletRequest request, HttpServletResponse response)
    throws ServletException, IOException
 {
-   Float rslt   = new Float(0.0);
-   Float lhsVal = new Float(0.0);
-   Float rhsVal = new Float(0.0);
+   String rslt   = new String("");
+   String lhsVal = new String("");
+   String rhsVal = new String("");
    String operation = request.getParameter("Operation");
    String lhsStr = request.getParameter("LHS");
    String rhsStr = request.getParameter("RHS");
    if ((lhsStr != null) && (lhsStr.length() > 0))
-      lhsVal = new Float(lhsStr);
+      lhsVal = new String(lhsStr);
    if ((rhsStr != null) && (rhsStr.length() > 0))
-      rhsVal = new Float(rhsStr);
+      rhsVal = new String(rhsStr);
 
-   if (operation.equals(OperationAdd))
+   if (operation.equals(OperationAB))
    {
-      rslt = new Float(lhsVal.floatValue() + rhsVal.floatValue());
+      rslt = new String(lhsVal + rhsVal);
    }
    else if (operation.equals(OperationSub))
    {
-      rslt = new Float(lhsVal.floatValue() - rhsVal.floatValue());
+      rslt = new String(rhsVal + lhsVal);
    }
    //David: (6) adds multiplication action's resolution
    else if (operation.equals(OperationMult))
@@ -148,22 +148,22 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println("");
    out.println(" <table>");
    out.println("  <tr>");
-   out.println("   <td>First value:");
-   out.println("   <td><input type=\"text\" name=\"LHS\" value=\"" + lhs + "\" size=5>");
+   out.println("   <td>First String value:");
+   out.println("   <td><input type=\"text\" name=\"LHS\" value=\"" + lhs + "\" size=7>");
    out.println("  </tr>");
    out.println("  <tr>");
-   out.println("   <td>Second value:");
-   out.println("   <td><input type=\"text\" name=\"RHS\" value=\"" + rhs + "\" size=5>");
+   out.println("   <td>Second String value:");
+   out.println("   <td><input type=\"text\" name=\"RHS\" value=\"" + rhs + "\" size=7>");
    out.println("  </tr>");
    out.println("  <tr>");
    out.println("   <td>Result:");
-   out.println("   <td><input type=\"text\" name=\"RHS\" value=\"" + rslt + "\" size=6>");
+   out.println("   <td><input type=\"text\" name=\"RHS\" value=\"" + rslt + "\" size=12>");
    out.println("  </tr>");
    out.println(" </table>");
    out.println(" <br>");
    out.println(" <br>");
-   out.println(" <input type=\"submit\" value=\"" + OperationAdd + "\" name=\"Operation\">");
-   out.println(" <input type=\"submit\" value=\"" + OperationSub + "\" name=\"Operation\">");
+   out.println(" <input type=\"submit\" value=\"" + OperationAB + "\" name=\"Operation\">");
+   out.println(" <input type=\"submit\" value=\"" + OperationBA + "\" name=\"Operation\">");
    // David: (3) adds multiplication button
    out.println(" <input type=\"submit\" value=\"" + OperationMult + "\" name=\"Operation\">");
    out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
