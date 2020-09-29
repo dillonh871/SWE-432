@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 //David: (1) adds servlet mapping annotation
 import javax.servlet.annotation.WebServlet;
 @WebServlet( name = "twoButtons", urlPatterns = {"/twoButtons"} )
-'
+
 // twoButtons class
 // CONSTRUCTOR: no constructor specified (default)
 //
