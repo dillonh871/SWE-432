@@ -1,5 +1,5 @@
 /** *****************************************************************
-    twoButtons.java   servlet example
+    twoButtonsConcat.java   servlet example
 
         @author Jeff Offutt
 ********************************************************************* */
@@ -12,7 +12,7 @@ import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-// twoButtons class
+// twoButtonsConcat class
 // CONSTRUCTOR: no constructor specified (default)
 //
 // ***************  PUBLIC OPERATIONS  **********************************
@@ -27,13 +27,13 @@ import javax.servlet.http.*;
 // private void PrintTail (PrintWriter out) --> Prints the HTML bottom
 //***********************************************************************
 
-public class twoButtons extends HttpServlet
+public class twoButtonsConcat extends HttpServlet
 {
 
 // Location of servlet.
 static String Domain  = "cs.gmu.edu:8443";
 static String Path    = "/offutt/servlet/";
-static String Servlet = "twoButtons";
+static String Servlet = "twoButtonsConcat";
 
 // Button labels
 static String OperationAB = "Concat to AB";
@@ -163,4 +163,4 @@ private void PrintTail (PrintWriter out)
    out.println("</html>");
 } // End PrintTail
 
-}  // End twoButtons
+}  // End twoButtonsConcat
