@@ -46,7 +46,7 @@ static String Servlet = "twoButtons";
 static String OperationAB = "Concat to AB";
 static String OperationBA = "Concat to BA";
 //David: (2) adds Multiplication label
-static String OperationMult = "Multiply";
+//static String OperationMult = "Multiply";
 
 // Other strings.
 static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
@@ -76,7 +76,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    {
       rslt = new String(lhsVal + rhsVal);
    }
-   else if (operation.equals(OperationSub))
+   else if (operation.equals(OperationBA))
    {
       rslt = new String(rhsVal + lhsVal);
    }
