@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "assginment5", urlPatterns = {"/assginment5"} )
 
-public class Assignment5 extends HttpServlet {
+public class Assignment5Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
