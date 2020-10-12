@@ -172,6 +172,10 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("");
     }
     private void PrintPostBody(PrintWriter out) {
+        out.println("<body>");
+        out.println("<h1 align=center>SWE 432 Assignment 5.</h1>");
+        out.println("<h2 align=center>Long Hoang and Faiz Zia</h2>");
+        out.println("</body>");
     }
 
     private void PrintTail (PrintWriter out){
