@@ -14,12 +14,27 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "assignment5", urlPatterns = {"/assignment5"} )
 
 public class Assignment5Servlet extends HttpServlet {
+
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse res)
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        res.setContentType("text/html");
-        PrintWriter out = res.getWriter();
+        // HTTP POST request backend logic
+
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
+        PrintPostHead(out);
+        PrintPostBody(out);
+        PrintTail(out);
+    }
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
 
         PrintHead(out);
         PrintBody(out);
@@ -75,7 +90,7 @@ public class Assignment5Servlet extends HttpServlet {
     private void PrintBody(PrintWriter out) {
         out.println("<body>");
         //instructions
-        out.println("<h1 align=center>SWE 432 Assignment 3.</h1>");
+        out.println("<h1 align=center>SWE 432 Assignment 5.</h1>");
         out.println("<h2 align=center>Long Hoang and Faiz Zia</h2>");
         out.println("<h2>Logic Predicate Form</h2>");
         out.println("<h3>Instructions</h3>");
@@ -94,7 +109,7 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("<p>4.Press the submit button when you are done entering your expression and variables</p>");
 
         //table
-        out.println("<form method=\"post\" action=\"https://cs.gmu.edu:8443/offutt/servlet/formHandler\" name=\"myForm\" onSubmit=\"return checkForm()\">");
+        out.println("<form method=\"post\" action=\"/assignment5\" name=\"myForm\" onSubmit=\"return checkForm()\">");
         out.println("	<table border=\"1\">");
         out.println("		<tr>");
         out.println("			<td><label for=\"expression\">Expression</label></td>");
@@ -145,6 +160,18 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("Long implemented the string concatenation; the operator buttons concatenate operators to the expression field when clicked, so as to avoid errors by users in terms of which operators are allowed, as well as avoid typos. This functionality supports multiple operators.This assignment gave us a lot of exposure to HTML, as well as JavaScript. It allowed us to explore and experiment with new parts of each.");
         out.println("</p>");
         out.println("</body>");
+    }
+
+    private void PrintPostHead(PrintWriter out) {
+        out.println("<html>");
+        out.println("");
+        out.println("<head>");
+        out.println("<style>body {background-color: powderblue;}</style>");
+        out.println("<title>SWE 432 Long Hoang and Faiz Zia</title>");
+        out.println("</head>");
+        out.println("");
+    }
+    private void PrintPostBody(PrintWriter out) {
     }
 
     private void PrintTail (PrintWriter out){
