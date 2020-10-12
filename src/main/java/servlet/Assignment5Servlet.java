@@ -92,7 +92,7 @@ public class Assignment5 extends HttpServlet {
         out.println("					<input type=\"button\" value=\"(\" id=\"lPar\" onclick=\"addlParOnClick()\">");
         out.println("				</td>");
         out.println("				<td align=\"center\" style=\"width: 146px;\">");
-        out.println("					<input type=\"button\" value=\")\" id="\rPar\" onclick=\"addrParOnClick()\">");
+        out.println("					<input type=\"button\" value=\")\" id=\"rPar\" onclick=\"addrParOnClick()\">");
         out.println("				</td>");
         out.println("				<td align=\"center\" style=\"width: 146px;\">");
         out.println("					<input type=\"button\" value=\"=\" id=\"equalSign\" onclick=\"addEqualOnClick()\">");
@@ -109,7 +109,7 @@ public class Assignment5 extends HttpServlet {
 			Throughout the assignment, we continued to discuss with each other any issues we had, to learn from each other’s experience.");
         out.println("<br><br>");
         out.println("For the JavaScript requirements of the assignment, we decided to add form validation as well as string concatenation on a button click. For form validation, 
-			Faiz added support to confirm that there was input from the user for the “Expression”,“Boolean Var(s)”, and "Value(s)" text boxes, and if there isn’t input 
+			Faiz added support to confirm that there was input from the user for the \"Expression\",\"Boolean Var(s)\", and \"Value(s)\" text boxes, and if there isn’t input 
 			for one of those, it will alert the user through a pop-up alert.");
         out.println("<br><br>");
         out.println("Long implemented the string concatenation; the operator buttons concatenate operators to the expression field when clicked, so as to avoid errors by users in 
