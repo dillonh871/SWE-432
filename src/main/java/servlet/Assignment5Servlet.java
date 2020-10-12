@@ -66,7 +66,7 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("		}");
         out.println("		return (true);");
         out.println("	}");
-        out.println("<script>");
+        out.println("</script>");
 
         out.println("</head>");
         out.println("");
