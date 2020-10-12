@@ -38,7 +38,7 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("	function addAndOnClick(){");
         out.println("		document.getElementById(\"expression\").value += '&&';}");
         out.println("	function addOrOnClick(){");
-        out.println("		document.getElementById("\expression\").value += '||';");
+        out.println("		document.getElementById(\"expression\").value += '||';");
         out.println("	function addNotOnClick(){");
         out.println("		document.getElementById(\"expression\").value += '!");
         out.println("	function addlParOnClick(){");
@@ -50,17 +50,17 @@ public class Assignment5Servlet extends HttpServlet {
         //check form
         out.println("	function checkForm(){");
         out.println("		var exp = document.myForm.expression;");
-        out.println("		if (expression.value == ""){");
+        out.println("		if (expression.value == \"\"){");
         out.println("		    alert (\"Missing Expression.\");");
         out.println("           return (false);");
         out.println("       }");
         out.println("		var vars = document.myForm.vars;");
-        out.println("		if (vars.value == ""){");
+        out.println("		if (vars.value == \"\"){");
         out.println(		   "alert (\"Missing Boolean Var(s).\");");
         out.println("		   return (false);");
         out.println("		}");
         out.println("		var vals = document.myForm.vals;");
-        out.println("		if (vals.value ==""){");
+        out.println("		if (vals.value == \"\"){");
         out.println("		    alert (\"Missing Value(s)\")");
         out.println("		    return (false);");
         out.println("		}");
