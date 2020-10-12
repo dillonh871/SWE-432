@@ -42,11 +42,11 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("	function addNotOnClick(){");
         out.println("		document.getElementById(\"expression\").value += '!';}");
         out.println("	function addlParOnClick(){");
-        out.println("		document.getElementById(\"expression\").value += '(';");
+        out.println("		document.getElementById(\"expression\").value += '(';}");
         out.println("	function addrParOnClick(){");
-        out.println("		document.getElementById(\"expression\").value += ')';");
+        out.println("		document.getElementById(\"expression\").value += ')';}");
         out.println("	function addEqualOnClick(){");
-        out.println("		document.getElementById(\"expression\").value += '=';");
+        out.println("		document.getElementById(\"expression\").value += '=';}");
         //check form
         out.println("	function checkForm(){");
         out.println("		var exp = document.myForm.expression;");
