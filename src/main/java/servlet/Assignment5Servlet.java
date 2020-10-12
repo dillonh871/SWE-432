@@ -104,17 +104,11 @@ public class Assignment5 extends HttpServlet {
         out.println("	<input type=\"submit\" value=\"Submit\" align=\"center\">");
         out.println("</form>");
         out.println("<h2 align=\"center\">Collaboration Summary</h2>");
-        out.println("<p>For assignment 3, Long did some research, and then Long and Faiz got together to brainstorm how the webpage should be structured, and what functionalities we 
-			would implement. We split up the parts of each task, so as to increase efficiency, as well as allow everyone to practice each aspect of the assignment. 
-			Throughout the assignment, we continued to discuss with each other any issues we had, to learn from each other’s experience.");
+        out.println("<p>For assignment 3, Long did some research, and then Long and Faiz got together to brainstorm how the webpage should be structured, and what functionalities we would implement. We split up the parts of each task, so as to increase efficiency, as well as allow everyone to practice each aspect of the assignment. Throughout the assignment, we continued to discuss with each other any issues we had, to learn from each other’s experience.");
         out.println("<br><br>");
-        out.println("For the JavaScript requirements of the assignment, we decided to add form validation as well as string concatenation on a button click. For form validation, 
-			Faiz added support to confirm that there was input from the user for the \"Expression\",\"Boolean Var(s)\", and \"Value(s)\" text boxes, and if there isn’t input 
-			for one of those, it will alert the user through a pop-up alert.");
+        out.println("For the JavaScript requirements of the assignment, we decided to add form validation as well as string concatenation on a button click. For form validation, Faiz added support to confirm that there was input from the user for the \"Expression\",\"Boolean Var(s)\", and \"Value(s)\" text boxes, and if there isn’t input for one of those, it will alert the user through a pop-up alert.");
         out.println("<br><br>");
-        out.println("Long implemented the string concatenation; the operator buttons concatenate operators to the expression field when clicked, so as to avoid errors by users in 
-			terms of which operators are allowed, as well as avoid typos. This functionality supports multiple operators.
-			This assignment gave us a lot of exposure to HTML, as well as JavaScript. It allowed us to explore and experiment with new parts of each.");
+        out.println("Long implemented the string concatenation; the operator buttons concatenate operators to the expression field when clicked, so as to avoid errors by users in terms of which operators are allowed, as well as avoid typos. This functionality supports multiple operators.This assignment gave us a lot of exposure to HTML, as well as JavaScript. It allowed us to explore and experiment with new parts of each.");
         out.println("</p>");
         out.println("</body>");
     }
