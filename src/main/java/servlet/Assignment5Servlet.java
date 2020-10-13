@@ -32,7 +32,7 @@ public class Assignment5Servlet extends HttpServlet {
         String[] varsArr = vars.split("\\;");
         String[] valsArr = vals.split("\\;");
 
-
+        op = 0;
         //EVALUATE AND STORE THE OPERATOR'S VALUE 
         if(expArr[1].compareToIgnoreCase("AND") == 0)
         { op = 1; }
@@ -59,7 +59,8 @@ public class Assignment5Servlet extends HttpServlet {
         { op = 4; }
 
 
-
+        posFormat = "";
+        negFormat = "";
         //EVALUATE AND STORE THE VARIABLE INPUT TYPE - FALSE
         if(valsArr[0].compareTo("0") == 0 || valsArr[0].compareTo("1") == 0)
         { posFormat = "1"; negFormat = "0"; }
