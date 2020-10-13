@@ -70,22 +70,22 @@ public class Assignment5Servlet extends HttpServlet {
         posFormat = "";
         negFormat = "";
         //EVALUATE AND STORE THE VARIABLE INPUT TYPE - FALSE
-        if(valsArr[0].compareTo("0") == 0 || valsArr[0].compareTo("1") == 0)
+        if(valsArr[0].equals("0") || valsArr[0].equals("1"))
         { posFormat = "1"; negFormat = "0"; }
 
-        else if(valsArr[0].equals("f") == 0 || valsArr[0].equals("t") == 0)
+        else if(valsArr[0].equals("f") || valsArr[0].equals("t"))
         { posFormat = "t"; negFormat = "f"; }
 
-        else if(valsArr[0].equals("F") == 0 || valsArr[0].equals("T") == 0)
+        else if(valsArr[0].equals("F") || valsArr[0].equals("T") )
         { posFormat = "T"; negFormat = "F"; }
         
-        else if(valsArr[0].equals("false") == 0 || valsArr[0].equals("true") == 0)
+        else if(valsArr[0].equals("false") || valsArr[0].equals("true") )
         { posFormat = "true"; negFormat = "false"; }
 
-        else if(valsArr[0].equals("False") == 0 || valsArr[0].equals("True") == 0)
+        else if(valsArr[0].equals("False") || valsArr[0].equals("True"))
         { posFormat = "True"; negFormat = "False"; }
 
-        else if(valsArr[0].equals("FALSE") == 0 || valsArr[0].equals("TRUE") == 0)
+        else if(valsArr[0].equals("FALSE") || valsArr[0].equals("TRUE"))
         { posFormat = "TRUE"; negFormat = "FALSE"; }
 
         rsltTbl = new String[12];
