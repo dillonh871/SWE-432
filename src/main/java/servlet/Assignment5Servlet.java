@@ -73,22 +73,22 @@ public class Assignment5Servlet extends HttpServlet {
         if(valsArr[0].compareTo("0") == 0 || valsArr[0].compareTo("1") == 0)
         { posFormat = "1"; negFormat = "0"; }
 
-        else if(valsArr[0].compareTo("f") == 0 || valsArr[0].compareTo("t") == 0)
+        else if(valsArr[0].equals("f") == 0 || valsArr[0].equals("t") == 0)
         { posFormat = "t"; negFormat = "f"; }
 
-        else if(valsArr[0].compareTo("F") == 0 || valsArr[0].compareTo("T") == 0)
+        else if(valsArr[0].equals("F") == 0 || valsArr[0].equals("T") == 0)
         { posFormat = "T"; negFormat = "F"; }
         
-        else if(valsArr[0].compareTo("false") == 0 || valsArr[0].compareTo("true") == 0)
+        else if(valsArr[0].equals("false") == 0 || valsArr[0].equals("true") == 0)
         { posFormat = "true"; negFormat = "false"; }
 
-        else if(valsArr[0].compareTo("False") == 0 || valsArr[0].compareTo("True") == 0)
+        else if(valsArr[0].equals("False") == 0 || valsArr[0].equals("True") == 0)
         { posFormat = "True"; negFormat = "False"; }
 
-        else if(valsArr[0].compareTo("FALSE") == 0 || valsArr[0].compareTo("TRUE") == 0)
+        else if(valsArr[0].equals("FALSE") == 0 || valsArr[0].equals("TRUE") == 0)
         { posFormat = "TRUE"; negFormat = "FALSE"; }
 
-        rsltTbl = null;
+        rsltTbl = new String[12];
         rsltTbl[0] = posFormat;
         rsltTbl[1] = posFormat;
         rsltTbl[2] = " ";
