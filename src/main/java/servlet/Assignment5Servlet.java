@@ -24,7 +24,7 @@ public class Assignment5Servlet extends HttpServlet {
         // HTTP POST request backend logic
         String expression = request.getParameter("Expression"); //Gets the expression input
         String vars = request.getParameter("Boolean Variable(s)"); //Gets the Variable names input
-        String vals = request.getParameter("Value(s)"); //Gets the Variable values input
+        String vals = request.getParameter("Values(s)"); //Gets the Variable values input
         System.out.println("vars" + vars);
         int op; //1: AND, 2: OR, 3: NOT, 4: XOR
         String posFormat, negFormat;
