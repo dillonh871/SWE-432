@@ -173,6 +173,9 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("<h2 align=center>Long Hoang and Faiz Zia</h2>");
         out.println("<h2 >Predicate Truth Table</h2>");
         out.println("<h3> This is your Predicate Truth Table based on the Expression(s), Variables, and Values you chose. </h3>");
+        out.println("<h2 align=\"center\">Collaboration Summary</h2>");
+        out.println("<p>For this assignment, Long and Faiz collaborated on implementation ideas and how we thought the design for the Post web page should look like. We also both took some time going over how the algorithm for solving the predicates should be like. And afterwards Long and Faiz split up the work so we could accomplish the tasks in an efficient manner. Long started the assignment by setting up the servlet so both of us had something to work with. Long then worked on converting the flat HTML file we created into the doGet method and setting up all the print methods such as PrintHead, PrintBody, PrintTail, and PrintPostBody. Faiz then worked on converting our algorithm into the the doPost method and creating the table for the truth table. We then took some time afterwards to look over each other’s work and debug. This assignment gave us a lot of exposure on how to work with java servlets and the methods within them such as doGet and doPost.");
+        out.println("</p>");
         out.println("</body>");
     }
 
