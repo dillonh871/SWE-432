@@ -172,7 +172,8 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("		document.getElementById(\"expression\").value += 'AND';}");
         out.println("	function addWordOrOnClick(){");
         out.println("		document.getElementById(\"expression\").value += 'OR';}");
-        
+        out.println("	function addSemiOnClick(){");
+        out.println("		document.getElementById(\"expression\").value += ';';}");
         //check form
         out.println("	function checkForm(){");
         out.println("		var exp = document.myForm.expression;");
@@ -257,7 +258,7 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("					<input type=\"button\" value=\"|\" id=\"orSingleSign\" onclick=\"addSingleOrOnClick()\">");
         out.println("				</td>");
         out.println("				<td align=\"center\" style=\"width: 146px;\">");
-        out.println("					<input type=\"button\" value=\"XOR\" id=\"xorSign\" onclick=\"addwordXORClick()\">");
+        out.println("					<input type=\"button\" value=\"XOR\" id=\"xorSign\" onclick=\"addWordXOROnClick()\">");
         out.println("				</td>");
         out.println("			</tr>");
 
@@ -268,6 +269,9 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("				</td>");
         out.println("				<td align=\"center\" style=\"width: 146px;\">");
         out.println("					<input type=\"button\" value=\"OR\" id=\"orWordSign\" onclick=\"addWordOrOnClick()\">");
+        out.println("				</td>");
+        out.println("				<td align=\"center\" style=\"width: 146px;\">");
+        out.println("					<input type=\"button\" value=\";\" id=\"xorSign\" onclick=\"addSemiOnClick()\">");
         out.println("				</td>");
         out.println("			</tr>");
 
@@ -301,10 +305,10 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("<table border=\"1\">");
 
         out.println("  <tr>");
-        out.println("    <td>Row</td>");
-        out.println("    <td align=\"center\" style=\"width: 100px;\">" + varsArr[0] + "</td>");
-        out.println("    <td align=\"center\" style=\"width: 100px;\">" + varsArr[1] + "</td>");
-        out.println("    <td align=\"center\" style=\"width: 100px;\">Result</td>");
+        out.println("    <td><b>Row</b></td>");
+        out.println("    <td align=\"center\" style=\"width: 100px;\"><b>" + varsArr[0] + "</b></td>");
+        out.println("    <td align=\"center\" style=\"width: 100px;\"><b>" + varsArr[1] + "</b></td>");
+        out.println("    <td align=\"center\" style=\"width: 100px;\"><b>Result</b></td>");
         out.println("  </tr>");
 
         out.println("  <tr>");
