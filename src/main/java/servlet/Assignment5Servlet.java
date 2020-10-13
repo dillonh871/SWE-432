@@ -172,7 +172,10 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("		document.getElementById(\"expression\").value += 'AND';}");
         out.println("	function addWordOrOnClick(){");
         out.println("		document.getElementById(\"expression\").value += 'OR';}");
-
+        out.println("	function addTrueOnClick(){");
+        out.println("		document.getElementById(\"vals\").value += 'TRUE';}");
+        out.println("	function addFalseOnClick(){");
+        out.println("		document.getElementById(\"vals\").value += 'FALSE';}");
         //check form
         out.println("	function checkForm(){");
         out.println("		var exp = document.myForm.expression;");
@@ -252,10 +255,11 @@ public class Assignment5Servlet extends HttpServlet {
 
         out.println("			<tr>");
         out.println("				<td align=\"center\" style=\"width: 146px;\">");
-        out.println("					<input type=\"button\" value=\"&\" id=\"andSingleSign\" onclick=\"addSingleAndOnClick()\">");
+     out.println("				<td align=\"center\" style=\"width: 146px;\">");
+        out.println("					<input type=\"button\" value=\"AND\" id=\"andWordSign\" onclick=\"addWordAndOnClick()\">");
         out.println("				</td>");
         out.println("				<td align=\"center\" style=\"width: 146px;\">");
-        out.println("					<input type=\"button\" value=\"|\" id=\"orSingleSign\" onclick=\"addSingleOrOnClick()\">");
+        out.println("					<input type=\"button\" value=\"OR\" id=\"orWordSign\" onclick=\"addWordOrOnClick()\">");
         out.println("				</td>");
         out.println("				<td align=\"center\" style=\"width: 146px;\">");
         out.println("					<input type=\"button\" value=\"XOR\" id=\"xorSign\" onclick=\"addWordXOROnClick()\">");
@@ -264,10 +268,10 @@ public class Assignment5Servlet extends HttpServlet {
 
         out.println("			<tr>");
         out.println("				<td align=\"center\" style=\"width: 146px;\">");
-        out.println("					<input type=\"button\" value=\"AND\" id=\"andWordSign\" onclick=\"addWordAndOnClick()\">");
+        out.println("					<input type=\"button\" value=\"TRUE\" id=\"trueSign\" onclick=\"addTrueOnClick()\">");
         out.println("				</td>");
         out.println("				<td align=\"center\" style=\"width: 146px;\">");
-        out.println("					<input type=\"button\" value=\"OR\" id=\"orWordSign\" onclick=\"addWordOrOnClick()\">");
+        out.println("					<input type=\"button\" value=\"FALSE\" id=\"falseSign\" onclick=\"addFalseOnClick()\">");
         out.println("				</td>");
         out.println("			</tr>");
 
@@ -277,7 +281,7 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("	<input type=\"submit\" value=\"Submit\" align=\"center\">");
         out.println("</form>");
         out.println("<h2 align=\"center\">Collaboration Summary</h2>");
-        out.println("<p>For this assignment, Long and Faiz collaborated on implementation ideas and how we thought the design for the Post web page should look like. We also both took some time going over how the algorithm for solving the predicates should be like. And afterwards Long and Faiz split up the work so we could accomplish the tasks in an efficient manner. Long started the assignment by setting up the servlet so both of us had something to work with. Long then worked on converting the flat HTML file we created into the doGet method and setting up all the print methods such as PrintHead, PrintBody, PrintTail, and PrintPostBody. Faiz then worked on converting our algorithm into the the doPost method and creating the table for the truth table. We then took some time afterwards to look over each other’s work and debug. This assignment gave us a lot of exposure on how to work with java servlets and the methods within them such as doGet and doPost.");
+        out.println("<p>For this assignment, Long and Faiz collaborated on implementation ideas and how we thought the design for the Post web page should look like. We also both took some time going over how the algorithm for solving the predicates should be like. And afterwards Long and Faiz split up the work so we could accomplish the tasks in an efficient manner. Long started the assignment by setting up the servlet so both of us had something to work with. Long then worked on converting the flat HTML file we created into the doGet method and setting up all the print methods such as PrintHead, PrintBody, PrintTail, and PrintPostBody. Faiz then worked on converting our algorithm into the the doPost method and creating the table for the truth table. We then took some time afterwards to look over one another's work and debug. This assignment gave us a lot of exposure on how to work with java servlets and the methods within them such as doGet and doPost.");
         out.println("</p>");
         out.println("</body>");
     }
