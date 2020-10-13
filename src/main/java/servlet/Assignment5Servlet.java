@@ -265,8 +265,8 @@ public class Assignment5Servlet extends HttpServlet {
 
         out.println("  <tr>");
         out.println("    <td>Row</td>");
-        out.println("    <td>" + vars[0] + "</td>");
-        out.println("    <td>" + vars[1] + "</td>");
+        out.println("    <td>" + varsArr[0] + "</td>");
+        out.println("    <td>" + varsArr[1] + "</td>");
         out.println("    <td>Result</td>");
         out.println("  </tr>");
 
