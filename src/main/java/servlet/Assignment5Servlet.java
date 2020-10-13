@@ -175,8 +175,8 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("<body>");
         out.println("<h1 align=center>SWE 432 Assignment 5.</h1>");
         out.println("<h2 align=center>Long Hoang and Faiz Zia</h2>");
-        out.println("<h1 >PredicateTruth Table</h1>");
-        out.println("This is your Predicate Truth Table based on the Expression(s), Variables, and Values you chose");
+        out.println("<h2 >Predicate Truth Table</h2>");
+        out.println("<h3> This is your Predicate Truth Table based on the Expression(s), Variables, and Values you chose. </h3>");
         out.println("</body>");
     }
 
