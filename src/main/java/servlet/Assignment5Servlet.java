@@ -162,6 +162,17 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("		document.getElementById(\"expression\").value += '||';}");
         out.println("	function addNotOnClick(){");
         out.println("		document.getElementById(\"expression\").value += '^';}");
+        out.println("	function addSingleAndOnClick(){");
+        out.println("		document.getElementById(\"expression\").value += '&';}");
+        out.println("	function addSingleOrOnClick(){");
+        out.println("		document.getElementById(\"expression\").value += '|';}");
+        out.println("	function addWordXOROnClick(){");
+        out.println("		document.getElementById(\"expression\").value += 'XOR';}");
+        out.println("	function addWordAndOnClick(){");
+        out.println("		document.getElementById(\"expression\").value += 'AND';}");
+        out.println("	function addWordOrOnClick(){");
+        out.println("		document.getElementById(\"expression\").value += 'OR';}");
+        
         //check form
         out.println("	function checkForm(){");
         out.println("		var exp = document.myForm.expression;");
@@ -211,6 +222,7 @@ public class Assignment5Servlet extends HttpServlet {
         //table
         out.println("<form method=\"post\" action=\"/assignment5\" name=\"myForm\" onSubmit=\"return checkForm()\">");
         out.println("	<table border=\"1\">");
+
         out.println("		<tr>");
         out.println("			<td><label for=\"expression\">Expression</label></td>");
         out.println("			<td><input type=\"text\" id=\"expression\" name=\"Expression\" value=\"\" size=\"46.5\" autocomplete=\"off\" ></td>");
@@ -223,6 +235,7 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("			<td><label for=\"vars\">Value(s):</label></td>");
         out.println("			<td><input type=\"text\" id=\"vals\" name=\"Values(s)\" value=\"\" size=\"46.5\" autocomplete=\"off\" ></td>");
         out.println("		</tr>");
+
         out.println("		<table border=\"1\">");
         out.println("			<tr>");
         out.println("				<td align=\"center\" style=\"width: 146px;\">");
@@ -235,7 +248,31 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("					<input type=\"button\" value=\"^\" id=\"notSign\" onclick=\"addNotOnClick()\">");
         out.println("				</td>");
         out.println("			</tr>");
+
+        out.println("			<tr>");
+        out.println("				<td align=\"center\" style=\"width: 146px;\">");
+        out.println("					<input type=\"button\" value=\"&\" id=\"andSingleSign\" onclick=\"addSingleAndOnClick()\">");
+        out.println("				</td>");
+        out.println("				<td align=\"center\" style=\"width: 146px;\">");
+        out.println("					<input type=\"button\" value=\"|\" id=\"orSingleSign\" onclick=\"addSingleOrOnClick()\">");
+        out.println("				</td>");
+        out.println("				<td align=\"center\" style=\"width: 146px;\">");
+        out.println("					<input type=\"button\" value=\"XOR\" id=\"xorSign\" onclick=\"addwordXORClick()\">");
+        out.println("				</td>");
+        out.println("			</tr>");
+
+
+        out.println("			<tr>");
+        out.println("				<td align=\"center\" style=\"width: 146px;\">");
+        out.println("					<input type=\"button\" value=\"AND\" id=\"andWordSign\" onclick=\"addWordAndOnClick()\">");
+        out.println("				</td>");
+        out.println("				<td align=\"center\" style=\"width: 146px;\">");
+        out.println("					<input type=\"button\" value=\"OR\" id=\"orWordSign\" onclick=\"addWordOrOnClick()\">");
+        out.println("				</td>");
+        out.println("			</tr>");
+
         out.println("		</table>");
+
         out.println("	</table>");
         out.println("	<input type=\"submit\" value=\"Submit\" align=\"center\">");
         out.println("</form>");
@@ -265,34 +302,34 @@ public class Assignment5Servlet extends HttpServlet {
 
         out.println("  <tr>");
         out.println("    <td>Row</td>");
-        out.println("    <td>" + varsArr[0] + "</td>");
-        out.println("    <td>" + varsArr[1] + "</td>");
-        out.println("    <td>Result</td>");
+        out.println("    <td align=\"center\" style=\"width: 100px;\">" + varsArr[0] + "</td>");
+        out.println("    <td align=\"center\" style=\"width: 100px;\">" + varsArr[1] + "</td>");
+        out.println("    <td align=\"center\" style=\"width: 100px;\">Result</td>");
         out.println("  </tr>");
 
         out.println("  <tr>");
         out.println("    <td>1.</td>");
-        out.println("    <td>" + rsltTbl[0] + "</td>");
-        out.println("    <td>" + rsltTbl[1] + "</td>");
-        out.println("    <td>" + rsltTbl[2] + "</td>");
+        out.println("    <td align=\"center\" style=\"width: 100px;\">" + rsltTbl[0] + "</td>");
+        out.println("    <td align=\"center\" style=\"width: 100px;\">" + rsltTbl[1] + "</td>");
+        out.println("    <td align=\"center\" style=\"width: 100px;\">" + rsltTbl[2] + "</td>");
         out.println("  </tr>");
         out.println("  <tr>");
         out.println("    <td>2.</td>");
-        out.println("    <td>" + rsltTbl[3] + "</t>");
-        out.println("    <td>" + rsltTbl[4] + "</td>");
-        out.println("    <td>" + rsltTbl[5] + "</td>");
+        out.println("    <td align=\"center\" style=\"width: 100px;\">" + rsltTbl[3] + "</t>");
+        out.println("    <td align=\"center\" style=\"width: 100px;\">" + rsltTbl[4] + "</td>");
+        out.println("    <td align=\"center\" style=\"width: 100px;\">" + rsltTbl[5] + "</td>");
         out.println("  </tr>");
         out.println("  <tr>");
         out.println("    <td>3.</td>");
-        out.println("    <th>" + rsltTbl[6] + "</td>");
-        out.println("    <th>" + rsltTbl[7] + "</td>");
-        out.println("    <th>" + rsltTbl[8] + "</td>");
+        out.println("    <th align=\"center\" style=\"width: 100px;\">" + rsltTbl[6] + "</td>");
+        out.println("    <th align=\"center\" style=\"width: 100px;\">" + rsltTbl[7] + "</td>");
+        out.println("    <th align=\"center\" style=\"width: 100px;\">" + rsltTbl[8] + "</td>");
         out.println("  </tr>");
         out.println("  <tr>");
         out.println("    <td>4.</td>");
-        out.println("    <th>" + rsltTbl[9] + "</td>");
-        out.println("    <th>" + rsltTbl[10] + "</td>");
-        out.println("    <th>" + rsltTbl[11] + "</td>");
+        out.println("    <th align=\"center\" style=\"width: 100px;\">" + rsltTbl[9] + "</td>");
+        out.println("    <th align=\"center\" style=\"width: 100px;\">" + rsltTbl[10] + "</td>");
+        out.println("    <th align=\"center\" style=\"width: 100px;\">" + rsltTbl[11] + "</td>");
         out.println("  </tr>");
         out.println("</table>");
 
