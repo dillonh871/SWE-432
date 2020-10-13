@@ -20,7 +20,7 @@ import javax.servlet.annotation.WebServlet;
 
 @WebServlet(name = "PersistenceFile", urlPatterns = {"/file"})
 public class PersistenceFile extends HttpServlet{
-  static enum Data {AGE, NAME};
+  static enum Data {AGE, NAME, SCHOOL};
   static String RESOURCE_FILE = "entries.txt";
   static final String VALUE_SEPARATOR = ";";
 
@@ -45,6 +45,7 @@ public class PersistenceFile extends HttpServlet{
   {
      String name = request.getParameter(Data.NAME.name());
      String age = request.getParameter(Data.AGE.name());
+     String school = request.getParameter(Data.SCHOOL.name());
 
      String error = "";
      if(name == null){
@@ -73,6 +74,11 @@ public class PersistenceFile extends HttpServlet{
           }
      }
 
+     if(school == null){
+      error += "<li>School is required</li>";
+       name = "";
+     }
+
      response.setContentType("text/html");
      PrintWriter out = response.getWriter();
 
@@ -87,7 +93,7 @@ public class PersistenceFile extends HttpServlet{
        printTail(out);
      }else{
        printHead(out);
-       printBody(out, name, age, error);
+       printBody(out, name, age,school, error);
        printTail(out);
      }
   }
@@ -128,7 +134,7 @@ public class PersistenceFile extends HttpServlet{
    *  Prints the <BODY> of the HTML page
   ********************************************************* */
   private void printBody (
-    PrintWriter out, String name, String age, String error){
+    PrintWriter out, String name, String age, String school, String error){
      out.println("<body onLoad=\"setFocus()\">");
      out.println("<p>");
      out.println(
@@ -153,12 +159,20 @@ public class PersistenceFile extends HttpServlet{
      out.println("   <td><input type=\"text\" name=\""+Data.NAME.name()
       +"\" value=\""+name+"\" size=30 required></td>");
      out.println("  </tr>");
+
      out.println("  <tr>");
      out.println("   <td>Age:</td>");
      out.println("   <td><input type=\"text\"  name=\""+Data.AGE.name()
       +"\" oninput=\"this.value=this.value.replace(/[^0-9]/g,'');\" value=\""
       +age+"\" size=3 required></td>");
      out.println("  </tr>");
+
+     out.println("  <tr>");
+     out.println("   <td>School:</td>");
+     out.println("   <td><input type=\"text\" name=\""+Data.SCHOOL.name()
+      +"\" value=\""+school+"\" size=30 required></td>");
+     out.println("  </tr>");
+
      out.println(" </table>");
      out.println(" <br>");
      out.println(" <br>");
@@ -186,6 +200,7 @@ public class PersistenceFile extends HttpServlet{
         out.println("  <tr>");
         out.println("   <th>Name</th>");
         out.println("   <th>Age</th>");
+        out.println("   <th>School</th>")
         out.println("  </tr>");
         File file = new File(resourcePath);
         if(!file.exists()){
