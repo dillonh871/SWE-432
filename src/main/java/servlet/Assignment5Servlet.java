@@ -207,7 +207,7 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("<h3>Instructions</h3>");
         out.println("<p>1.For the Expression section, enter the expression that you would like to get the results of. You may name the boolean variables whatever you want and you may only use ONE operator. We have provided some operator buttons for you to use but you are not limited to those. You may also TYPE the operator as well.");
         out.println("<br>");
-        out.println("(Notes: &&, ||, ^ are used for AND,OR and EXCLUSIVE OR and they are your only operator choices. We also support multiple syntaxes such as &, |, AND, OR, XOR. We also DO NOT support using parentheses in the predicates.");
+        out.println("(Notes: &&, ||, ^ are used for AND,OR and EXCLUSIVE OR and they are your ONLY operator choices. We also support multiple syntaxes such as &, |, AND, OR, XOR,and,or. We also DO NOT support using parentheses in the predicates.");
         out.println("</p>");
         out.println("<p>2.For the Boolean Var(s) section, enter all the boolean variables you used and seperate them with a semicolon.");
         out.println("<br>");
