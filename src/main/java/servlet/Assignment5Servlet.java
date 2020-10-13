@@ -255,7 +255,6 @@ public class Assignment5Servlet extends HttpServlet {
 
         out.println("			<tr>");
         out.println("				<td align=\"center\" style=\"width: 146px;\">");
-     out.println("				<td align=\"center\" style=\"width: 146px;\">");
         out.println("					<input type=\"button\" value=\"AND\" id=\"andWordSign\" onclick=\"addWordAndOnClick()\">");
         out.println("				</td>");
         out.println("				<td align=\"center\" style=\"width: 146px;\">");
