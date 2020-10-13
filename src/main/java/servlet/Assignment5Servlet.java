@@ -28,34 +28,40 @@ public class Assignment5Servlet extends HttpServlet {
         String posFormat, negFormat;
         String[] rsltTbl;
 
-        String[] expArr = expression.split(";");
+        //String[] expArr = expression.split(";");
         String[] varsArr = vars.split(";");
         String[] valsArr = vals.split(";");
 
         op = 0;
         //EVALUATE AND STORE THE OPERATOR'S VALUE 
-        if(expArr[1].compareToIgnoreCase("AND") == 0)
+        if(expression.contains("AND") == 0)
         { op = 1; }
 
-        else if(expArr[1].compareToIgnoreCase("&") == 0)
+        if(expression.contains("and") == 0)
         { op = 1; }
 
-        else if(expArr[1].compareToIgnoreCase("&&") == 0)
+        else if(expression.contains("&") == 0)
         { op = 1; }
 
-        else if(expArr[1].compareToIgnoreCase("OR") == 0)
+        else if(expression.contains("&&") == 0)
+        { op = 1; }
+
+        else if(expression.contains("or") == 0)
         { op = 2; }
 
-        else if(expArr[1].compareToIgnoreCase("|") == 0)
+        else if(expression.contains("OR") == 0)
         { op = 2; }
 
-        else if(expArr[1].compareToIgnoreCase("||") == 0)
+        else if(expression.contains("|") == 0)
         { op = 2; }
 
-        else if(expArr[1].compareToIgnoreCase("XOR") == 0)
+        else if(expression.contains("||") == 0)
+        { op = 2; }
+
+        else if(expression.contains("XOR") == 0)
         { op = 4; }
 
-        else if(expArr[1].compareToIgnoreCase("^") == 0)
+        else if(expression.contains("^") == 0)
         { op = 4; }
 
 
@@ -186,9 +192,9 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("<h2 align=center>Long Hoang and Faiz Zia</h2>");
         out.println("<h2>Logic Predicate Form</h2>");
         out.println("<h3>Instructions</h3>");
-        out.println("<p>1.For the Expression section, enter the expression that you would like to get the results of. You may name the boolean variables whatever you want and there is no limit on the number  boolean variables you want to use. Press on the button for the operator that you would like to use. You may also type the operator as well.");
+        out.println("<p>1.For the Expression section, enter the expression that you would like to get the results of. You may name the boolean variables whatever you want and you may only use ONE operator. Press on the button for the operator that you would like to use. You may also type the operator as well.");
         out.println("<br>");
-        out.println("(Note that &&, ||, ^ are used for AND,OR and EXCLUSIVE OR and you may type whatever your choices. We also support multiple syntaxes such as &, AND, and, or, OR, etc.)");
+        out.println("(Note that &&, ||, ^ are used for AND,OR and EXCLUSIVE OR they are your choices. We also support multiple syntaxes such as &, AND, and, or, OR, | etc.)");
         out.println("</p>");
         out.println("<p>2.For the Boolean Var(s) section, enter all the boolean variables you used and seperate them with a semicolon.");
         out.println("<br>");
