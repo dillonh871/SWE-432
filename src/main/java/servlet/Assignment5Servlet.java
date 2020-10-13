@@ -24,6 +24,7 @@ public class Assignment5Servlet extends HttpServlet {
         String expression = request.getParameter("expression"); //Gets the expression input
         String vars = request.getParameter("vars"); //Gets the Variable names input
         String vals = request.getParameter("vals"); //Gets the Variable values input
+        System.out.println("vars" + vars);
         int op; //1: AND, 2: OR, 3: NOT, 4: XOR
         String posFormat, negFormat;
         String[] rsltTbl;
@@ -192,9 +193,9 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("<h2 align=center>Long Hoang and Faiz Zia</h2>");
         out.println("<h2>Logic Predicate Form</h2>");
         out.println("<h3>Instructions</h3>");
-        out.println("<p>1.For the Expression section, enter the expression that you would like to get the results of. You may name the boolean variables whatever you want and you may only use ONE operator. Press on the button for the operator that you would like to use. You may also type the operator as well.");
+        out.println("<p>1.For the Expression section, enter the expression that you would like to get the results of. You may name the boolean variables whatever you want and you may only use ONE operator. We have provided some operator buttons for you to use but you are not limited to those. You may also TYPE the operator as well.");
         out.println("<br>");
-        out.println("(Note that &&, ||, ^ are used for AND,OR and EXCLUSIVE OR they are your choices. We also support multiple syntaxes such as &, AND, and, or, OR, | etc.)");
+        out.println("(Note that &&, ||, ^ are used for AND,OR and EXCLUSIVE OR and they are your only operator choices. We also support multiple syntaxes such as &, AND, and, or, OR, | etc.)");
         out.println("</p>");
         out.println("<p>2.For the Boolean Var(s) section, enter all the boolean variables you used and seperate them with a semicolon.");
         out.println("<br>");
