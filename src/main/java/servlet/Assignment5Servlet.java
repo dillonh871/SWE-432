@@ -216,9 +216,9 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("<br>");
         out.println("For example, if a user's expression was \"tommorow || today\" you would enter \"tommorow;today\".");
         out.println("</p>");
-        out.println("<p>3.For the Value(s) section, enter values for the boolean variables and seperate them with a semicolon.Make sure to enter the values in the order corresponding to the boolean variable you want it for");
+        out.println("<p>3.For the Value(s) section, enter values for the boolean variables and seperate them with a semicolon.");
         out.println("<br>");
-        out.println("For example, if the user has boolean variables \"tomorrow;today\" you can enter \"1;0\", \"T;F\", \"t;f\", \"True;False\", \"true;false\", \"TRUE;FALSE\"");
+        out.println("For example, if the user has boolean variables \"tomorrow;today\" you can pick from these choices for the values: \"1;0\", \"T;F\", \"t;f\", \"True;False\", \"true;false\", \"TRUE;FALSE\"");
         out.println("</p>");
         out.println("<p>4.Press the submit button when you are done entering your expression and variables</p>");
 
