@@ -28,9 +28,9 @@ public class Assignment5Servlet extends HttpServlet {
         String posFormat, negFormat;
         String[] rsltTbl;
 
-        String[] expArr = expression.split("\\;");
-        String[] varsArr = vars.split("\\;");
-        String[] valsArr = vals.split("\\;");
+        String[] expArr = expression.split(";");
+        String[] varsArr = vars.split(";");
+        String[] valsArr = vals.split(";");
 
         op = 0;
         //EVALUATE AND STORE THE OPERATOR'S VALUE 
