@@ -153,13 +153,7 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("	function addOrOnClick(){");
         out.println("		document.getElementById(\"expression\").value += '||';}");
         out.println("	function addNotOnClick(){");
-        out.println("		document.getElementById(\"expression\").value += '!';}");
-        out.println("	function addlParOnClick(){");
-        out.println("		document.getElementById(\"expression\").value += '(';}");
-        out.println("	function addrParOnClick(){");
-        out.println("		document.getElementById(\"expression\").value += ')';}");
-        out.println("	function addEqualOnClick(){");
-        out.println("		document.getElementById(\"expression\").value += '=';}");
+        out.println("		document.getElementById(\"expression\").value += '^';}");
         //check form
         out.println("	function checkForm(){");
         out.println("		var exp = document.myForm.expression;");
@@ -230,22 +224,9 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("					<input type=\"button\" value=\"||\" id=\"orSign\" onclick=\"addOrOnClick()\">");
         out.println("				</td>");
         out.println("				<td align=\"center\" style=\"width: 146px;\">");
-        out.println("					<input type=\"button\" value=\"!\" id=\"notSign\" onclick=\"addNotOnClick()\">");
+        out.println("					<input type=\"button\" value=\"^\" id=\"notSign\" onclick=\"addNotOnClick()\">");
         out.println("				</td>");
         out.println("			</tr>");
-
-        out.println("			<tr>");
-        out.println("				<td align=\"center\" style=\"width: 146px;\">");
-        out.println("					<input type=\"button\" value=\"(\" id=\"lPar\" onclick=\"addlParOnClick()\">");
-        out.println("				</td>");
-        out.println("				<td align=\"center\" style=\"width: 146px;\">");
-        out.println("					<input type=\"button\" value=\")\" id=\"rPar\" onclick=\"addrParOnClick()\">");
-        out.println("				</td>");
-        out.println("				<td align=\"center\" style=\"width: 146px;\">");
-        out.println("					<input type=\"button\" value=\"=\" id=\"equalSign\" onclick=\"addEqualOnClick()\">");
-        out.println("				</td>");
-        out.println("			</tr>");
-
         out.println("		</table>");
         out.println("	</table>");
         out.println("	<input type=\"submit\" value=\"Submit\" align=\"center\">");
