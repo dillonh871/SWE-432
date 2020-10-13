@@ -20,12 +20,111 @@ public class Assignment5Servlet extends HttpServlet {
             throws ServletException, IOException {
 
         // HTTP POST request backend logic
+        // HTTP POST request backend logic
+        String expression = request.getParameter("expression"); //Gets the expression input
+        String vars = request.getParameter("vars"); //Gets the Variable names input
+        String vals = request.getParameter("vals"); //Gets the Variable values input
+        int op; //1: AND, 2: OR, 3: NOT, 4: XOR
+        String posFormat, negFormat;
+        String[] rsltTbl;
+
+        String[] expArr = expression.split("\\;");
+        String[] varsArr = vars.split("\\;");
+        String[] valsArr = vals.split("\\;");
+
+
+        //EVALUATE AND STORE THE OPERATOR'S VALUE 
+        if(expArr[1].compareToIgnoreCase("AND"))
+        { op = 1; }
+
+        else if(expArr[1].compareToIgnoreCase("&"))
+        { op = 1; }
+
+        else if(expArr[1].compareToIgnoreCase("&&"))
+        { op = 1; }
+
+        else if(expArr[1].compareToIgnoreCase("OR"))
+        { op = 2; }
+
+        else if(expArr[1].compareToIgnoreCase("|"))
+        { op = 2; }
+
+        else if(expArr[1].compareToIgnoreCase("NOT")) //NOT IMPLEMENTED
+        { op = 3; }
+
+        else if(expArr[1].compareToIgnoreCase("!")) //NOT IMPLEMENTED
+        { op = 3; }
+
+        else if(expArr[1].compareToIgnoreCase("XOR"))
+        { op = 4; }
+
+        else if(expArr[1].compareToIgnoreCase("^"))
+        { op = 4; }
+
+
+
+        //EVALUATE AND STORE THE VARIABLE INPUT TYPE - FALSE
+        if(valsArr[0].compareTo("0") == 0 || valsArr[0].compareTo("1") == 0)
+        { posFormat = "1"; negFormat = "0"; }
+
+        else if(valsArr[0].compareTo("f") == 0 || valsArr[0].compareTo("t") == 0)
+        { posFormat = "t"; negFormat = "f"; }
+
+        else if(valsArr[0].compareTo("F") == 0 || valsArr[0].compareTo("T") == 0)
+        { posFormat = "T"; negFormat = "F"; }
+        
+        else if(valsArr[0].compareTo("false") == 0 || valsArr[0].compareTo("true") == 0)
+        { posFormat = "true"; negFormat = "false"; }
+
+        else if(valsArr[0].compareTo("False") == 0 || valsArr[0].compareTo("True") == 0)
+        { posFormat = "True"; negFormat = "False"; }
+
+        else if(valsArr[0].compareTo("FALSE") == 0 || valsArr[0].compareTo("TRUE") == 0)
+        { posFormat = "TRUE"; negFormat = "FALSE"; }
+
+        rsltTbl[0] = posFormat;
+        rsltTbl[1] = posFormat;
+        rsltTbl[2] = " ";
+        rsltTbl[3] = posFormat;
+        rsltTbl[4] = negFormat;
+        rsltTbl[5] = " ";
+        rsltTbl[6] = negFormat;
+        rsltTbl[7] = posFormat;
+        rsltTbl[8] = " ";
+        rsltTbl[9] = negFormat;
+        rsltTbl[10] = negFormat;
+        rsltTbl[11] = " ";
+
+
+        if(op == 1) //AND CASE
+        {
+        rsltTbl[2] = posFormat;
+        rsltTbl[5] = negFormat;
+        rsltTbl[8] = negFormat;
+        rsltTbl[11] = negFormat;
+        }
+
+        if(op == 2) //OR CASE
+        {
+        rsltTbl[2] = posFormat;
+        rsltTbl[5] = posFormat;
+        rsltTbl[8] = posFormat;
+        rsltTbl[11] = negFormat;
+        }
+
+        if(op == 4) //XOR CASE
+        {
+        rsltTbl[2] = negFormat;
+        rsltTbl[5] = posFormat;
+        rsltTbl[8] = posFormat;
+        rsltTbl[11] = negFormat;
+        }
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
         PrintPostHead(out);
-        PrintPostBody(out);
+        PrintPostBody(out, varsArr, rsltTbl);
         PrintTail(out);
     }
     
@@ -167,12 +266,40 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("</head>");
         out.println("");
     }
-    private void PrintPostBody(PrintWriter out) {
+    private void PrintPostBody(PrintWriter out, String[] varsArr, String[] rsltTbl) {
         out.println("<body>");
         out.println("<h1 align=center>SWE 432 Assignment 5.</h1>");
         out.println("<h2 align=center>Long Hoang and Faiz Zia</h2>");
         out.println("<h2 >Predicate Truth Table</h2>");
         out.println("<h3> This is your Predicate Truth Table based on the Expression(s), Variables, and Values you chose. </h3>");
+
+        out.println("<table>");
+        out.println("  <tr>");
+        out.println("    <td>1.</td>");
+        out.println("    <td>" + rsltTbl[0] + "</td>");
+        out.println("    <td>" + rsltTbl[1] + "</td>");
+        out.println("    <td>" + rsltTbl[2] + "</td>");
+        out.println("  </tr>");
+        out.println("  <tr>");
+        out.println("    <td>2.</td>");
+        out.println("    <td>" + rsltTbl[3] + "</t>");
+        out.println("    <td>" + rsltTbl[4] + "</td>");
+        out.println("    <td>" + rsltTbl[5] + "</td>");
+        out.println("  </tr>");
+        out.println("  <tr>");
+        out.println("    <td>3.</td>");
+        out.println("    <th>" + rsltTbl[6] + "</td>");
+        out.println("    <th>" + rsltTbl[7] + "</td>");
+        out.println("    <th>" + rsltTbl[8] + "</td>");
+        out.println("  </tr>");
+        out.println("  <tr>");
+        out.println("    <td>4.</td>");
+        out.println("    <th>" + rsltTbl[9] + "</td>");
+        out.println("    <th>" + rsltTbl[10] + "</td>");
+        out.println("    <th>" + rsltTbl[11] + "</td>");
+        out.println("  </tr>");
+        out.println("</table>");
+
         out.println("<h2 align=\"center\">Collaboration Summary</h2>");
         out.println("<p>For this assignment, Long and Faiz collaborated on implementation ideas and how we thought the design for the Post web page should look like. We also both took some time going over how the algorithm for solving the predicates should be like. And afterwards Long and Faiz split up the work so we could accomplish the tasks in an efficient manner. Long started the assignment by setting up the servlet so both of us had something to work with. Long then worked on converting the flat HTML file we created into the doGet method and setting up all the print methods such as PrintHead, PrintBody, PrintTail, and PrintPostBody. Faiz then worked on converting our algorithm into the the doPost method and creating the table for the truth table. We then took some time afterwards to look over each other’s work and debug. This assignment gave us a lot of exposure on how to work with java servlets and the methods within them such as doGet and doPost.");
         out.println("</p>");
