@@ -34,31 +34,28 @@ public class Assignment5Servlet extends HttpServlet {
 
 
         //EVALUATE AND STORE THE OPERATOR'S VALUE 
-        if(expArr[1].compareToIgnoreCase("AND"))
+        if(expArr[1].compareToIgnoreCase("AND") == 0)
         { op = 1; }
 
-        else if(expArr[1].compareToIgnoreCase("&"))
+        else if(expArr[1].compareToIgnoreCase("&") == 0)
         { op = 1; }
 
-        else if(expArr[1].compareToIgnoreCase("&&"))
+        else if(expArr[1].compareToIgnoreCase("&&") == 0)
         { op = 1; }
 
-        else if(expArr[1].compareToIgnoreCase("OR"))
+        else if(expArr[1].compareToIgnoreCase("OR") == 0)
         { op = 2; }
 
-        else if(expArr[1].compareToIgnoreCase("|"))
+        else if(expArr[1].compareToIgnoreCase("|") == 0)
         { op = 2; }
 
-        else if(expArr[1].compareToIgnoreCase("NOT")) //NOT IMPLEMENTED
-        { op = 3; }
+        else if(expArr[1].compareToIgnoreCase("||") == 0)
+        { op = 2; }
 
-        else if(expArr[1].compareToIgnoreCase("!")) //NOT IMPLEMENTED
-        { op = 3; }
-
-        else if(expArr[1].compareToIgnoreCase("XOR"))
+        else if(expArr[1].compareToIgnoreCase("XOR") == 0)
         { op = 4; }
 
-        else if(expArr[1].compareToIgnoreCase("^"))
+        else if(expArr[1].compareToIgnoreCase("^") == 0)
         { op = 4; }
 
 
