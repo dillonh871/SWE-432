@@ -34,34 +34,34 @@ public class Assignment5Servlet extends HttpServlet {
 
         op = 0;
         //EVALUATE AND STORE THE OPERATOR'S VALUE 
-        if(expression.contains("AND") == 0)
+        if(expression.contains("AND"))
         { op = 1; }
 
-        if(expression.contains("and") == 0)
+        else if(expression.contains("and"))
         { op = 1; }
 
-        else if(expression.contains("&") == 0)
+        else if(expression.contains("&"))
         { op = 1; }
 
-        else if(expression.contains("&&") == 0)
+        else if(expression.contains("&&"))
         { op = 1; }
 
-        else if(expression.contains("or") == 0)
+        else if(expression.contains("or"))
         { op = 2; }
 
-        else if(expression.contains("OR") == 0)
+        else if(expression.contains("OR"))
         { op = 2; }
 
-        else if(expression.contains("|") == 0)
+        else if(expression.contains("|"))
         { op = 2; }
 
-        else if(expression.contains("||") == 0)
+        else if(expression.contains("||"))
         { op = 2; }
 
-        else if(expression.contains("XOR") == 0)
+        else if(expression.contains("XOR"))
         { op = 4; }
 
-        else if(expression.contains("^") == 0)
+        else if(expression.contains("^"))
         { op = 4; }
 
 
