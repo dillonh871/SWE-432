@@ -80,6 +80,7 @@ public class Assignment5Servlet extends HttpServlet {
         else if(valsArr[0].compareTo("FALSE") == 0 || valsArr[0].compareTo("TRUE") == 0)
         { posFormat = "TRUE"; negFormat = "FALSE"; }
 
+        rsltTbl = NULL;
         rsltTbl[0] = posFormat;
         rsltTbl[1] = posFormat;
         rsltTbl[2] = " ";
