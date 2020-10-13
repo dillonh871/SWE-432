@@ -172,8 +172,7 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("		document.getElementById(\"expression\").value += 'AND';}");
         out.println("	function addWordOrOnClick(){");
         out.println("		document.getElementById(\"expression\").value += 'OR';}");
-        out.println("	function addSemiOnClick(){");
-        out.println("		document.getElementById(\"expression\").value += ';';}");
+
         //check form
         out.println("	function checkForm(){");
         out.println("		var exp = document.myForm.expression;");
@@ -208,11 +207,11 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("<h3>Instructions</h3>");
         out.println("<p>1.For the Expression section, enter the expression that you would like to get the results of. You may name the boolean variables whatever you want and you may only use ONE operator. We have provided some operator buttons for you to use but you are not limited to those. You may also TYPE the operator as well.");
         out.println("<br>");
-        out.println("(Note that &&, ||, ^ are used for AND,OR and EXCLUSIVE OR and they are your only operator choices. We also support multiple syntaxes such as &, AND, and, or, OR, | etc.)");
+        out.println("(Notes: &&, ||, ^ are used for AND,OR and EXCLUSIVE OR and they are your only operator choices. We also support multiple syntaxes such as &, |, AND, OR, XOR. We also DO NOT support using parentheses in the predicates.");
         out.println("</p>");
         out.println("<p>2.For the Boolean Var(s) section, enter all the boolean variables you used and seperate them with a semicolon.");
         out.println("<br>");
-        out.println("For example, if a user's expression was (tommorow || today) you would enter \"tommorow;today\".");
+        out.println("For example, if a user's expression was \"tommorow || today\" you would enter \"tommorow;today\".");
         out.println("</p>");
         out.println("<p>3.For the Value(s) section, enter values for the boolean variables and seperate them with a semicolon.Make sure to enter the values in the order corresponding to the boolean variable you want it for");
         out.println("<br>");
@@ -238,6 +237,7 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("		</tr>");
 
         out.println("		<table border=\"1\">");
+
         out.println("			<tr>");
         out.println("				<td align=\"center\" style=\"width: 146px;\">");
         out.println("					<input type=\"button\" value=\"&&\" id=\"andSign\" onclick=\"addAndOnClick()\">");
@@ -262,16 +262,12 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("				</td>");
         out.println("			</tr>");
 
-
         out.println("			<tr>");
         out.println("				<td align=\"center\" style=\"width: 146px;\">");
         out.println("					<input type=\"button\" value=\"AND\" id=\"andWordSign\" onclick=\"addWordAndOnClick()\">");
         out.println("				</td>");
         out.println("				<td align=\"center\" style=\"width: 146px;\">");
         out.println("					<input type=\"button\" value=\"OR\" id=\"orWordSign\" onclick=\"addWordOrOnClick()\">");
-        out.println("				</td>");
-        out.println("				<td align=\"center\" style=\"width: 146px;\">");
-        out.println("					<input type=\"button\" value=\";\" id=\"xorSign\" onclick=\"addSemiOnClick()\">");
         out.println("				</td>");
         out.println("			</tr>");
 
