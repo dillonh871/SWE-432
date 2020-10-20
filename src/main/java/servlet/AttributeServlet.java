@@ -83,10 +83,10 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    Enumeration e = session.getAttributeNames();
    while (e.hasMoreElements())
    {
-      String att_name  = (String) e.nextElement();
-      String att_val = (String) session.getAttribute(att_name);
       String att_name2  = (String) e.nextElement();
       String att_color = (String) session.getAttribute(att_name2);
+      String att_name  = (String) e.nextElement();
+      String att_val = (String) session.getAttribute(att_name);
 
       out.print  ("<br><b>Name:</b> ");
       out.println(att_name);
