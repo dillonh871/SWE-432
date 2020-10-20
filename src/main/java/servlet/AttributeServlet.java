@@ -92,7 +92,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
       out.println(att_name);
       out.print  ("<br><b>Value:</b> ");
       out.println(att_val);
-      out.print  ("<br><b>Name:</b> ");
+      out.print  ("<br><b>Name 2:</b> ");
       out.println(att_name2);
       out.print  ("<br><b>Color:</b> ");
       out.println(att_color);
