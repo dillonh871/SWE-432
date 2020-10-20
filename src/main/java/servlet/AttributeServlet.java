@@ -12,7 +12,7 @@ import java.util.Enumeration;
 @WebServlet(name = "attributeServlet", urlPatterns = {"/attribute"})
 public class AttributeServlet extends HttpServlet
 {
-   
+
 String lifeCycleURL = "/session";
 public void doGet (HttpServletRequest request, HttpServletResponse response)
        throws ServletException, IOException
@@ -22,9 +22,12 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 
    String name   = request.getParameter("attrib_name");
    String value  = request.getParameter("attrib_value");
+   String name2  = request.getParameter("attrib_name2");
    String color  = request.getParameter("attrib_color");
+
+   String[] vals = {value, name2, color};
    String remove = request.getParameter("attrib_remove");
-   String[] vals = {value, color};
+
    if (remove != null && remove.equals("on"))
    {
       session.removeAttribute(name);
@@ -52,7 +55,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    out.println("<body>");
    out.println("<h1><center>Long (Dillon) Hoang: Session attributes</center></h1>");
 
-   out.println("Enter name, value, and color of an attribute");
+   out.println("Enter name and value, and another name and color of an attribute");
 
 
    String url = response.encodeURL("attribute");
@@ -62,6 +65,10 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 
    out.println(" Value: ");
    out.println(" <input type=\"text\" size=\"10\" name=\"attrib_value\">");
+   out.println("<br></br>");
+
+   out.println(" Name: ");
+   out.println(" <input type=\"text\" size=\"10\" name=\"attrib_name2\">");
 
    out.println(" Color: ");
    out.println(" <input type=\"text\" size=\"10\" name=\"attrib_color\">");
@@ -82,8 +89,10 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
       out.println(att_name);
       out.print  ("<br><b>Value:</b> ");
       out.println(att_vals[0]);
-      out.print  ("<br><b>Color:</b> ");
+      out.print  ("<br><b>Name:</b> ");
       out.println(att_vals[1]);
+      out.print  ("<br><b>Color:</b> ");
+      out.println(att_vals[2]);
    } //end while
 
    out.print("<br><br><a href=\"" + lifeCycleURL + "?action=invalidate\">");
