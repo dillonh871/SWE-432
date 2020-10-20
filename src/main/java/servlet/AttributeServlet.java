@@ -67,7 +67,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    out.println(" <input type=\"text\" size=\"10\" name=\"attrib_value\">");
    out.println("<br></br>");
 
-   out.println(" Name: ");
+   out.println(" Name 2: ");
    out.println(" <input type=\"text\" size=\"10\" name=\"attrib_name2\">");
 
    out.println(" Color: ");
@@ -89,7 +89,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
       out.println(att_name);
       out.print  ("<br><b>Value:</b> ");
       out.println(att_vals[0]);
-      out.print  ("<br><b>Name:</b> ");
+      out.print  ("<br><b>Name 2:</b> ");
       out.println(att_vals[1]);
       out.print  ("<br><b>Color:</b> ");
       out.println(att_vals[2]);
