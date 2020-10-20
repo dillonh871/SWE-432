@@ -84,12 +84,18 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    while (e.hasMoreElements())
    {
       String att_name  = (String) e.nextElement();
-      String att_val = session.getAttribute(att_name);
+      String att_val = (String) session.getAttribute(att_name);
+      String att_name2  = (String) e.nextElement();
+      String att_color = (String) session.getAttribute(att_name2);
 
       out.print  ("<br><b>Name:</b> ");
       out.println(att_name);
       out.print  ("<br><b>Value:</b> ");
       out.println(att_vals[0]);
+      out.print  ("<br><b>Name:</b> ");
+      out.println(att_name2);
+      out.print  ("<br><b>Color:</b> ");
+      out.println(att_color);
    } //end while
 
    out.print("<br><br><a href=\"" + lifeCycleURL + "?action=invalidate\">");
