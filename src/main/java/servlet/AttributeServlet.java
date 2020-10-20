@@ -12,7 +12,8 @@ import java.util.Enumeration;
 @WebServlet(name = "attributeServlet", urlPatterns = {"/attribute"})
 public class AttributeServlet extends HttpServlet
 {
-   String lifeCycleURL = "/session";
+   
+String lifeCycleURL = "/session";
 public void doGet (HttpServletRequest request, HttpServletResponse response)
        throws ServletException, IOException
 {
@@ -23,7 +24,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    String value  = request.getParameter("attrib_value");
    String color  = request.getParameter("attrib_color");
    String remove = request.getParameter("attrib_remove");
-
+   String[] vals = {value, color};
    if (remove != null && remove.equals("on"))
    {
       session.removeAttribute(name);
@@ -49,7 +50,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    out.println("");
 
    out.println("<body>");
-   out.println("<h1><center>Session attributes</center></h1>");
+   out.println("<h1><center>Long (Dillon) Hoang: Session attributes</center></h1>");
 
    out.println("Enter name, value, and color of an attribute");
 
@@ -75,16 +76,18 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    while (e.hasMoreElements())
    {
       String att_name  = (String) e.nextElement();
-      String att_value = (String) e.nextElement();;
-      String att_color = (String) session.getAttribute(att_value);
+      String[] att_vals = (String[]) session.getAttribute(att_name);
 
       out.print  ("<br><b>Name:</b> ");
       out.println(att_name);
       out.print  ("<br><b>Value:</b> ");
-      out.println(att_value);
+      out.println(att_vals[0]);
       out.print  ("<br><b>Color:</b> ");
-      out.println(att_color);
+      out.println(att_vals[1]);
    } //end while
+
+   out.print("<br><br><a href=\"" + lifeCycleURL + "?action=invalidate\">");
+   out.println("Invalidate the session</a>");
 
    out.println("</body>");
    out.println("</html>");
