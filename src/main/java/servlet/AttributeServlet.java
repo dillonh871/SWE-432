@@ -32,7 +32,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    {
       if ((name != null && name.length() > 0) && (value != null && value.length() > 0) && (color != null && color.length() > 0))
       {
-         session.setAttribute(name, value, color);
+         session.setAttribute(name, value);
       }
 
    }
