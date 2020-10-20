@@ -90,6 +90,8 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
       out.println("Invalidate the session</a>");
       out.print  ("<br><a href=\"" + lifeCycleURL + "\">");
       out.println("Reload this page</a>");
+      out.print  ("<br><a href=\"" + "attribute" + "\">");
+      out.println("Back to attribute page</a>");
 
       out.println("</body>");
       out.println("</html>");
