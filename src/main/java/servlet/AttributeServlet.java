@@ -75,7 +75,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    while (e.hasMoreElements())
    {
       String att_name  = (String) e.nextElement();
-      String att_value = (String) session.getAttribute(att_name);
+      String att_value = (String) e.nextElement();;
       String att_color = (String) session.getAttribute(att_value);
 
       out.print  ("<br><b>Name:</b> ");
