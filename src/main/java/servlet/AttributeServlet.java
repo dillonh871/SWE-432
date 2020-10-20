@@ -34,11 +34,10 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    }
    else
    {
-      if ((name != null && name.length() > 0) && (value != null && value.length() > 0) && (color != null && color.length() > 0))
+      if ((name != null && name.length() > 0) && (value != null && value.length() > 0))
       {
          session.setAttribute(name, value);
       }
-
    }
 
    response.setContentType("text/html");
@@ -65,7 +64,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 
    out.println(" Value: ");
    out.println(" <input type=\"text\" size=\"10\" name=\"attrib_value\">");
-   out.println("<br></br>");
+   out.println("<br>");
 
    out.println(" Name 2: ");
    out.println(" <input type=\"text\" size=\"10\" name=\"attrib_name2\">");
