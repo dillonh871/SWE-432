@@ -239,7 +239,7 @@ public class Assignment5Servlet extends HttpServlet {
 
             if(request.getParameter("Predicate") != null){
                 String optionNumString = request.getParameter("Predicate");
-                int optionNum = Integer.ParseInt(optionNumString);
+                int optionNum = Integer.parseInt(optionNumString);
             }
             // HTTP POST request backend logic
 
