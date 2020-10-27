@@ -246,9 +246,9 @@ public class Assignment5Servlet extends HttpServlet {
 
                 }
                 else{
-                    expression = entry.pexpression;
-                    vars =  entry.pvars;
-                    vals =  entry.pvals;
+                    expression = entries.get(optionNum).pexpression;
+                    vars =  entries.get(optionNum).pvars;
+                    vals =  entries.get(optionNum).pvals;
                 }
             }
             // HTTP POST request backend logic
