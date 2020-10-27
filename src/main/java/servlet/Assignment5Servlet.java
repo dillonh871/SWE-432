@@ -231,12 +231,14 @@ public class Assignment5Servlet extends HttpServlet {
             return ans;
         }
         public String getEntrypvars(List<Entry> entries, int index){
+            String ans = "";
             if(entries != null || entries.size() > 0){
                 ans = entries.get(index).pvars;
             }
             return ans;
         }
         public String getEntrypvals(List<Entry> entries, int index){
+            String ans = "";
             if(entries != null || entries.size() > 0){
                 ans = entries.get(index).pvals;
             }
