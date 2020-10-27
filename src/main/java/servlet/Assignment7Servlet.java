@@ -492,7 +492,7 @@ public class Assignment7Servlet extends HttpServlet {
         out.println("<br>");
         out.println("For example, if the user has boolean variables \"tomorrow;today\" you can pick from these choices for the values: \"1;0\", \"T;F\", \"t;f\", \"True;False\", \"true;false\", \"TRUE;FALSE\"");
         out.println("</p>");
-        out.println("<p>4.Once you are done entering all of the required information, if you’d like to just generate a truth table, click “Submit”, if you like to save or save and generate a table, click “Save”. Or if you would like to go and see a page of all your saved predicates press on \"Go to saved Predicates\"</p>");
+        out.println("<p>4.Once you are done entering all of the required information, if you’d like to just generate a truth table, click \"Submit\", if you like to save or save and generate a table, click \"Save\". Or if you would like to go and see a page of all your saved predicates press on \"Go to saved Predicates\"</p>");
         out.println("<p>5.If you press \"Save\", you will be redirected to the page displaying all your saved predicates and the current predicate you just saved. At this point you can choose a predicate to generate a truth table using the directions on that page, or you could go back to the main page to add more predicates or generate a truth table with new data.</p>");
         out.println("<p>6.If you press \"Go to saved Predicates\", you will be redirected to the page displaying all your saved predicates. At this point you can choose a predicate to generate a truth table using the directions on that page, or you could go back to the main page to add more predicates or generate a truth table with new data.</p>");
         out.println("<p>7.Repeat steps 1-4 as many times as as you’d like, saving a new dataset each time.</p>");
@@ -633,7 +633,7 @@ public class Assignment7Servlet extends HttpServlet {
         out.println("<h2 align=center>Long Hoang and Faiz Zia</h2>");
         out.println("<h2 >All Predicate entries persisted on a XML File</h2>");
         out.println("<h3>Instructions for generating truth table with saved predicates</h3>");
-        out.println("<p>1.Each saved dataset is preceded by an “Option number”. Enter the option number corresponding to your predicate choice in the text box labeled “Predicate Option”, and click submit.");
+        out.println("<p>1.Each saved dataset is preceded by an \"Option number\". Enter the option number corresponding to your predicate choice in the text box labeled \"Predicate Option\", and click submit.");
         out.println("<br>");
         out.println("</p>");
         out.println("<p>2.This will redirect you to the generated truth table for the predicate you chose.");
