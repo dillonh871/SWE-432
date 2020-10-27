@@ -230,6 +230,7 @@ public class Assignment5Servlet extends HttpServlet {
             throws ServletException, IOException {
         
         String action = request.getParameter("myForm");
+        int optionNum = 0;
 
         String expression = request.getParameter("Expression"); //Gets the expression input
         String vars = request.getParameter("Boolean Variable(s)"); //Gets the Variable names input
@@ -239,7 +240,7 @@ public class Assignment5Servlet extends HttpServlet {
 
             if(request.getParameter("Predicate") != null){
                 String optionNumString = request.getParameter("Predicate");
-                int optionNum = Integer.parseInt(optionNumString);
+                optionNum = Integer.parseInt(optionNumString);
             }
             // HTTP POST request backend logic
 
