@@ -233,12 +233,14 @@ public class Assignment5Servlet extends HttpServlet {
         
         String action = request.getParameter("myForm");
 
+        String expression = request.getParameter("Expression"); //Gets the expression input
+        String vars = request.getParameter("Boolean Variable(s)"); //Gets the Variable names input
+        String vals = request.getParameter("Values(s)"); //Gets the Variable values input
+
         if(request.getParameter("submitBtn") != null){
             // HTTP POST request backend logic
-            String expression = request.getParameter("Expression"); //Gets the expression input
-            String vars = request.getParameter("Boolean Variable(s)"); //Gets the Variable names input
-            String vals = request.getParameter("Values(s)"); //Gets the Variable values input
-            System.out.println("vars" + vars);
+
+
             int op; //1: AND, 2: OR, 3: NOT, 4: XOR
             String posFormat, negFormat;
             String[] rsltTbl;
@@ -348,7 +350,14 @@ public class Assignment5Servlet extends HttpServlet {
             PrintTail(out);
         }
         if(request.getParameter("saveBtn") != null){
-                
+            response.setContentType("text/html");
+            EntryManager entryManager = new EntryManager();
+            entryManager.setFilePath(RESOURCE_FILE);
+            List<Entry> newEntries= null;
+            newEntries=entryManager.save(expression, vars, vals);
+            PrintPostHead(out);
+            printResponseBody(out, entryManager.getAllAsHTMLTable(newEntries));
+            PrintTail(out);
         }
 
     }
@@ -560,6 +569,17 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("</p>");
         out.println("</body>");
     }
+
+  private void printResponseBody (PrintWriter out, String tableString){
+    out.println("<body>");
+    out.println("<p>");
+    out.println("A simple example that shows entries persisted on a JSON file");
+    out.println("</p>");
+    out.println("");
+    out.println(tableString);
+    out.println("");
+    out.println("</body>");
+  
 
     private void PrintTail (PrintWriter out){
         out.println("");
