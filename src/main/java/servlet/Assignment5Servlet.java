@@ -59,7 +59,7 @@ public class Assignment5Servlet extends HttpServlet {
     String pvals;
     }
 
-    List<Entry> entries;
+    public List<Entry> entries;
 
     public class EntryManager {
         private String filePath = null;
@@ -243,6 +243,9 @@ public class Assignment5Servlet extends HttpServlet {
             }
             // HTTP POST request backend logic
 
+            expression = entries.get(optionNum).pexpression;
+            vars =  entries.get(optionNum).pvars;
+            vals =  entries.get(optionNum).pvals;
 
             int op; //1: AND, 2: OR, 3: NOT, 4: XOR
             String posFormat, negFormat;
