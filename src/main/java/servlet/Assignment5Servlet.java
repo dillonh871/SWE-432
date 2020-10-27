@@ -54,12 +54,13 @@ public class Assignment5Servlet extends HttpServlet {
     static String Servlet = "assignment5";
 
     public class Entry {
-    String pexpression;
-    String pvars;
-    String pvals;
+        String pexpression;
+        String pvars;
+        String pvals;
     }
 
     public List<Entry> entries;
+    ArrayList<Entry> globalList = new ArrayList<Entry>();
 
     public class EntryManager {
         private String filePath = null;
@@ -217,6 +218,7 @@ public class Assignment5Servlet extends HttpServlet {
             }else{
                 int i = 0;
                 for(Entry entry: entries){
+                    globalList.add(entry);
                     htmlOut.append("<tr><td>"+i+"</td><td>"+entry.pexpression+"</td><td>"+entry.pvars+"</td><td>"+entry.pvals+"</td></tr>");
                     i++;
                 }
@@ -225,21 +227,21 @@ public class Assignment5Servlet extends HttpServlet {
             return htmlOut.toString();
         }
 
-        public String getEntrypexpression(int index){
+        public String getEntrypexpression(List<Entry> entries, int index){
             String ans = "";
             if(entries != null || entries.size() > 0){
                 ans = entries.get(index).pexpression;
             }
             return ans;
         }
-        public String getEntrypvars(int index){
+        public String getEntrypvars(List<Entry> entries, int index){
             String ans = "";
             if(entries != null || entries.size() > 0){
                 ans = entries.get(index).pvars;
             }
             return ans;
         }
-        public String getEntrypvals(int index){
+        public String getEntrypvals(List<Entry> entries, int index){
             String ans = "";
             if(entries != null || entries.size() > 0){
                 ans = entries.get(index).pvals;
@@ -265,13 +267,23 @@ public class Assignment5Servlet extends HttpServlet {
             if(request.getParameter("Predicate") != null){
                 EntryManager entryManager = new EntryManager();
                 entryManager.setFilePath(RESOURCE_FILE);
+                // List<Entry> newEntries= null;
+
+                // try{
+                //     newEntries=entryManager.save(expression, vars, vals);
+                // }catch(FileNotFoundException e){
+                //     e.printStackTrace();
+                // }
+                // catch(XMLStreamException e){
+                //     e.printStackTrace();
+                // }
 
                 String optionNumString = request.getParameter("Predicate");
                 optionNum = Integer.parseInt(optionNumString);
 
-                expression = entryManager.getEntrypexpression(optionNum);
-                vars =  entryManager.getEntrypvars(optionNum);
-                vals =  entryManager.getEntrypvals(optionNum);    
+                expression = globalList.get(optionNum).pexpression;
+                vars =  globalList.get(optionNum).pvars;
+                vals =  globalList.get(optionNum).pvals;    
             }
             // HTTP POST request backend logic
 
