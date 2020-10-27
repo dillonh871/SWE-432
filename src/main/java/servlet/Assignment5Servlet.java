@@ -230,119 +230,127 @@ public class Assignment5Servlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        // HTTP POST request backend logic
-        String expression = request.getParameter("Expression"); //Gets the expression input
-        String vars = request.getParameter("Boolean Variable(s)"); //Gets the Variable names input
-        String vals = request.getParameter("Values(s)"); //Gets the Variable values input
-        System.out.println("vars" + vars);
-        int op; //1: AND, 2: OR, 3: NOT, 4: XOR
-        String posFormat, negFormat;
-        String[] rsltTbl;
-
-        //String[] expArr = expression.split(";");
-        String[] varsArr = vars.split(";");
-        String[] valsArr = vals.split(";");
-
-        op = 0;
-        //EVALUATE AND STORE THE OPERATOR'S VALUE 
-        if(expression.contains("AND"))
-        { op = 1; }
-
-        else if(expression.contains("and"))
-        { op = 1; }
-
-        else if(expression.contains("&"))
-        { op = 1; }
-
-        else if(expression.contains("&&"))
-        { op = 1; }
-
-        else if(expression.contains("or"))
-        { op = 2; }
-
-        else if(expression.contains("OR"))
-        { op = 2; }
-
-        else if(expression.contains("|"))
-        { op = 2; }
-
-        else if(expression.contains("||"))
-        { op = 2; }
-
-        else if(expression.contains("XOR"))
-        { op = 4; }
-
-        else if(expression.contains("^"))
-        { op = 4; }
-
-
-        posFormat = "";
-        negFormat = "";
-        //EVALUATE AND STORE THE VARIABLE INPUT TYPE - FALSE
-        if(valsArr[0].equals("0") || valsArr[0].equals("1"))
-        { posFormat = "1"; negFormat = "0"; }
-
-        else if(valsArr[0].equals("f") || valsArr[0].equals("t"))
-        { posFormat = "t"; negFormat = "f"; }
-
-        else if(valsArr[0].equals("F") || valsArr[0].equals("T") )
-        { posFormat = "T"; negFormat = "F"; }
         
-        else if(valsArr[0].equals("false") || valsArr[0].equals("true") )
-        { posFormat = "true"; negFormat = "false"; }
+        String action = request.getParameter('myForm');
 
-        else if(valsArr[0].equals("False") || valsArr[0].equals("True"))
-        { posFormat = "True"; negFormat = "False"; }
+        if('submitBtn'.equals(action)){
+            // HTTP POST request backend logic
+            String expression = request.getParameter("Expression"); //Gets the expression input
+            String vars = request.getParameter("Boolean Variable(s)"); //Gets the Variable names input
+            String vals = request.getParameter("Values(s)"); //Gets the Variable values input
+            System.out.println("vars" + vars);
+            int op; //1: AND, 2: OR, 3: NOT, 4: XOR
+            String posFormat, negFormat;
+            String[] rsltTbl;
 
-        else if(valsArr[0].equals("FALSE") || valsArr[0].equals("TRUE"))
-        { posFormat = "TRUE"; negFormat = "FALSE"; }
+            //String[] expArr = expression.split(";");
+            String[] varsArr = vars.split(";");
+            String[] valsArr = vals.split(";");
 
-        rsltTbl = new String[12];
-        rsltTbl[0] = posFormat;
-        rsltTbl[1] = posFormat;
-        rsltTbl[2] = " ";
-        rsltTbl[3] = posFormat;
-        rsltTbl[4] = negFormat;
-        rsltTbl[5] = " ";
-        rsltTbl[6] = negFormat;
-        rsltTbl[7] = posFormat;
-        rsltTbl[8] = " ";
-        rsltTbl[9] = negFormat;
-        rsltTbl[10] = negFormat;
-        rsltTbl[11] = " ";
+            op = 0;
+            //EVALUATE AND STORE THE OPERATOR'S VALUE 
+            if(expression.contains("AND"))
+            { op = 1; }
+
+            else if(expression.contains("and"))
+            { op = 1; }
+
+            else if(expression.contains("&"))
+            { op = 1; }
+
+            else if(expression.contains("&&"))
+            { op = 1; }
+
+            else if(expression.contains("or"))
+            { op = 2; }
+
+            else if(expression.contains("OR"))
+            { op = 2; }
+
+            else if(expression.contains("|"))
+            { op = 2; }
+
+            else if(expression.contains("||"))
+            { op = 2; }
+
+            else if(expression.contains("XOR"))
+            { op = 4; }
+
+            else if(expression.contains("^"))
+            { op = 4; }
 
 
-        if(op == 1) //AND CASE
-        {
-        rsltTbl[2] = posFormat;
-        rsltTbl[5] = negFormat;
-        rsltTbl[8] = negFormat;
-        rsltTbl[11] = negFormat;
+            posFormat = "";
+            negFormat = "";
+            //EVALUATE AND STORE THE VARIABLE INPUT TYPE - FALSE
+            if(valsArr[0].equals("0") || valsArr[0].equals("1"))
+            { posFormat = "1"; negFormat = "0"; }
+
+            else if(valsArr[0].equals("f") || valsArr[0].equals("t"))
+            { posFormat = "t"; negFormat = "f"; }
+
+            else if(valsArr[0].equals("F") || valsArr[0].equals("T") )
+            { posFormat = "T"; negFormat = "F"; }
+            
+            else if(valsArr[0].equals("false") || valsArr[0].equals("true") )
+            { posFormat = "true"; negFormat = "false"; }
+
+            else if(valsArr[0].equals("False") || valsArr[0].equals("True"))
+            { posFormat = "True"; negFormat = "False"; }
+
+            else if(valsArr[0].equals("FALSE") || valsArr[0].equals("TRUE"))
+            { posFormat = "TRUE"; negFormat = "FALSE"; }
+
+            rsltTbl = new String[12];
+            rsltTbl[0] = posFormat;
+            rsltTbl[1] = posFormat;
+            rsltTbl[2] = " ";
+            rsltTbl[3] = posFormat;
+            rsltTbl[4] = negFormat;
+            rsltTbl[5] = " ";
+            rsltTbl[6] = negFormat;
+            rsltTbl[7] = posFormat;
+            rsltTbl[8] = " ";
+            rsltTbl[9] = negFormat;
+            rsltTbl[10] = negFormat;
+            rsltTbl[11] = " ";
+
+
+            if(op == 1) //AND CASE
+            {
+            rsltTbl[2] = posFormat;
+            rsltTbl[5] = negFormat;
+            rsltTbl[8] = negFormat;
+            rsltTbl[11] = negFormat;
+            }
+
+            if(op == 2) //OR CASE
+            {
+            rsltTbl[2] = posFormat;
+            rsltTbl[5] = posFormat;
+            rsltTbl[8] = posFormat;
+            rsltTbl[11] = negFormat;
+            }
+
+            if(op == 4) //XOR CASE
+            {
+            rsltTbl[2] = negFormat;
+            rsltTbl[5] = posFormat;
+            rsltTbl[8] = posFormat;
+            rsltTbl[11] = negFormat;
+            }
+
+            response.setContentType("text/html");
+            PrintWriter out = response.getWriter();
+
+            PrintPostHead(out);
+            PrintPostBody(out, varsArr, rsltTbl);
+            PrintTail(out);
+        }
+        if('saveBtn'.equals(action)){
+                
         }
 
-        if(op == 2) //OR CASE
-        {
-        rsltTbl[2] = posFormat;
-        rsltTbl[5] = posFormat;
-        rsltTbl[8] = posFormat;
-        rsltTbl[11] = negFormat;
-        }
-
-        if(op == 4) //XOR CASE
-        {
-        rsltTbl[2] = negFormat;
-        rsltTbl[5] = posFormat;
-        rsltTbl[8] = posFormat;
-        rsltTbl[11] = negFormat;
-        }
-
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-
-        PrintPostHead(out);
-        PrintPostBody(out, varsArr, rsltTbl);
-        PrintTail(out);
     }
     
     @Override
@@ -487,7 +495,8 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("		</table>");
 
         out.println("	</table>");
-        out.println("	<input type=\"submit\" value=\"Submit\" align=\"center\">");
+        out.println("	<input type=\"submit\" value=\"Submit\" name=\"submitBtn\" align=\"center\">");
+        out.println("   <input type=\"submit\" value=\"Save\" name=\"saveBtn\" align=\"center\">");
         out.println("</form>");
         out.println("<h2 align=\"center\">Collaboration Summary</h2>");
         out.println("<p>For this assignment, Long and Faiz collaborated on implementation ideas and how we thought the design for the Post web page should look like. We also both took some time going over how the algorithm for solving the predicates should be like. And afterwards Long and Faiz split up the work so we could accomplish the tasks in an efficient manner. Long started the assignment by setting up the servlet so both of us had something to work with. Long then worked on converting the flat HTML file we created into the doGet method and setting up all the print methods such as PrintHead, PrintBody, PrintTail, and PrintPostBody. Faiz then worked on converting our algorithm into the the doPost method and creating the table for the truth table. We then took some time afterwards to look over one another's work and debug. This assignment gave us a lot of exposure on how to work with java servlets and the methods within them such as doGet and doPost.");
