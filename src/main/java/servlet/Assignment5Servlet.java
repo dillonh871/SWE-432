@@ -424,7 +424,7 @@ public class Assignment5Servlet extends HttpServlet {
             entryManager.setFilePath(RESOURCE_FILE);
 
             PrintPostHead(out);
-            printResponseBody(out, entryManager.getAllAsHTMLTable(entryManager.getAll());
+            printResponseBody(out, entryManager.getAllAsHTMLTable(entryManager.getAll()));
             PrintTail(out);
         }
     }
