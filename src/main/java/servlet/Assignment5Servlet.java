@@ -231,9 +231,9 @@ public class Assignment5Servlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String action = request.getParameter('myForm');
+        String action = request.getParameter("myForm");
 
-        if('submitBtn'.equals(action)){
+        if("submitBtn".equals(action)){
             // HTTP POST request backend logic
             String expression = request.getParameter("Expression"); //Gets the expression input
             String vars = request.getParameter("Boolean Variable(s)"); //Gets the Variable names input
@@ -347,7 +347,7 @@ public class Assignment5Servlet extends HttpServlet {
             PrintPostBody(out, varsArr, rsltTbl);
             PrintTail(out);
         }
-        if('saveBtn'.equals(action)){
+        if("saveBtn".equals(action)){
                 
         }
 
