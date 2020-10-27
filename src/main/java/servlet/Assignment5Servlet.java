@@ -579,7 +579,7 @@ public class Assignment5Servlet extends HttpServlet {
     out.println(tableString);
     out.println("");
     out.println("</body>");
-  
+  }
 
     private void PrintTail (PrintWriter out){
         out.println("");
