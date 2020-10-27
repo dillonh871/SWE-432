@@ -635,7 +635,7 @@ public class Assignment7Servlet extends HttpServlet {
         out.println("<h3>Instructions for generating truth table with saved predicates</h3>");
         out.println("<p>1.Each saved dataset is preceded by an \"Option number\". Enter the option number corresponding to your predicate choice in the text box labeled \"Predicate Option\", and click submit.");
         out.println("<br>");
-        out.println("For example, if a user's expression want to use Option 0: \"Today||Tomorrow\", the user would enter \"0\" in the \"Predicate Option\" box.");
+        out.println("For example, if a user wants to generate a truth table with Option 0: \"Today||Tomorrow\", the user would enter \"0\" in the \"Predicate Option\" box.");
         out.println("</p>");
         out.println("</p>");
         out.println("<p>2.This will redirect you to the generated truth table for the predicate you chose.");
