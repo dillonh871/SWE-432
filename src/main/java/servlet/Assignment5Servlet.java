@@ -217,7 +217,7 @@ public class Assignment5Servlet extends HttpServlet {
             }else{
                 int i = 0;
                 for(Entry entry: entries){
-                    htmlOut.append("<tr><td>"+i+entry.pexpression+"</td><td>"+entry.pvars+"</td><td>"+entry.pvals+"</td></tr>");
+                    htmlOut.append("<tr><td>"+i+"</td><td>"+entry.pexpression+"</td><td>"+entry.pvars+"</td><td>"+entry.pvals+"</td></tr>");
                     i++;
                 }
             }   
