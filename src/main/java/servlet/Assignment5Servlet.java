@@ -246,7 +246,6 @@ public class Assignment5Servlet extends HttpServlet {
                     expression = entry.pexpression;
                     vars =  entry.pvars;
                     vals =  entry.pvals;
-                    }
                 }
             }
             // HTTP POST request backend logic
@@ -601,7 +600,7 @@ public class Assignment5Servlet extends HttpServlet {
 
         out.println("		<tr>");
         out.println("			<td><label for=\"predicate\">Predicate Option</label></td>");
-        out.println("			<td><input type=\"text\" id=\"predicate\" name=\"Predicate\" value=\"\" size=\"46.5\" autocomplete=\"off\" ></td>");
+        out.println("			<td><input type=\"text\" id=\"predicate\" name=\"Predicate\" value=\"\" size=\"20\" autocomplete=\"off\" ></td>");
         out.println("		</tr>");
 
         out.println("	</table>");
