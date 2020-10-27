@@ -351,12 +351,21 @@ public class Assignment5Servlet extends HttpServlet {
         }
         if(request.getParameter("saveBtn") != null){
             response.setContentType("text/html");
+            PrintWriter out = response.getWriter();
+            
             EntryManager entryManager = new EntryManager();
             entryManager.setFilePath(RESOURCE_FILE);
             List<Entry> newEntries= null;
-            newEntries=entryManager.save(expression, vars, vals);
-            response.setContentType("text/html");
-            PrintWriter out = response.getWriter();
+
+            try{
+                newEntries=entryManager.save(expression, vars, vals);
+            }catch(FileNotFoundException e){
+                e.printStackTrace();
+            }
+            catch(XMLStreamException e){
+                e.printStackTrace();
+            }
+
             PrintPostHead(out);
             printResponseBody(out, entryManager.getAllAsHTMLTable(newEntries));
             PrintTail(out);
