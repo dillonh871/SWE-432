@@ -61,10 +61,11 @@ public class Assignment5Servlet extends HttpServlet {
 
    List<Entry> entries;
 
-   public EntryManager(){
+    public EntryManager(){
       eventFactory = XMLEventFactory.newInstance();
       LINE_END = eventFactory.createDTD("\n");
       LINE_TAB = eventFactory.createDTD("\t");
+
       ENTRIES_START = eventFactory.createStartElement(
         "","", Data.ENTRIES.name());
       ENTRIES_END =eventFactory.createEndElement(
@@ -73,7 +74,7 @@ public class Assignment5Servlet extends HttpServlet {
         "","", Data.ENTRY.name());
       ENTRY_END =eventFactory.createEndElement(
         "", "", Data.ENTRY.name());
-   }
+    }
 
     public void setFilePath(String filePath) {
       this.filePath = filePath;
