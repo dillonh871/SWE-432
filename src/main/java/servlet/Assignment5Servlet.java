@@ -212,41 +212,19 @@ public class Assignment5Servlet extends HttpServlet {
         }
 
         public String getAllAsHTMLTable(List<Entry> entries){
-            StringBuilder htmlOut = new StringBuilder("<table>");
-            htmlOut.append("<tr><th>Option</th><th>Expression</th><th>Variables</th><th>Values</th></tr>");
+            StringBuilder htmlOut = new StringBuilder("<table border=\"1\">");
+            htmlOut.append("<tr><th>Option(s)</th><th>Expression</th><th>Variables</th><th>Values</th></tr>");
             if(entries == null || entries.size() == 0){
                 htmlOut.append("<tr><td>No entries yet.</td></tr>");
             }else{
                 int i = 0;
                 for(Entry entry: entries){
-                    htmlOut.append("<tr><td>"+i+"</td><td>"+entry.pexpression+"</td><td>"+entry.pvars+"</td><td>"+entry.pvals+"</td></tr>");
+                    htmlOut.append("<tr><td align=\"center\">"+i+"</td><td align=\"center\">"+entry.pexpression+"</td><td align=\"center\">"+entry.pvars+"</td><td align=\"center\">"+entry.pvals+"</td></tr>");
                     i++;
                 }
             }   
             htmlOut.append("</table>");
             return htmlOut.toString();
-        }
-
-        public String getEntrypexpression(List<Entry> entries, int index){
-            String ans = "";
-            if(entries != null || entries.size() > 0){
-                ans = entries.get(index).pexpression;
-            }
-            return ans;
-        }
-        public String getEntrypvars(List<Entry> entries, int index){
-            String ans = "";
-            if(entries != null || entries.size() > 0){
-                ans = entries.get(index).pvars;
-            }
-            return ans;
-        }
-        public String getEntrypvals(List<Entry> entries, int index){
-            String ans = "";
-            if(entries != null || entries.size() > 0){
-                ans = entries.get(index).pvals;
-            }
-            return ans;
         }
 
     }
@@ -613,7 +591,7 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("  </tr>");
         out.println("  <tr>");
         out.println("    <td>2.</td>");
-        out.println("    <td align=\"center\" style=\"width: 100px;\">" + rsltTbl[3] + "</t>");
+        out.println("    <td align=\"center\" style=\"width: 100px;\">" + rsltTbl[3] + "</td>");
         out.println("    <td align=\"center\" style=\"width: 100px;\">" + rsltTbl[4] + "</td>");
         out.println("    <td align=\"center\" style=\"width: 100px;\">" + rsltTbl[5] + "</td>");
         out.println("  </tr>");
