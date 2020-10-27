@@ -5,6 +5,22 @@ import java.io.IOException;
 import java.util.*;
 import java.io.*;
 
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.FileNotFoundException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
@@ -12,15 +28,190 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import javax.xml.stream.XMLEventFactory;
+import javax.xml.stream.XMLEventWriter;
+import javax.xml.stream.XMLEventReader;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLOutputFactory;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.events.Characters;
+import javax.xml.stream.events.EndElement;
+import javax.xml.stream.events.StartDocument;
+import javax.xml.stream.events.StartElement;
+import javax.xml.stream.events.XMLEvent;
+
 @WebServlet(name = "assignment5", urlPatterns = {"/assignment5"} )
 
 public class Assignment5Servlet extends HttpServlet {
+
+    static enum Data {EXPRESS, VARS, VALS, ENTRY, ENTRIES};
+
+    static String RESOURCE_FILE = "entries.xml";
+
+    static String Domain  = "";
+    static String Path    = "/";
+    static String Servlet = "assignment5";
+
+    public class Entry {
+    String pexpression;
+    String pvars;
+    String pvals;
+   }
+
+   List<Entry> entries;
+
+   public EntryManager(){
+      eventFactory = XMLEventFactory.newInstance();
+      LINE_END = eventFactory.createDTD("\n");
+      LINE_TAB = eventFactory.createDTD("\t");
+      ENTRIES_START = eventFactory.createStartElement(
+        "","", Data.ENTRIES.name());
+      ENTRIES_END =eventFactory.createEndElement(
+        "", "", Data.ENTRIES.name());
+      ENTRY_START = eventFactory.createStartElement(
+        "","", Data.ENTRY.name());
+      ENTRY_END =eventFactory.createEndElement(
+        "", "", Data.ENTRY.name());
+   }
+
+    public void setFilePath(String filePath) {
+      this.filePath = filePath;
+    }
+
+    public List<Entry> save(String pexpression, String pvars, String pvals)
+      throws FileNotFoundException, XMLStreamException{
+      List<Entry> entries = getAll();
+      Entry newEntry = new Entry();
+      newEntry.pexpression = pexpression;
+      newEntry.pvars = pvars;
+      newEntry.pvals = pvals;
+      entries.add(newEntry);
+
+      XMLOutputFactory outputFactory = XMLOutputFactory.newInstance();
+      XMLEventWriter eventWriter = outputFactory
+              .createXMLEventWriter(new FileOutputStream(filePath));
+
+      eventWriter.add(eventFactory.createStartDocument());
+      eventWriter.add(LINE_END);
+
+      eventWriter.add(ENTRIES_START);
+      eventWriter.add(LINE_END);
+
+      for(Entry entry: entries){
+        addEntry(eventWriter, entry.pexpression, entry.pvars, entry.pvals);
+      }
+
+      eventWriter.add(ENTRIES_END);
+      eventWriter.add(LINE_END);
+
+      eventWriter.add(eventFactory.createEndDocument());
+      eventWriter.close();
+      return entries;
+    }
+
+    private void addEntry(XMLEventWriter eventWriter, String pexpression, String pvars, String pvals) throws XMLStreamException {
+        eventWriter.add(ENTRY_START);
+        eventWriter.add(LINE_END);
+        createNode(eventWriter, Data.EXPRESS.name(), pexpression);
+        createNode(eventWriter, Data.VARS.name(), pvars);
+        createNode(eventWriter, Data.VALS.name(), pvals);
+        eventWriter.add(ENTRY_END);
+        eventWriter.add(LINE_END);
+
+    }
+
+    private void createNode(XMLEventWriter eventWriter, String name,
+          String value) throws XMLStreamException {
+      StartElement sElement = eventFactory.createStartElement("", "", name);
+      eventWriter.add(LINE_TAB);
+      eventWriter.add(sElement);
+
+      Characters characters = eventFactory.createCharacters(value);
+      eventWriter.add(characters);
+
+      EndElement eElement = eventFactory.createEndElement("", "", name);
+      eventWriter.add(eElement);
+      eventWriter.add(LINE_END);
+
+    }
+
+    private List<Entry> getAll(){
+        List entries = new ArrayList();
+
+        try{
+            File file = new File(filePath);
+            if(!file.exists()){
+            return entries;
+        }
+
+        XMLInputFactory inputFactory = XMLInputFactory.newInstance();
+        InputStream in = new FileInputStream(file);
+        XMLEventReader eventReader = inputFactory.createXMLEventReader(in);
+
+        Entry entry = null;
+        while (eventReader.hasNext()) {
+          // <ENTRIES> not needed for the example
+          XMLEvent event = eventReader.nextEvent();
+
+            if (event.isStartElement()) {
+                StartElement startElement = event.asStartElement();
+                if (startElement.getName().getLocalPart().equals(Data.ENTRY.name())) {
+                    entry = new Entry();
+                }
+
+                if (event.isStartElement()) {
+                      if (event.asStartElement().getName().getLocalPart().equals(Data.NAME.name())) {
+                      event = eventReader.nextEvent();
+                      entry.name =event.asCharacters().getData();
+                      continue;
+                  }
+              }
+                if (event.asStartElement().getName().getLocalPart().equals(Data.AGE.name())) {
+                  event = eventReader.nextEvent();
+                  entry.age =Integer.parseInt(event.asCharacters().getData());
+                  continue;
+              }
+            }
+
+            if (event.isEndElement()) {
+                EndElement endElement = event.asEndElement();
+                if (endElement.getName().getLocalPart().equals(Data.ENTRY.name())) {
+                    entries.add(entry);
+              }
+          }
+
+        }
+
+        }catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }catch (XMLStreamException e) {
+            e.printStackTrace();
+        }catch(IOException ioException){
+            ioException.printStackTrace();
+        }
+
+        return entries;
+    }
+
+    public String getAllAsHTMLTable(List<Entry> entries){
+        StringBuilder htmlOut = new StringBuilder("<table>");
+        htmlOut.append("<tr><th>Expression</th><th>Variables</th><th>Values</th></tr>");
+        if(entries == null || entries.size() == 0){
+            htmlOut.append("<tr><td>No entries yet.</td></tr>");
+        }else{
+            for(Entry entry: entries){
+            htmlOut.append("<tr><td>"+entry.pexpression+"</td><td>"+entry.pvars+"</td><td>"+entry.pvals+"</td></tr>");
+            }
+        }   
+        htmlOut.append("</table>");
+        return htmlOut.toString();
+    }
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // HTTP POST request backend logic
         // HTTP POST request backend logic
         String expression = request.getParameter("Expression"); //Gets the expression input
         String vars = request.getParameter("Boolean Variable(s)"); //Gets the Variable names input
