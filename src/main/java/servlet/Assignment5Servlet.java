@@ -225,21 +225,21 @@ public class Assignment5Servlet extends HttpServlet {
             return htmlOut.toString();
         }
 
-        public String getEntrypexpression(List<Entry> entries, int index){
+        public String getEntrypexpression(int index){
             String ans = "";
             if(entries != null || entries.size() > 0){
                 ans = entries.get(index).pexpression;
             }
             return ans;
         }
-        public String getEntrypvars(List<Entry> entries, int index){
+        public String getEntrypvars(int index){
             String ans = "";
             if(entries != null || entries.size() > 0){
                 ans = entries.get(index).pvars;
             }
             return ans;
         }
-        public String getEntrypvals(List<Entry> entries, int index){
+        public String getEntrypvals(int index){
             String ans = "";
             if(entries != null || entries.size() > 0){
                 ans = entries.get(index).pvals;
@@ -269,9 +269,9 @@ public class Assignment5Servlet extends HttpServlet {
                 String optionNumString = request.getParameter("Predicate");
                 optionNum = Integer.parseInt(optionNumString);
 
-                expression = entryManager.getEntrypexpression(newEntries, optionNum);
-                vars =  entryManager.getEntrypvars(newEntries, optionNum);
-                vals =  entryManager.getEntrypvals(newEntries, optionNum);    
+                expression = entryManager.getEntrypexpression(optionNum);
+                vars =  entryManager.getEntrypvars(optionNum);
+                vals =  entryManager.getEntrypvals(optionNum);    
             }
             // HTTP POST request backend logic
 
