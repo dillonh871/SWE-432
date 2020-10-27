@@ -223,6 +223,22 @@ public class Assignment5Servlet extends HttpServlet {
             return htmlOut.toString();
         }
 
+        public String getEntrypexpression(List<Entry> entries, int index){
+            if(entries != null || entries.size() > 0){
+                return entries.get(index).pexpression;
+            }
+        }
+        public String getEntrypvars(List<Entry> entries, int index){
+            if(entries != null || entries.size() > 0){
+                return entries.get(index).pvars;
+            }
+        }
+        public String getEntrypvals(List<Entry> entries, int index){
+            if(entries != null || entries.size() > 0){
+                return entries.get(index).pvals;
+            }
+        }
+
     }
 
     @Override
@@ -239,17 +255,26 @@ public class Assignment5Servlet extends HttpServlet {
         if(request.getParameter("submitBtn") != null){
 
             if(request.getParameter("Predicate") != null){
+                EntryManager entryManager = new EntryManager();
+                entryManager.setFilePath(RESOURCE_FILE);
+                List<Entry> newEntries= null;
+
+                try{
+                    newEntries=entryManager.save(expression, vars, vals);
+                }catch(FileNotFoundException e){
+                    e.printStackTrace();
+                }
+                catch(XMLStreamException e){
+                    e.printStackTrace();
+                }
+
                 String optionNumString = request.getParameter("Predicate");
                 optionNum = Integer.parseInt(optionNumString);
-                System.out.println("optionNum: " + optionNum);
-                if(entries == null || entries.size() == 0){
 
-                }
-                else{
-                    expression = entries.get(optionNum).pexpression;
-                    vars =  entries.get(optionNum).pvars;
-                    vals =  entries.get(optionNum).pvals;
-                }
+                expression = entryManager.getEntrypexpression(newEntries, optionNum);
+                vars =  entryManager.getEntrypvars(newEntries, optionNum);
+                vals =  entryManager.getEntrypvals(newEntries, optionNum);
+                
             }
             // HTTP POST request backend logic
 
