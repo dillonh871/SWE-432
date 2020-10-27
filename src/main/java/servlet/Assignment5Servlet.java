@@ -224,19 +224,23 @@ public class Assignment5Servlet extends HttpServlet {
         }
 
         public String getEntrypexpression(List<Entry> entries, int index){
+            String ans = "";
             if(entries != null || entries.size() > 0){
-                return entries.get(index).pexpression;
+                ans = entries.get(index).pexpression;
             }
+            return ans;
         }
         public String getEntrypvars(List<Entry> entries, int index){
             if(entries != null || entries.size() > 0){
-                return entries.get(index).pvars;
+                ans = entries.get(index).pvars;
             }
+            return ans;
         }
         public String getEntrypvals(List<Entry> entries, int index){
             if(entries != null || entries.size() > 0){
-                return entries.get(index).pvals;
+                ans = entries.get(index).pvals;
             }
+            return ans;
         }
 
     }
