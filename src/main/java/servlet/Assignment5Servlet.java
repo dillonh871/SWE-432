@@ -243,9 +243,7 @@ public class Assignment5Servlet extends HttpServlet {
                 optionNum = Integer.parseInt(optionNumString);
                 System.out.println("optionNum: " + optionNum);
                 for(Entry entry: entries){
-                    expression = entry.pexpression;
-                    vars =  entry.pvars;
-                    vals =  entry.pvals;
+                    System.out.println("optionNum: " + optionNum);
                 }
             }
             // HTTP POST request backend logic
