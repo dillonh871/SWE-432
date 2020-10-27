@@ -352,7 +352,7 @@ public class Assignment5Servlet extends HttpServlet {
         if(request.getParameter("saveBtn") != null){
             response.setContentType("text/html");
             PrintWriter out = response.getWriter();
-            
+
             EntryManager entryManager = new EntryManager();
             entryManager.setFilePath(RESOURCE_FILE);
             List<Entry> newEntries= null;
@@ -442,7 +442,7 @@ public class Assignment5Servlet extends HttpServlet {
     private void PrintBody(PrintWriter out) {
         out.println("<body>");
         //instructions
-        out.println("<h1 align=center>SWE 432 Assignment 5.</h1>");
+        out.println("<h1 align=center>SWE 432 Assignment 7.</h1>");
         out.println("<h2 align=center>Long Hoang and Faiz Zia</h2>");
         out.println("<h2>Logic Predicate Form</h2>");
         out.println("<h3>Instructions</h3>");
@@ -535,7 +535,7 @@ public class Assignment5Servlet extends HttpServlet {
     }
     private void PrintPostBody(PrintWriter out, String[] varsArr, String[] rsltTbl) {
         out.println("<body>");
-        out.println("<h1 align=center>SWE 432 Assignment 5.</h1>");
+        out.println("<h1 align=center>SWE 432 Assignment 7.</h1>");
         out.println("<h2 align=center>Long Hoang and Faiz Zia</h2>");
         out.println("<h2 >Predicate Truth Table</h2>");
         out.println("<h3> This is your Predicate Truth Table based on the Expression(s), Variables, and Values you chose. </h3>");
@@ -581,16 +581,16 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("</body>");
     }
 
-  private void printResponseBody (PrintWriter out, String tableString){
-    out.println("<body>");
-    out.println("<p>");
-    out.println("A simple example that shows entries persisted on a JSON file");
-    out.println("</p>");
-    out.println("");
-    out.println(tableString);
-    out.println("");
-    out.println("</body>");
-  }
+    private void printResponseBody (PrintWriter out, String tableString){
+        out.println("<body>");
+        out.println("<h1 align=center>SWE 432 Assignment 5.</h1>");
+        out.println("<h2 align=center>Long Hoang and Faiz Zia</h2>");
+        out.println("<h2 >All Predicate entries persisted on a XML File</h2>");
+        out.println("");
+        out.println(tableString);
+        out.println("");
+        out.println("</body>");
+    }
 
     private void PrintTail (PrintWriter out){
         out.println("");
