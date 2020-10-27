@@ -57,162 +57,174 @@ public class Assignment5Servlet extends HttpServlet {
     String pexpression;
     String pvars;
     String pvals;
-   }
-
-   List<Entry> entries;
-
-    public EntryManager(){
-      eventFactory = XMLEventFactory.newInstance();
-      LINE_END = eventFactory.createDTD("\n");
-      LINE_TAB = eventFactory.createDTD("\t");
-
-      ENTRIES_START = eventFactory.createStartElement(
-        "","", Data.ENTRIES.name());
-      ENTRIES_END =eventFactory.createEndElement(
-        "", "", Data.ENTRIES.name());
-      ENTRY_START = eventFactory.createStartElement(
-        "","", Data.ENTRY.name());
-      ENTRY_END =eventFactory.createEndElement(
-        "", "", Data.ENTRY.name());
     }
 
-    public void setFilePath(String filePath) {
-      this.filePath = filePath;
-    }
+    List<Entry> entries;
 
-    public List<Entry> save(String pexpression, String pvars, String pvals)
-      throws FileNotFoundException, XMLStreamException{
-      List<Entry> entries = getAll();
-      Entry newEntry = new Entry();
-      newEntry.pexpression = pexpression;
-      newEntry.pvars = pvars;
-      newEntry.pvals = pvals;
-      entries.add(newEntry);
+    public class EntryManager {
+        private String filePath = null;
+        private XMLEventFactory eventFactory = null;
+        private XMLEvent LINE_END = null;
+        private XMLEvent LINE_TAB = null;
+        private XMLEvent ENTRIES_START = null;
+        private XMLEvent ENTRIES_END = null;
+        private XMLEvent ENTRY_START = null;
+        private XMLEvent ENTRY_END = null;
 
-      XMLOutputFactory outputFactory = XMLOutputFactory.newInstance();
-      XMLEventWriter eventWriter = outputFactory
-              .createXMLEventWriter(new FileOutputStream(filePath));
+        public EntryManager(){
+        eventFactory = XMLEventFactory.newInstance();
+        LINE_END = eventFactory.createDTD("\n");
+        LINE_TAB = eventFactory.createDTD("\t");
 
-      eventWriter.add(eventFactory.createStartDocument());
-      eventWriter.add(LINE_END);
+        ENTRIES_START = eventFactory.createStartElement(
+            "","", Data.ENTRIES.name());
+        ENTRIES_END =eventFactory.createEndElement(
+            "", "", Data.ENTRIES.name());
+        ENTRY_START = eventFactory.createStartElement(
+            "","", Data.ENTRY.name());
+        ENTRY_END =eventFactory.createEndElement(
+            "", "", Data.ENTRY.name());
+        }
 
-      eventWriter.add(ENTRIES_START);
-      eventWriter.add(LINE_END);
+        public void setFilePath(String filePath) {
+        this.filePath = filePath;
+        }
 
-      for(Entry entry: entries){
-        addEntry(eventWriter, entry.pexpression, entry.pvars, entry.pvals);
-      }
+        public List<Entry> save(String pexpression, String pvars, String pvals)
+        throws FileNotFoundException, XMLStreamException{
+        List<Entry> entries = getAll();
+        Entry newEntry = new Entry();
+        newEntry.pexpression = pexpression;
+        newEntry.pvars = pvars;
+        newEntry.pvals = pvals;
+        entries.add(newEntry);
 
-      eventWriter.add(ENTRIES_END);
-      eventWriter.add(LINE_END);
+        XMLOutputFactory outputFactory = XMLOutputFactory.newInstance();
+        XMLEventWriter eventWriter = outputFactory
+                .createXMLEventWriter(new FileOutputStream(filePath));
 
-      eventWriter.add(eventFactory.createEndDocument());
-      eventWriter.close();
-      return entries;
-    }
-
-    private void addEntry(XMLEventWriter eventWriter, String pexpression, String pvars, String pvals) throws XMLStreamException {
-        eventWriter.add(ENTRY_START);
-        eventWriter.add(LINE_END);
-        createNode(eventWriter, Data.EXPRESS.name(), pexpression);
-        createNode(eventWriter, Data.VARS.name(), pvars);
-        createNode(eventWriter, Data.VALS.name(), pvals);
-        eventWriter.add(ENTRY_END);
+        eventWriter.add(eventFactory.createStartDocument());
         eventWriter.add(LINE_END);
 
-    }
+        eventWriter.add(ENTRIES_START);
+        eventWriter.add(LINE_END);
 
-    private void createNode(XMLEventWriter eventWriter, String name,
-          String value) throws XMLStreamException {
-      StartElement sElement = eventFactory.createStartElement("", "", name);
-      eventWriter.add(LINE_TAB);
-      eventWriter.add(sElement);
+        for(Entry entry: entries){
+            addEntry(eventWriter, entry.pexpression, entry.pvars, entry.pvals);
+        }
 
-      Characters characters = eventFactory.createCharacters(value);
-      eventWriter.add(characters);
+        eventWriter.add(ENTRIES_END);
+        eventWriter.add(LINE_END);
 
-      EndElement eElement = eventFactory.createEndElement("", "", name);
-      eventWriter.add(eElement);
-      eventWriter.add(LINE_END);
+        eventWriter.add(eventFactory.createEndDocument());
+        eventWriter.close();
+        return entries;
+        }
 
-    }
+        private void addEntry(XMLEventWriter eventWriter, String pexpression, String pvars, String pvals) throws XMLStreamException {
+            eventWriter.add(ENTRY_START);
+            eventWriter.add(LINE_END);
+            createNode(eventWriter, Data.EXPRESS.name(), pexpression);
+            createNode(eventWriter, Data.VARS.name(), pvars);
+            createNode(eventWriter, Data.VALS.name(), pvals);
+            eventWriter.add(ENTRY_END);
+            eventWriter.add(LINE_END);
 
-    private List<Entry> getAll(){
-        List entries = new ArrayList();
+        }
 
-        try{
-            File file = new File(filePath);
-            if(!file.exists()){
+        private void createNode(XMLEventWriter eventWriter, String name,
+            String value) throws XMLStreamException {
+        StartElement sElement = eventFactory.createStartElement("", "", name);
+        eventWriter.add(LINE_TAB);
+        eventWriter.add(sElement);
+
+        Characters characters = eventFactory.createCharacters(value);
+        eventWriter.add(characters);
+
+        EndElement eElement = eventFactory.createEndElement("", "", name);
+        eventWriter.add(eElement);
+        eventWriter.add(LINE_END);
+
+        }
+
+        private List<Entry> getAll(){
+            List entries = new ArrayList();
+
+            try{
+                File file = new File(filePath);
+                if(!file.exists()){
+                return entries;
+            }
+
+            XMLInputFactory inputFactory = XMLInputFactory.newInstance();
+            InputStream in = new FileInputStream(file);
+            XMLEventReader eventReader = inputFactory.createXMLEventReader(in);
+
+            Entry entry = null;
+            while (eventReader.hasNext()) {
+            // <ENTRIES> not needed for the example
+            XMLEvent event = eventReader.nextEvent();
+
+                if (event.isStartElement()) {
+                    StartElement startElement = event.asStartElement();
+
+                    if (startElement.getName().getLocalPart().equals(Data.ENTRY.name())) {
+                        entry = new Entry();
+                    }
+
+                    if (event.isStartElement()) {
+                        if (event.asStartElement().getName().getLocalPart().equals(Data.EXPRESS.name())) {
+                        event = eventReader.nextEvent();
+                        entry.pexpression =event.asCharacters().getData();
+                        continue;
+                        }
+                    }
+                    if (event.asStartElement().getName().getLocalPart().equals(Data.VARS.name())) {
+                        event = eventReader.nextEvent();
+                        entry.pvars =event.asCharacters().getData();
+                        continue;
+                    }
+                    if (event.asStartElement().getName().getLocalPart().equals(Data.VALS.name())) {
+                        event = eventReader.nextEvent();
+                        entry.pvals =event.asCharacters().getData();
+                        continue;
+                    }
+                }
+
+                if (event.isEndElement()) {
+                    EndElement endElement = event.asEndElement();
+                    if (endElement.getName().getLocalPart().equals(Data.ENTRY.name())) {
+                        entries.add(entry);
+                }
+            }
+
+            }
+
+            }catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }catch (XMLStreamException e) {
+                e.printStackTrace();
+            }catch(IOException ioException){
+                ioException.printStackTrace();
+            }
+
             return entries;
         }
 
-        XMLInputFactory inputFactory = XMLInputFactory.newInstance();
-        InputStream in = new FileInputStream(file);
-        XMLEventReader eventReader = inputFactory.createXMLEventReader(in);
-
-        Entry entry = null;
-        while (eventReader.hasNext()) {
-          // <ENTRIES> not needed for the example
-          XMLEvent event = eventReader.nextEvent();
-
-            if (event.isStartElement()) {
-                StartElement startElement = event.asStartElement();
-
-                if (startElement.getName().getLocalPart().equals(Data.ENTRY.name())) {
-                    entry = new Entry();
+        public String getAllAsHTMLTable(List<Entry> entries){
+            StringBuilder htmlOut = new StringBuilder("<table>");
+            htmlOut.append("<tr><th>Expression</th><th>Variables</th><th>Values</th></tr>");
+            if(entries == null || entries.size() == 0){
+                htmlOut.append("<tr><td>No entries yet.</td></tr>");
+            }else{
+                for(Entry entry: entries){
+                htmlOut.append("<tr><td>"+entry.pexpression+"</td><td>"+entry.pvars+"</td><td>"+entry.pvals+"</td></tr>");
                 }
-
-                if (event.isStartElement()) {
-                    if (event.asStartElement().getName().getLocalPart().equals(Data.EXPRESS.name())) {
-                    event = eventReader.nextEvent();
-                    entry.pexpression =event.asCharacters().getData();
-                    continue;
-                    }
-                }
-                if (event.asStartElement().getName().getLocalPart().equals(Data.VARS.name())) {
-                    event = eventReader.nextEvent();
-                    entry.pvars =event.asCharacters().getData();
-                    continue;
-                }
-                if (event.asStartElement().getName().getLocalPart().equals(Data.VALS.name())) {
-                    event = eventReader.nextEvent();
-                    entry.pvals =event.asCharacters().getData();
-                    continue;
-                }
-            }
-
-            if (event.isEndElement()) {
-                EndElement endElement = event.asEndElement();
-                if (endElement.getName().getLocalPart().equals(Data.ENTRY.name())) {
-                    entries.add(entry);
-              }
-          }
-
+            }   
+            htmlOut.append("</table>");
+            return htmlOut.toString();
         }
 
-        }catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }catch (XMLStreamException e) {
-            e.printStackTrace();
-        }catch(IOException ioException){
-            ioException.printStackTrace();
-        }
-
-        return entries;
-    }
-
-    public String getAllAsHTMLTable(List<Entry> entries){
-        StringBuilder htmlOut = new StringBuilder("<table>");
-        htmlOut.append("<tr><th>Expression</th><th>Variables</th><th>Values</th></tr>");
-        if(entries == null || entries.size() == 0){
-            htmlOut.append("<tr><td>No entries yet.</td></tr>");
-        }else{
-            for(Entry entry: entries){
-            htmlOut.append("<tr><td>"+entry.pexpression+"</td><td>"+entry.pvars+"</td><td>"+entry.pvals+"</td></tr>");
-            }
-        }   
-        htmlOut.append("</table>");
-        return htmlOut.toString();
     }
 
     @Override
