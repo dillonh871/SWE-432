@@ -355,6 +355,8 @@ public class Assignment5Servlet extends HttpServlet {
             entryManager.setFilePath(RESOURCE_FILE);
             List<Entry> newEntries= null;
             newEntries=entryManager.save(expression, vars, vals);
+            response.setContentType("text/html");
+            PrintWriter out = response.getWriter();
             PrintPostHead(out);
             printResponseBody(out, entryManager.getAllAsHTMLTable(newEntries));
             PrintTail(out);
