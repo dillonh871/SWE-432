@@ -211,12 +211,14 @@ public class Assignment5Servlet extends HttpServlet {
 
         public String getAllAsHTMLTable(List<Entry> entries){
             StringBuilder htmlOut = new StringBuilder("<table>");
-            htmlOut.append("<tr><th>Expression</th><th>Variables</th><th>Values</th></tr>");
+            htmlOut.append("<tr><th>Option</th><th>Expression</th><th>Variables</th><th>Values</th></tr>");
             if(entries == null || entries.size() == 0){
                 htmlOut.append("<tr><td>No entries yet.</td></tr>");
             }else{
+                int i = 0;
                 for(Entry entry: entries){
-                htmlOut.append("<tr><td>"+entry.pexpression+"</td><td>"+entry.pvars+"</td><td>"+entry.pvals+"</td></tr>");
+                    htmlOut.append("<tr><td>"+i+entry.pexpression+"</td><td>"+entry.pvars+"</td><td>"+entry.pvals+"</td></tr>");
+                    i++;
                 }
             }   
             htmlOut.append("</table>");
@@ -279,8 +281,7 @@ public class Assignment5Servlet extends HttpServlet {
 
                 expression = entryManager.getEntrypexpression(newEntries, optionNum);
                 vars =  entryManager.getEntrypvars(newEntries, optionNum);
-                vals =  entryManager.getEntrypvals(newEntries, optionNum);
-                
+                vals =  entryManager.getEntrypvals(newEntries, optionNum);    
             }
             // HTTP POST request backend logic
 
