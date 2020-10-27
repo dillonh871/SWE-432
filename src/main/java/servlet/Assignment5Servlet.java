@@ -156,22 +156,28 @@ public class Assignment5Servlet extends HttpServlet {
 
             if (event.isStartElement()) {
                 StartElement startElement = event.asStartElement();
+
                 if (startElement.getName().getLocalPart().equals(Data.ENTRY.name())) {
                     entry = new Entry();
                 }
 
                 if (event.isStartElement()) {
-                      if (event.asStartElement().getName().getLocalPart().equals(Data.NAME.name())) {
-                      event = eventReader.nextEvent();
-                      entry.name =event.asCharacters().getData();
-                      continue;
-                  }
-              }
-                if (event.asStartElement().getName().getLocalPart().equals(Data.AGE.name())) {
-                  event = eventReader.nextEvent();
-                  entry.age =Integer.parseInt(event.asCharacters().getData());
-                  continue;
-              }
+                    if (event.asStartElement().getName().getLocalPart().equals(Data.EXPRESS.name())) {
+                    event = eventReader.nextEvent();
+                    entry.pexpression =event.asCharacters().getData();
+                    continue;
+                    }
+                }
+                if (event.asStartElement().getName().getLocalPart().equals(Data.VARS.name())) {
+                    event = eventReader.nextEvent();
+                    entry.pvars =event.asCharacters().getData();
+                    continue;
+                }
+                if (event.asStartElement().getName().getLocalPart().equals(Data.VALS.name())) {
+                    event = eventReader.nextEvent();
+                    entry.pvals =event.asCharacters().getData();
+                    continue;
+                }
             }
 
             if (event.isEndElement()) {
