@@ -147,7 +147,7 @@ public class Assignment5Servlet extends HttpServlet {
         eventWriter.add(LINE_END);
         }
 
-        private List<Entry> getAll(){
+        public List<Entry> getAll(){
             List entries = new ArrayList();
 
             try{
@@ -416,7 +416,17 @@ public class Assignment5Servlet extends HttpServlet {
             printResponseBody(out, entryManager.getAllAsHTMLTable(newEntries));
             PrintTail(out);
         }
+        if(request.getParameter("persistBtn") != null){
+            response.setContentType("text/html");
+            PrintWriter out = response.getWriter();
 
+            EntryManager entryManager = new EntryManager();
+            entryManager.setFilePath(RESOURCE_FILE);
+
+            PrintPostHead(out);
+            printResponseBody(out, entryManager.getAllAsHTMLTable(entryManager.getAll());
+            PrintTail(out);
+        }
     }
     
     @Override
