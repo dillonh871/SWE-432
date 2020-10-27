@@ -242,8 +242,13 @@ public class Assignment5Servlet extends HttpServlet {
                 String optionNumString = request.getParameter("Predicate");
                 optionNum = Integer.parseInt(optionNumString);
                 System.out.println("optionNum: " + optionNum);
-                for(Entry entry: entries){
-                    System.out.println("optionNum: " + optionNum);
+                if(entries == null || entries.size() == 0){
+
+                }
+                else{
+                    expression = entry.pexpression;
+                    vars =  entry.pvars;
+                    vals =  entry.pvals;
                 }
             }
             // HTTP POST request backend logic
