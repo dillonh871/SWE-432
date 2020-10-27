@@ -132,8 +132,7 @@ public class Assignment5Servlet extends HttpServlet {
 
         }
 
-        private void createNode(XMLEventWriter eventWriter, String name,
-            String value) throws XMLStreamException {
+        private void createNode(XMLEventWriter eventWriter, String name, String value) throws XMLStreamException {
         StartElement sElement = eventFactory.createStartElement("", "", name);
         eventWriter.add(LINE_TAB);
         eventWriter.add(sElement);
@@ -144,7 +143,6 @@ public class Assignment5Servlet extends HttpServlet {
         EndElement eElement = eventFactory.createEndElement("", "", name);
         eventWriter.add(eElement);
         eventWriter.add(LINE_END);
-
         }
 
         private List<Entry> getAll(){
@@ -238,6 +236,10 @@ public class Assignment5Servlet extends HttpServlet {
         String vals = request.getParameter("Values(s)"); //Gets the Variable values input
 
         if(request.getParameter("submitBtn") != null){
+
+            if(request.getParameter("Predicate") != null){
+                int optionNum = Integer.parseInt(request.getParameter("Predicate"));
+            }
             // HTTP POST request backend logic
 
 
@@ -478,7 +480,6 @@ public class Assignment5Servlet extends HttpServlet {
         out.println("		</tr>");
 
         out.println("		<table border=\"1\">");
-
         out.println("			<tr>");
         out.println("				<td align=\"center\" style=\"width: 146px;\">");
         out.println("					<input type=\"button\" value=\"&&\" id=\"andSign\" onclick=\"addAndOnClick()\">");
@@ -583,9 +584,22 @@ public class Assignment5Servlet extends HttpServlet {
 
     private void printResponseBody (PrintWriter out, String tableString){
         out.println("<body>");
-        out.println("<h1 align=center>SWE 432 Assignment 5.</h1>");
+        out.println("<h1 align=center>SWE 432 Assignment 7.</h1>");
         out.println("<h2 align=center>Long Hoang and Faiz Zia</h2>");
         out.println("<h2 >All Predicate entries persisted on a XML File</h2>");
+        
+        out.println("<form method=\"post\" action=\"/assignment5\" name=\"myForm\">");
+        out.println("	<table border=\"1\">");
+
+        out.println("		<tr>");
+        out.println("			<td><label for=\"predicate\">Predicate Option</label></td>");
+        out.println("			<td><input type=\"text\" id=\"predicate\" name=\"Predicate\" value=\"\" size=\"46.5\" autocomplete=\"off\" ></td>");
+        out.println("		</tr>");
+
+        out.println("	</table>");
+        out.println("	<input type=\"submit\" value=\"Submit\" name=\"submitBtn\" align=\"center\">");
+        out.println("</form>");
+
         out.println("");
         out.println(tableString);
         out.println("");
