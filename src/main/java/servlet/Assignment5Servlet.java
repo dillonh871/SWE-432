@@ -233,7 +233,7 @@ public class Assignment5Servlet extends HttpServlet {
         
         String action = request.getParameter("myForm");
 
-        if("submitBtn".equals(action)){
+        if(request.getParameter("submitBtn") != null){
             // HTTP POST request backend logic
             String expression = request.getParameter("Expression"); //Gets the expression input
             String vars = request.getParameter("Boolean Variable(s)"); //Gets the Variable names input
@@ -347,7 +347,7 @@ public class Assignment5Servlet extends HttpServlet {
             PrintPostBody(out, varsArr, rsltTbl);
             PrintTail(out);
         }
-        if("saveBtn".equals(action)){
+        if(request.getParameter("saveBtn") != null){
                 
         }
 
