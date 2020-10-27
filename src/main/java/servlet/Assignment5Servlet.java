@@ -241,12 +241,12 @@ public class Assignment5Servlet extends HttpServlet {
             if(request.getParameter("Predicate") != null){
                 String optionNumString = request.getParameter("Predicate");
                 optionNum = Integer.parseInt(optionNumString);
+                System.out.println("optionNum: " + optionNum);
+                expression = entries.get(optionNum).pexpression;
+                vars =  entries.get(optionNum).pvars;
+                vals =  entries.get(optionNum).pvals;
             }
             // HTTP POST request backend logic
-
-            expression = entries.get(optionNum).pexpression;
-            vars =  entries.get(optionNum).pvars;
-            vals =  entries.get(optionNum).pvals;
 
             int op; //1: AND, 2: OR, 3: NOT, 4: XOR
             String posFormat, negFormat;
