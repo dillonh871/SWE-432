@@ -265,16 +265,6 @@ public class Assignment5Servlet extends HttpServlet {
             if(request.getParameter("Predicate") != null){
                 EntryManager entryManager = new EntryManager();
                 entryManager.setFilePath(RESOURCE_FILE);
-                List<Entry> newEntries= null;
-
-                try{
-                    newEntries=entryManager.save(expression, vars, vals);
-                }catch(FileNotFoundException e){
-                    e.printStackTrace();
-                }
-                catch(XMLStreamException e){
-                    e.printStackTrace();
-                }
 
                 String optionNumString = request.getParameter("Predicate");
                 optionNum = Integer.parseInt(optionNumString);
