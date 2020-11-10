@@ -241,11 +241,27 @@ public class Assignment8Servlet extends HttpServlet {
         String vars = request.getParameter("Boolean Variable(s)"); //Gets the Variable names input
         String vals = request.getParameter("Values(s)"); //Gets the Variable values input
 
+
+
+        /*
+         * RequestDispatcher object was created to forward request to Assignment8TruthTable.
+         * Assignment8TruthTable is our second servlet which creates the truth table
+        */
         if(request.getParameter("submitBtn") != null){
             request.setAttribute("globalList", globalList);
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/assignment8_TruthTable");  
             dispatcher.forward(request, response);  
         }
+
+
+
+        /*
+         * Notes that forward methods were not used for "Save" or "Go to Predicates" buttons because
+         * the instructions state that we only need two servlets. And we only need to forward to our second servlet. 
+         * And the Second servlet will compute and print the truth table, and send the result to the client.
+         *
+         * That means the XML persistant data's page does not have to have it's own servlet!
+        */
         if(request.getParameter("saveBtn") != null){
             response.setContentType("text/html");
             PrintWriter out = response.getWriter();
