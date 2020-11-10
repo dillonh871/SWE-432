@@ -99,7 +99,6 @@ public class Assignment8TruthTable extends HttpServlet {
         newEntry.pvars = pvars;
         newEntry.pvals = pvals;
         entries.add(newEntry);
-        globalList.add(newEntry);
 
         XMLOutputFactory outputFactory = XMLOutputFactory.newInstance();
         XMLEventWriter eventWriter = outputFactory
