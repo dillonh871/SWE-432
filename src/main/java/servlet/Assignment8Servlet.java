@@ -41,7 +41,7 @@ import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartDocument;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
-public ArrayList<Entry> globalList = new ArrayList<Entry>();
+
 @WebServlet(name = "assignment8", urlPatterns = {"/assignment8"} )
 
 public class Assignment8Servlet extends HttpServlet {
@@ -61,6 +61,7 @@ public class Assignment8Servlet extends HttpServlet {
     }
 
     public List<Entry> entries;
+    ArrayList<Entry> globalList = new ArrayList<Entry>();
 
     public class EntryManager {
         private String filePath = null;
@@ -241,6 +242,7 @@ public class Assignment8Servlet extends HttpServlet {
         String vals = request.getParameter("Values(s)"); //Gets the Variable values input
 
         if(request.getParameter("submitBtn") != null){
+            request.setAttribute("globalList", globalList);
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/assignment8_TruthTable");  
             dispatcher.forward(request, response);  
         }

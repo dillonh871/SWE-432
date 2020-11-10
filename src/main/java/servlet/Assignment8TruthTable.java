@@ -59,6 +59,9 @@ public class Assignment8TruthTable extends HttpServlet {
         String pvals;
     }
 
+    public List<Entry> entries;
+    ArrayList<Entry> globalList = (ArrayList<Entry>) request.getAttribute("globalList");
+
     public class EntryManager {
         private String filePath = null;
         private XMLEventFactory eventFactory = null;
