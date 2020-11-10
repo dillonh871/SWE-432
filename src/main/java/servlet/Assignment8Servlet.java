@@ -43,7 +43,7 @@ import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
 @WebServlet(name = "assignment8", urlPatterns = {"/assignment8"} )
-
+public ArrayList<Entry> globalList = new ArrayList<Entry>();
 public class Assignment8Servlet extends HttpServlet {
 
     static enum Data {EXPRESS, VARS, VALS, ENTRY, ENTRIES};
@@ -61,7 +61,6 @@ public class Assignment8Servlet extends HttpServlet {
     }
 
     public List<Entry> entries;
-    ArrayList<Entry> globalList = new ArrayList<Entry>();
 
     public class EntryManager {
         private String filePath = null;
