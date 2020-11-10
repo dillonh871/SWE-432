@@ -61,7 +61,6 @@ public class Assignment8TruthTable extends HttpServlet {
     }
 
     public List<Entry> entries;
-    ArrayList<Entry> globalList = (ArrayList<Entry>) request.getAttribute("globalList");
 
     public class EntryManager {
         private String filePath = null;
@@ -233,7 +232,7 @@ public class Assignment8TruthTable extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        ArrayList<Entry> globalList = (ArrayList<Entry>)request.getAttribute("globalList");
         String action = request.getParameter("myForm");
         int optionNum = 0;
 
