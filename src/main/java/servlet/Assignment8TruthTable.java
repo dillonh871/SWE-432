@@ -4,8 +4,6 @@ import java.io.PrintWriter;
 import java.io.IOException;
 import java.util.*;
 import java.io.*;
-import javax.servlet.*;  
-import javax.servlet.http.*;  
 
 import java.util.List;
 import java.util.ArrayList;
@@ -261,7 +259,7 @@ public class Assignment8TruthTable extends HttpServlet {
 
             expression = globalList.get(optionNum).pexpression;
             vars =  globalList.get(optionNum).pvars;
-            vals =  globalList.get(optionNum).pvals;    
+            //vals =  globalList.get(optionNum).pvals;    
         }
         // HTTP POST request backend logic
 
