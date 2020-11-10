@@ -41,9 +41,9 @@ import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartDocument;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
-
-@WebServlet(name = "assignment8", urlPatterns = {"/assignment8"} )
 public ArrayList<Entry> globalList = new ArrayList<Entry>();
+@WebServlet(name = "assignment8", urlPatterns = {"/assignment8"} )
+
 public class Assignment8Servlet extends HttpServlet {
 
     static enum Data {EXPRESS, VARS, VALS, ENTRY, ENTRIES};
