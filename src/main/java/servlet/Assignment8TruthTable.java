@@ -231,7 +231,7 @@ public class Assignment8TruthTable extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ArrayList<Entry> globalList = request.getAttribute("globalList");
+        ArrayList<Assignment8.Entry> globalList = (ArrayList<Assignment8.Entry>)request.getAttribute("globalList");
         int optionNum = 0;
 
         String expression = request.getParameter("Expression"); //Gets the expression input
