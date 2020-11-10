@@ -231,8 +231,7 @@ public class Assignment8TruthTable extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ArrayList<Entry> globalList = (ArrayList<Entry>)request.getAttribute("globalList");
-        String action = request.getParameter("myForm");
+        ArrayList<Entry> globalList = request.getAttribute("globalList");
         int optionNum = 0;
 
         String expression = request.getParameter("Expression"); //Gets the expression input
@@ -242,16 +241,6 @@ public class Assignment8TruthTable extends HttpServlet {
         if(request.getParameter("Predicate") != null){
             EntryManager entryManager = new EntryManager();
             entryManager.setFilePath(RESOURCE_FILE);
-            // List<Entry> newEntries= null;
-
-            // try{
-            //     newEntries=entryManager.save(expression, vars, vals);
-            // }catch(FileNotFoundException e){
-            //     e.printStackTrace();
-            // }
-            // catch(XMLStreamException e){
-            //     e.printStackTrace();
-            // }
 
             String optionNumString = request.getParameter("Predicate");
             optionNum = Integer.parseInt(optionNumString);
