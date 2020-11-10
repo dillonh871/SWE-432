@@ -414,7 +414,7 @@ public class Assignment8TruthTable extends HttpServlet {
         out.println("<h2 align=\"center\">Collaboration Summary</h2>");
         out.println("<p>For this assignment, Long and Faiz both examined the criteria given and chose option 1. We then dove into the various ways to implement this with the codebase as it stood in assignment 7. We decided to study resources from class, as well as resources available online to get guidance, namely, to become familiar with \"forwarding\" a request to another servlet. ");
         out.println("</p>");
-        out.println("<p>After this step, considering what had to be done, we thought it best to both separately implement splitting Assignment 5 into two servlets, and then coming back and learning from each other’s differences, and deducing the best of both as the final submission.");
+        out.println("<p>After this step, considering what had to be done, we thought it best to both separately implement splitting Assignment 7(additions to assignment 5) into two servlets, and then coming back and learning from each other’s differences, and deducing the best of both as the final submission.");
         out.println("</p>");
         out.println("<p>We learned some very useful skills through this assignment, one of course being forwarding, but most importantly, we learned another technique to pair program, allowing both parties to fully immerse into the material, but also learn from each other at the same time.");
         out.println("</p>");

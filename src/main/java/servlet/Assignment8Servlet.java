@@ -446,11 +446,11 @@ public class Assignment8Servlet extends HttpServlet {
         out.println("   <input type=\"submit\" value=\"Go to saved Predicates\" name=\"persistBtn\" align=\"center\">");
         out.println("</form>");
         out.println("<h2 align=\"center\">Collaboration Summary</h2>");
-        out.println("<p>For this assignment, Long and Faiz both brainstormed different strategies to implement persistence. At the end we weighed pros and cons, as well as our strong suits, we came to the conclusion that XML would be the best option for us.");
+        out.println("<p>For this assignment, Long and Faiz both examined the criteria given and chose option 1. We then dove into the various ways to implement this with the codebase as it stood in assignment 7. We decided to study resources from class, as well as resources available online to get guidance, namely, to become familiar with \"forwarding\" a request to another servlet. ");
         out.println("</p>");
-        out.println("<p>We then split up the work so that Long added a save button and catch and display the data, and Faiz added functionality to allow the user to reroute that data to generate a truth table.");
+        out.println("<p>After this step, considering what had to be done, we thought it best to both separately implement splitting Assignment 5 into two servlets, and then coming back and learning from each other’s differences, and deducing the best of both as the final submission.");
         out.println("</p>");
-        out.println("<p>We had a difficult time adding to the existent page, but we both learned a lot, splicing code in and adjusting it for our specification, as well as repeatedly deploying the web app and using the errors and generated page as guidance. In our implementation, we also got a lot of practice with XMLEvents as well as routing data using Entry objects.");
+        out.println("<p>We learned some very useful skills through this assignment, one of course being forwarding, but most importantly, we learned another technique to pair program, allowing both parties to fully immerse into the material, but also learn from each other at the same time.");
         out.println("</p>");
         out.println("</body>");
     }
@@ -507,11 +507,11 @@ public class Assignment8Servlet extends HttpServlet {
         out.println("</table>");
 
         out.println("<h2 align=\"center\">Collaboration Summary</h2>");
-        out.println("<p>For this assignment, Long and Faiz both brainstormed different strategies to implement persistence. At the end we weighed pros and cons, as well as our strong suits, we came to the conclusion that XML would be the best option for us.");
+        out.println("<p>For this assignment, Long and Faiz both examined the criteria given and chose option 1. We then dove into the various ways to implement this with the codebase as it stood in assignment 7. We decided to study resources from class, as well as resources available online to get guidance, namely, to become familiar with \"forwarding\" a request to another servlet. ");
         out.println("</p>");
-        out.println("<p>We then split up the work so that Long added a save button and catch and display the data, and Faiz added functionality to allow the user to reroute that data to generate a truth table.");
+        out.println("<p>After this step, considering what had to be done, we thought it best to both separately implement splitting Assignment 7(additions to assignment 5) into two servlets, and then coming back and learning from each other’s differences, and deducing the best of both as the final submission.");
         out.println("</p>");
-        out.println("<p>We had a difficult time adding to the existent page, but we both learned a lot, splicing code in and adjusting it for our specification, as well as repeatedly deploying the web app and using the errors and generated page as guidance. In our implementation, we also got a lot of practice with XMLEvents as well as routing data using Entry objects.");
+        out.println("<p>We learned some very useful skills through this assignment, one of course being forwarding, but most importantly, we learned another technique to pair program, allowing both parties to fully immerse into the material, but also learn from each other at the same time.");
         out.println("</p>");
         out.println("</body>");
     }
@@ -548,7 +548,7 @@ public class Assignment8Servlet extends HttpServlet {
         out.println("<h2 align=\"center\">Collaboration Summary</h2>");
         out.println("<p>For this assignment, Long and Faiz both examined the criteria given and chose option 1. We then dove into the various ways to implement this with the codebase as it stood in assignment 7. We decided to study resources from class, as well as resources available online to get guidance, namely, to become familiar with \"forwarding\" a request to another servlet. ");
         out.println("</p>");
-        out.println("<p>After this step, considering what had to be done, we thought it best to both separately implement splitting Assignment 5 into two servlets, and then coming back and learning from each other’s differences, and deducing the best of both as the final submission.");
+        out.println("<p>After this step, considering what had to be done, we thought it best to both separately implement splitting Assignment 7(additions to assignment 5) into two servlets, and then coming back and learning from each other’s differences, and deducing the best of both as the final submission.");
         out.println("</p>");
         out.println("<p>We learned some very useful skills through this assignment, one of course being forwarding, but most importantly, we learned another technique to pair program, allowing both parties to fully immerse into the material, but also learn from each other at the same time.");
         out.println("</p>");
