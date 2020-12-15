@@ -88,7 +88,7 @@ private void PrintBody (PrintWriter out, String result)
 
 
     out.println(" <div className=\"container\">");
-    out.println("    <div className=\"subcontainer\"");
+    out.println("    <div className=\"subcontainer\">");
     
     // Strings textbox
     out.println("       <div className=\"textbox\">");
