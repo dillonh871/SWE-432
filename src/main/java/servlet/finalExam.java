@@ -92,12 +92,12 @@ private void PrintBody (PrintWriter out, String result)
     
     out.println("       <div className=\"textbox\"");
     out.println("           <div className=\"boxone-title\">Enter Strings(Separate with new line).</div>");
-    out.println("           <textarea name=\"stringsTA\"/>")
+    out.println("           <textarea name=\"stringsTA\"/>");
     out.println("       </div>");
 
     out.println("       <div className=\"textbox\"");
     out.println("           <div className=\"boxone-title\">Sorted List of Strings</div>");
-    out.println("           <textarea name=\"stringsResultTA\"/>")
+    out.println("           <textarea name=\"stringsResultTA\"/>");
     out.println("       </div>");
 
 
