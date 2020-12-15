@@ -35,7 +35,9 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
 {
    response.setContentType("text/html");
    PrintWriter out = response.getWriter();
-   PrintHead(out);
+
+   String result = "";
+   PrintHead(out, result);
    PrintBody(out);
    PrintTail(out);
 }
@@ -74,7 +76,7 @@ private void PrintHead (PrintWriter out)
  *  Prints the <BODY> of the HTML page with the form data
  *  values from the parameters.
 ********************************************************* */
-private void PrintBody (PrintWriter out)
+private void PrintBody (PrintWriter out, String result)
 {
    out.print  ("<form name=\"listForm\" method=\"post\" action=\"/finalExam\"");
    out.println(" <table>");
@@ -109,7 +111,7 @@ private void PrintBody (PrintWriter out)
 ********************************************************* */
 private void PrintBody (PrintWriter out)
 {
-   PrintBody(out, "", "", "", "", "");
+   PrintBody(out, "");
 }
 
 /** *****************************************************
