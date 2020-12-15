@@ -67,7 +67,7 @@ private void PrintHead (PrintWriter out)
 
    out.println("<head>");
    out.println("    <style>body {background-color: powderblue;}");
-   out.println("    <style>title {text-align: center;}");
+   out.println("    <style>.title {text-align: center;}");
    out.println("    </style>");
    out.println("  <title>Long Hoang Final Exam</title>");
    out.println("</head>");
@@ -83,7 +83,7 @@ private void PrintBody (PrintWriter out, String result)
     out.println("<div>");
 
     out.println(" <div className=\"title\"");
-    out.println("    <h2>Long Hoang Final Exam</h2>");
+    out.println("    <h1>Long Hoang Final Exam</h1>");
     out.println(" </div>");
 
 
