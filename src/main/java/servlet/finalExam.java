@@ -37,8 +37,8 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    PrintWriter out = response.getWriter();
 
    String result = "";
-   PrintHead(out, result);
-   PrintBody(out);
+   PrintHead(out);
+   PrintBody(out, result);
    PrintTail(out);
 }
 
