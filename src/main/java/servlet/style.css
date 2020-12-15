@@ -3,9 +3,6 @@ body {background-color: powderblue;}
 .title {
     text-align: center;
 }
-.collab {
-    text-align: center;
-}
 
 .container{
     display: flex;

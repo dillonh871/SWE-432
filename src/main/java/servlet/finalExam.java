@@ -81,7 +81,7 @@ private void PrintBody (PrintWriter out, String result)
     out.println("<body>");
     out.println("<div>");
 
-    out.println(" <div> className=\"title\"");
+    out.println(" <div className=\"title\">");
     out.println("    <h1>Long Hoang Final Exam</h1>");
     out.println(" </div>");
 
