@@ -78,7 +78,7 @@ private void PrintHead (PrintWriter out)
 ********************************************************* */
 private void PrintBody (PrintWriter out, String result)
 {
-   out.print  ("<div>");
+   out.println("<div>");
    out.println(" <div className=\"title\"<h1>SWE 432 Assignment 9</h1>
                     <h2>Long Hoang Final Exam</h2>
                 </div>");
