@@ -81,29 +81,29 @@ private void PrintBody (PrintWriter out, String result)
     out.println("<body>");
     out.println("<div>");
 
-    out.println(" <div className=\"title\"");
+    out.println(" <div> className=\"title\"");
     out.println("    <h1>Long Hoang Final Exam</h1>");
     out.println(" </div>");
 
 
 
-    out.println(" <div className=\"container\"");
+    out.println(" <div className=\"container\">");
     out.println("    <div className=\"subcontainer\"");
     
     // Strings textbox
-    out.println("       <div className=\"textbox\"");
+    out.println("       <div className=\"textbox\">");
     out.println("           <div className=\"boxone-title\">Enter Strings(Separate with new line).</div>");
     out.println("           <textarea name=\"stringsTA\"></textarea>");
     out.println("       </div>");
 
     //sorted list textbox
-    out.println("       <div className=\"textbox\"");
+    out.println("       <div className=\"textbox\">");
     out.println("           <div className=\"boxone-title\">Sorted List of Strings</div>");
     out.println("           <textarea readonly name=\"stringsResultTA\"></textarea>");
     out.println("       </div>");
 
     //buttons
-    out.println("       <div className=\"buttons-container\"");
+    out.println("       <div className=\"buttons-container\">");
     out.println("           <label class=\"block\"> <input type=\"radio\" /> Ascending </label>");
     out.println("           <label class=\"block\"> <input type=\"radio\" /> Descending </label>");
     out.println("           <button> Submit </button>");
