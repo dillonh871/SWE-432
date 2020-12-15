@@ -66,7 +66,7 @@ private void PrintHead (PrintWriter out)
    out.println("");
 
    out.println("<head>");
-   out.println("  <link rel=\"stylesheet\" href=\"style.css\">");
+   out.println("  <link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">");
    out.println("  <title>Long Hoang Final Exam</title>");
    out.println("</head>");
    out.println("");
