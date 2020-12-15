@@ -78,8 +78,6 @@ private void PrintHead (PrintWriter out)
 ********************************************************* */
 private void PrintBody (PrintWriter out, String result)
 {
-   out.println("<div>");
-   out.println(" <div className=\"title\"<h1>SWE 432 Assignment 9</h1><h2>Long Hoang Final Exam</h2></div>");
 
    out.print  ("<form name=\"listForm\" method=\"post\" action=\"/finalExam\"");
    out.println(" <table>");
