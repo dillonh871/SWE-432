@@ -66,7 +66,7 @@ private void PrintHead (PrintWriter out)
    out.println("");
 
    out.println("<head>");
-   out.println("  <link rel=\"stylesheet\" type=\"text/css\" href=\"/style.css\">");
+   out.println("  <link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">");
    out.println("  <title>Long Hoang Final Exam</title>");
    out.println("</head>");
    out.println("");
@@ -81,29 +81,29 @@ private void PrintBody (PrintWriter out, String result)
     out.println("<body>");
     out.println("<div>");
 
-    out.println(" <div className=\"title\">");
+    out.println(" <div class=\"title\">");
     out.println("    <h1>Long Hoang Final Exam</h1>");
     out.println(" </div>");
 
 
 
-    out.println(" <div className=\"container\">");
-    out.println("    <div className=\"subcontainer\">");
+    out.println(" <div class=\"container\">");
+    out.println("    <div class=\"subcontainer\">");
     
     // Strings textbox
-    out.println("       <div className=\"textbox\">");
-    out.println("           <div className=\"boxone-title\">Enter Strings(Separate with new line).</div>");
+    out.println("       <div class=\"textbox\">");
+    out.println("           <div class=\"boxone-title\">Enter Strings(Separate with new line).</div>");
     out.println("           <textarea name=\"stringsTA\"></textarea>");
     out.println("       </div>");
 
     //sorted list textbox
-    out.println("       <div className=\"textbox\">");
-    out.println("           <div className=\"boxone-title\">Sorted List of Strings</div>");
+    out.println("       <div class=\"textbox\">");
+    out.println("           <div class=\"boxone-title\">Sorted List of Strings</div>");
     out.println("           <textarea readonly name=\"stringsResultTA\"></textarea>");
     out.println("       </div>");
 
     //buttons
-    out.println("       <div className=\"buttons-container\">");
+    out.println("       <div class=\"buttons-container\">");
     out.println("           <label class=\"block\"> <input type=\"radio\" /> Ascending </label>");
     out.println("           <label class=\"block\"> <input type=\"radio\" /> Descending </label>");
     out.println("           <button> Submit </button>");
