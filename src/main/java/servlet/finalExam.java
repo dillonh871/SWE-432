@@ -78,6 +78,7 @@ private void PrintHead (PrintWriter out)
 ********************************************************* */
 private void PrintBody (PrintWriter out, String result)
 {
+    out.println("<body>");
     out.println("<div>");
 
     out.println(" <div className=\"title\"");
@@ -106,29 +107,6 @@ private void PrintBody (PrintWriter out, String result)
 
     out.println("</div>");
 
-   out.print  ("<form name=\"listForm\" method=\"post\" action=\"/finalExam\"");
-   out.println(" <table>");
-   out.println("  <tr>");
-   out.println("   <td>String A:");
-   out.println("   <td><input type=\"text\" name=\"STRINGA\" value=\"Item\" size=10>");
-   out.println("  </tr>");
-   out.println(" </table>");
-
-   out.println(" <table><tr>");
-   out.println(" <td>Choose sorting order:</td>");
-   out.println(" <td><label><input checked type=\"radio\" id=\"sorttype\" name=\"sorttype\" value=\"none\">none</label>&nbsp;&nbsp;&nbsp;</td>");
-   out.println(" <td><label><input checked type=\"radio\" id=\"sorttype\" name=\"sorttype\" value=\"ascending\">ascending</label>&nbsp;&nbsp;&nbsp;</td>");
-   out.println(" <td><label><input checked type=\"radio\" id=\"sorttype\" name=\"sorttype\" value=\"descending\">descending</label>&nbsp;&nbsp;&nbsp;</td>");
-   out.println(" </tr></table>");
-
-   out.println("Keep only unqiue strings?");
-   out.println(" <label><input checked type=\"radio\" id=\"uniqe\" name=\"unique\" value=\"no\">No</label>");
-   out.println(" <label><input checked type=\"radio\" id=\"unique\" name=\"unique\" value=\"yes\">Yes</label>");
-
-   out.println(" <br/>");
-   out.println(" <br/>");
-   out.println(" <input type=\"submit\" value=\"Sort\" name=\"sort\">");
-   out.println("</form>");
    out.println("");
    out.println("</body>");
 } // End PrintBody
