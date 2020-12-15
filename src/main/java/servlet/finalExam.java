@@ -66,7 +66,9 @@ private void PrintHead (PrintWriter out)
    out.println("");
 
    out.println("<head>");
-   out.println("  <style>body {background-color: powderblue;}</style>");
+   out.println("    <style>body {background-color: powderblue;}");
+   out.println("    <style>title {text-align: center;}");
+   out.println("    </style>");
    out.println("  <title>Long Hoang Final Exam</title>");
    out.println("</head>");
    out.println("");
@@ -97,7 +99,7 @@ private void PrintBody (PrintWriter out, String result)
 
     out.println("       <div className=\"textbox\"");
     out.println("           <div className=\"boxone-title\">Sorted List of Strings</div>");
-    out.println("           <textarea name=\"stringsResultTA\"></textarea>");
+    out.println("           <textarea readonly name=\"stringsResultTA\"></textarea>");
     out.println("       </div>");
 
 
