@@ -78,6 +78,11 @@ private void PrintHead (PrintWriter out)
 ********************************************************* */
 private void PrintBody (PrintWriter out, String result)
 {
+   out.print  ("<div>");
+   out.println(" <div className=\"title\"<h1>SWE 432 Assignment 9</h1>
+                    <h2>Long Hoang Final Exam</h2>
+                </div>");
+
    out.print  ("<form name=\"listForm\" method=\"post\" action=\"/finalExam\"");
    out.println(" <table>");
    out.println("  <tr>");
@@ -87,10 +92,10 @@ private void PrintBody (PrintWriter out, String result)
    out.println(" </table>");
 
    out.println(" <table><tr>");
-   out.println(" <td>Choose an ordering:</td>");
-   out.println(" <td><label><input checked type=\"radio\" id=\"sorttype\" name=\"sorttype\" value=\"none\">A-B-C</label>&nbsp;&nbsp;&nbsp;</td>");
-   out.println(" <td><label><input checked type=\"radio\" id=\"sorttype\" name=\"sorttype\" value=\"ascending\">A-B-C</label>&nbsp;&nbsp;&nbsp;</td>");
-   out.println(" <td><label><input checked type=\"radio\" id=\"sorttype\" name=\"sorttype\" value=\"descending\">A-B-C</label>&nbsp;&nbsp;&nbsp;</td>");
+   out.println(" <td>Choose sorting order:</td>");
+   out.println(" <td><label><input checked type=\"radio\" id=\"sorttype\" name=\"sorttype\" value=\"none\">none</label>&nbsp;&nbsp;&nbsp;</td>");
+   out.println(" <td><label><input checked type=\"radio\" id=\"sorttype\" name=\"sorttype\" value=\"ascending\">ascending</label>&nbsp;&nbsp;&nbsp;</td>");
+   out.println(" <td><label><input checked type=\"radio\" id=\"sorttype\" name=\"sorttype\" value=\"descending\">descending</label>&nbsp;&nbsp;&nbsp;</td>");
    out.println(" </tr></table>");
 
    out.println("Keep only unqiue strings?");
