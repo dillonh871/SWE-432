@@ -67,6 +67,7 @@ private void PrintHead (PrintWriter out)
 
    out.println("<head>");
    out.println("  <style>body {background-color: powderblue;}</style>");
+   out.println("  <style>.title {text-align: center;}</style>");
    out.println("  <title>Long Hoang Final Exam</title>");
    out.println("</head>");
    out.println("");
