@@ -38,32 +38,42 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
     String sortOption = request.getParameter("radioAS");// get the sort option (alphabetical or string length)
     String orderOption = request.getParameter("radioAD");  // get the order option (Ascend or Descend)
     String uniqueOption = request.getParameter("radioUniq"); // get unqiue option (Unique strings only?)
-    
-
+    int numerical = 0;
     //removes newline from strings
     String[] cleanedList = userStrings.split("\\r?\\n");
 
     ArrayList<String> stringList = new ArrayList<>();
     //move strings to array list 
+
+    //numerical
+    if(cleanedList[0].isNumeric()){
+        numerical = 1;
+        Arrays.sort(cleanedList, new Comparator<String>(){
+            public int compare(String s1, String s2){
+                return Integer.valueOf(s1).compareTo(Integer.valueOf(s2));
+            }});
+    }
+
     for(int i = 0; i < cleanedList.length; i++){
         stringList.add(cleanedList[i]);
     }
-
     //alphabetical sorting
-    if(sortOption.equals("alpha")){
-        Collections.sort(stringList);
-        if(orderOption.equals("desc")){
-            Collections.reverse(stringList);
+    if(numerical == 0){
+        if(sortOption.equals("alpha")){
+            Collections.sort(stringList);
+            if(orderOption.equals("desc")){
+                Collections.reverse(stringList);
+            }
         }
-    }
 
-    //string length sorting 
-    else{
-        if(orderOption.equals("desc")){
-            stringList.sort(Comparator.comparingInt(String::length).reversed());
-        }
+        //string length sorting 
         else{
-            stringList.sort(Comparator.comparingInt(String::length));
+            if(orderOption.equals("desc")){
+                stringList.sort(Comparator.comparingInt(String::length).reversed());
+            }
+            else{
+                stringList.sort(Comparator.comparingInt(String::length));
+            }
         }
     }
 
@@ -171,10 +181,10 @@ private void PrintBody (PrintWriter out, String sortedList)
     out.println(" </div>");
 
         out.println("<h3>Additional notes on how program works</h3>");
-        out.println("<h4>Alphabetical Ordering</h4>");
-        out.println("<p>1.Alphabetical Ascending -  alphabetical ordering going from A-Z");
+        out.println("<h4>Alphabetical/Numerical Ordering</h4>");
+        out.println("<p>1.Alphabetical/Numerical  Ascending -  alphabetical ordering going from A-Z or Numerical from smallest to largest");
         out.println("<br>");
-        out.println("2.Alphabetical Descending - alphabetical ordering going from Z-A</p>");
+        out.println("2.Alphabetical/Numerical  Descending - alphabetical ordering going from Z-A or Numerical from largest to smallest</p>");
 
         out.println("<h4>String Length Ordering</h4>");
         out.println("<p>1.String Length Ascending - least number of characters to most");
@@ -210,7 +220,7 @@ private void PrintBody (PrintWriter out, String sortedList)
 
     //Alpbetical or string length
     out.println("           <div class=\"boxone-title\">Pick how you want to sort the list: </div>");
-    out.println("           <label > <input type=\"radio\" name=\"radioAS\" value=\"alpha\" checked/> Alphabetical </label>");
+    out.println("           <label > <input type=\"radio\" name=\"radioAS\" value=\"alpha\" checked/> Alphabetical/Numerical </label>");
     out.println("           <label > <input type=\"radio\" name=\"radioAS\" value=\"slength\" /> String Length </label>");
     out.println("<br>");
 
