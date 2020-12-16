@@ -69,8 +69,8 @@ private void PrintHead (PrintWriter out)
    out.println("  <style>body {background-color: powderblue;}</style>");
    out.println("  <style>.title {text-align: center;}</style>");
 
-   out.println("  <style>.container{display: flex;justify-content: center;}</style>");
-   out.println("  <style>.sub-container{display: flex;flex-direction: row;align-items: center;justify-content: space-evenly;}</style>");
+   //out.println("  <style>.container{display: flex;justify-content: center;}</style>");
+   out.println("  <style>.sub-container{display: inline-block;align-items: center;justify-content: space-evenly;}</style>");
    out.println("  <style>.buttons-container{display: flex; flex-Direction: column;align-items: center;justify-content: center;}</style>");
    out.println("  <style>.textbox{align-items: center;display: flex;flex-direction: column;width: 300px;height: 450px;}</style>");
 
