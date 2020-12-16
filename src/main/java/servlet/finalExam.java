@@ -126,6 +126,8 @@ private void PrintHead (PrintWriter out)
     out.println("  <style>.buttons-container{display: flex; flex-Direction: column;align-items: center;justify-content: center;}</style>");
     out.println("  <style>button {display: block;}</style>");
     out.println("  <style>.block {display: block;}</style>");
+    out.println("  <style>h3 {margin-bottom: 0px;}</style>");
+    out.println("  <style>h4 {margin-top: 2px;}</style>");
     out.println("  <style>h4 {margin-bottom: 0px;}</style>");
     out.println("  <style>p {margin-top: 0px;}</style>");
 
@@ -179,6 +181,7 @@ private void PrintBody (PrintWriter out, String sortedList)
         out.println("2.String Length Descending -  most number of characters to least");
         out.println("<br>");
         out.println("Note: In the case that multiple strings have the same length the program will randomly decide which one goes first</p>");
+        out.println("<br>");
 
     out.println("<form method=\"post\" action=\"/finalExam\" name=\"myForm\">");
     out.println(" <div class=\"container\">");
