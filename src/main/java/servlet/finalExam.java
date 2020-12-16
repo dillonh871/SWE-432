@@ -98,6 +98,7 @@ private void PrintHead (PrintWriter out)
     out.println("  <style>.buttons-container{display: flex; flex-Direction: column;align-items: center;justify-content: center;}</style>");
     out.println("  <style>button {display: block;}</style>");
     out.println("  <style>.block {display: block;}</style>");
+    out.println("  <style>.inline {display: inline;}</style>");
 
         out.println("<script>");
         out.println("	function clearAll(){");
@@ -157,8 +158,8 @@ private void PrintBody (PrintWriter out, String sortedList)
 
     //buttons
     out.println("       <div class=\"buttons-container\">");
-    out.println("           <label > <input type=\"radio\" name=\"radioAD\" value=\"asc\" checked/>   Ascending </label>");
-    out.println("           <label > <input type=\"radio\" name=\"radioAD\" value=\"desc\" /> Descending </label>");
+    out.println("           <label class=\"inline\"> <input type=\"radio\" name=\"radioAD\" value=\"asc\" checked/>   Ascending </label>");
+    out.println("           <label class=\"inline\"> <input type=\"radio\" name=\"radioAD\" value=\"desc\" /> Descending </label>");
     out.println("	        <input class=\"block\" type=\"submit\" value=\"Submit\" align=\"center\" onclick=\"return checkForm()\">");
     out.println("	        <input class=\"block\" type=\"button\" id=\"Clear\" value=\"Clear\" align=\"center\" onclick=\"return clearAll()\">");
     out.println("       </div>");
