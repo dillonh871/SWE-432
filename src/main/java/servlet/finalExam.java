@@ -103,7 +103,7 @@ private void PrintHead (PrintWriter out)
         out.println("	function clearAll(){");
         out.println("		var srlt = getElementById(\"stringsResultID\");");
         out.println("		var sinput = getElementById(\"stringsID\");");
-        out.println("		srlt.value = ""; sinput.value = "";");
+        out.println("		srlt.value = \"\"; sinput.value = \"\";");
         out.println("	}");
         out.println("</script>");
 
