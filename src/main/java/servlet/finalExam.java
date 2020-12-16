@@ -126,18 +126,18 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 ********************************************************* */
 private void PrintHead (PrintWriter out)
 {
-   out.println("<html>");
-   out.println("");
+    out.println("<html>");
+    out.println("");
 
-   out.println("<head>");
-   out.println("  <style>body {background-color: powderblue;}</style>");
-   out.println("  <style>.title {text-align: center;}</style>");
+    out.println("<head>");
+    out.println("  <style>body {background-color: powderblue;}</style>");
+    out.println("  <style>.title {text-align: center;}</style>");
 
-   out.println("  <style>.container{display: flex;justify-content: center;}</style>");
-   out.println("  <style>.sub-container{display: flex;flex-direction: row;align-items: center;justify-content: space-evenly;}</style>");
-   out.println("  <style>.textbox{align-items: center;display: flex;flex-direction: column;width: 300px;height: 450px;}</style>");
+    out.println("  <style>.container{display: flex;justify-content: center;}</style>");
+    out.println("  <style>.sub-container{display: flex;flex-direction: row;align-items: center;justify-content: space-evenly;}</style>");
+    out.println("  <style>.textbox{align-items: center;display: flex;flex-direction: column;width: 300px;height: 450px;}</style>");
     out.println("  <style>.box-title{text-align: center;}</style>");
-   out.println("  <style>textarea {align-items: center;display: flex;flex-direction: column;width: 250px;height: 400px;border-radius: 15px;overflow: auto;}</style>");
+    out.println("  <style>textarea {align-items: center;display: flex;flex-direction: column;width: 250px;height: 400px;border-radius: 15px;overflow: auto;}</style>");
 
 
     out.println("  <style>.buttons-container{display: flex; flex-Direction: column;align-items: center;justify-content: center;}</style>");
@@ -150,24 +150,25 @@ private void PrintHead (PrintWriter out)
     out.println("  <style>p {margin-top: 2px;}</style>");
 
 
-        //clear the lists
-        out.println("<script>");
-        out.println("	function clearAll(){");
-        out.println("		var srlt = document.getElementById(\"stringsResultID\");");
-        out.println("		var sinput = document.getElementById(\"stringsID\");");
-        out.println("		srlt.value = \'\'; sinput.value = \'\';");
-        out.println("	}");
+    out.println("  <script>");
 
-        //input validation
-        out.println("	function checkForm(){");
-        out.println("		var sinput = document.getElementById(\"stringsID\");");
-        out.println("		if (sinput.value == \'\'){");
-        out.println("		    alert (\"Please Enter String(s) to be sorted!\");");
-        out.println("           return (false);");
-        out.println("       }");
-        out.println("		return (true);");
-        out.println("	}");
-        out.println("</script>");
+    //clear the lists
+    out.println("    function clearAll(){");
+    out.println("      var srlt = document.getElementById(\"stringsResultID\");");
+    out.println("      var sinput = document.getElementById(\"stringsID\");");
+    out.println("      srlt.value = \'\'; sinput.value = \'\';");
+    out.println("	 }");
+
+    //input validation
+    out.println("    function checkForm(){");
+    out.println("      var sinput = document.getElementById(\"stringsID\");");
+    out.println("      if (sinput.value == \'\'){");
+    out.println("        alert (\"Please Enter String(s) to be sorted!\");");
+    out.println("        return (false);");
+    out.println("      }");
+    out.println("      return (true);");
+    out.println("    }");
+    out.println("  </script>");
 
    out.println("  <title>Long Hoang Final Exam</title>");
    out.println("</head>");
@@ -181,78 +182,78 @@ private void PrintHead (PrintWriter out)
 private void PrintBody (PrintWriter out, String sortedList)
 {
     out.println("<body>");
-    out.println("<div>");
+    out.println("  <div>");
 
-    out.println(" <div class=\"title\">");
-    out.println("    <h1>Long Hoang Final Exam</h1>");
-    out.println(" </div>");
+    out.println("    <div class=\"title\">");
+    out.println("      <h1>Long Hoang Final Exam</h1>");
+    out.println("    </div>");
 
-        out.println("<h3>Additional notes on how program works</h3>");
-        out.println("<h4>Alphabetical/Numerical Ordering</h4>");
-        out.println("<p>1.Alphabetical/Numerical  Ascending -  alphabetical ordering going from A-Z or Numerical from smallest to largest");
-        out.println("<br>");
-        out.println("2.Alphabetical/Numerical  Descending - alphabetical ordering going from Z-A or Numerical from largest to smallest");
-        out.println("<br>");
-        out.println("Note: Do not mix integers and characters. For example, [1,happy, day] is invalid</p>");
+    out.println("    <h3>Additional notes on how program works</h3>");
+    out.println("    <h4>Alphabetical/Numerical Ordering</h4>");
+    out.println("    <p>1.Alphabetical/Numerical  Ascending -  alphabetical ordering going from A-Z or Numerical from smallest to largest");
+    out.println("    <br>");
+    out.println("    2.Alphabetical/Numerical  Descending - alphabetical ordering going from Z-A or Numerical from largest to smallest");
+    out.println("    <br>");
+    out.println("    Note: Do not mix integers and characters/words. Keep the list strictly to either numbers or characters/words. For example, [1, happy, day] is invalid.</p>");
 
-        out.println("<h4>String Length Ordering</h4>");
-        out.println("<p>1.String Length Ascending - least number of characters to most");
-        out.println("<br>");
-        out.println("2.String Length Descending -  most number of characters to least");
-        out.println("<br>");
-        out.println("Note: In the case that multiple strings have the same length the program will randomly decide which one goes first</p>");
-        out.println("<br>");
+    out.println("    <h4>String Length Ordering</h4>");
+    out.println("    <p>1.String Length Ascending - least number of characters to most");
+    out.println("    <br>");
+    out.println("    2.String Length Descending -  most number of characters to least");
+    out.println("    <br>");
+    out.println("    Note: In the case that multiple strings have the same length the program will randomly decide which one goes first</p>");
+    out.println("    <br>");
 
-    out.println("<form method=\"post\" action=\"/finalExam\" name=\"myForm\">");
-    out.println(" <div class=\"container\">");
-    out.println("    <div class=\"sub-container\">");
+    out.println("    <form method=\"post\" action=\"/finalExam\" name=\"myForm\">");
+    out.println("      <div class=\"container\">");
+    out.println("        <div class=\"sub-container\">");
     
     // Strings textbox
-    out.println("       <div class=\"textbox\">");
-    out.println("           <div class=\"boxone-title\">Enter Strings(Separate with new line).</div>");
-    out.println("           <textarea id=\"stringsID\" name=\"stringsTA\"></textarea>");
-    out.println("       </div>");
+    out.println("          <div class=\"textbox\">");
+    out.println("            <div class=\"boxone-title\">Enter Strings(Separate with new line).</div>");
+    out.println("              <textarea id=\"stringsID\" name=\"stringsTA\"></textarea>");
+    out.println("            </div>");
 
     //sorted list textbox
-    out.println("       <div class=\"textbox\">");
-    out.println("           <div class=\"boxone-title\">Sorted List of Strings</div>");
+    out.println("            <div class=\"textbox\">");
+    out.println("               <div class=\"boxone-title\">Sorted List of Strings</div>");
     if(!sortedList.isEmpty()){
-        out.println("           <textarea readonly name=\"stringsResultTA\" id=\"stringsResultID\">" + sortedList + "</textarea>");
+        out.println("             <textarea readonly name=\"stringsResultTA\" id=\"stringsResultID\">" + sortedList + "</textarea>");
     }
     else{
-        out.println("           <textarea readonly name=\"stringsResultTA\" id=\"stringsResultID\"></textarea>");
+        out.println("             <textarea readonly name=\"stringsResultTA\" id=\"stringsResultID\"></textarea>");
     }
-    out.println("       </div>");
+    out.println("            </div>");
 
     //buttons
-    out.println("       <div class=\"buttons-container\">");
+    out.println("            <div class=\"buttons-container\">");
 
     //Alpbetical or string length
-    out.println("           <div class=\"boxone-title\">Pick how you want to sort the list: </div>");
-    out.println("           <label > <input type=\"radio\" name=\"radioAS\" value=\"alpha\" checked/> Alphabetical/Numerical </label>");
-    out.println("           <label > <input type=\"radio\" name=\"radioAS\" value=\"slength\" /> String Length </label>");
+    out.println("              <div class=\"boxone-title\">Pick how you want to sort the list: </div>");
+    out.println("                <label > <input type=\"radio\" name=\"radioAS\" value=\"alpha\" checked/> Alphabetical/Numerical </label>");
+    out.println("                <label > <input type=\"radio\" name=\"radioAS\" value=\"slength\" /> String Length </label>");
     out.println("<br>");
 
     //ascending or descending
-    out.println("           <div class=\"boxone-title\">Pick how you want the list to be ordered: </div>");
-    out.println("           <label > <input type=\"radio\" name=\"radioAD\" value=\"asc\" checked/>   Ascending </label>");
-    out.println("           <label > <input type=\"radio\" name=\"radioAD\" value=\"desc\" /> Descending </label>");
+    out.println("              <div class=\"boxone-title\">Pick how you want the list to be ordered: </div>");
+    out.println("                <label > <input type=\"radio\" name=\"radioAD\" value=\"asc\" checked/>   Ascending </label>");
+    out.println("                <label > <input type=\"radio\" name=\"radioAD\" value=\"desc\" /> Descending </label>");
     out.println("<br>");
 
     // unique strings only?
-    out.println("           <div class=\"boxone-title\">Unique Strings Only?</div>");
-    out.println("           <label > <input type=\"radio\" name=\"radioUniq\" value=\"notunique\" checked/> No </label>");
-    out.println("           <label > <input type=\"radio\" name=\"radioUniq\" value=\"unique\" /> Yes </label>");
+    out.println("             <div class=\"boxone-title\">Unique Strings Only?</div>");
+    out.println("               <label > <input type=\"radio\" name=\"radioUniq\" value=\"notunique\" checked/> No </label>");
+    out.println("               <label > <input type=\"radio\" name=\"radioUniq\" value=\"unique\" /> Yes </label>");
     out.println("<br>");
 
-    out.println("	        <input class=\"block\" type=\"submit\" value=\"Submit\" align=\"center\" onclick=\"return checkForm()\">");
-    out.println("	        <input class=\"block\" type=\"button\" id=\"Clear\" value=\"Clear\" align=\"center\" onclick=\"return clearAll()\">");
-    out.println("       </div>");
+    out.println("	            <input class=\"block\" type=\"submit\" value=\"Submit\" align=\"center\" onclick=\"return checkForm()\">");
+    out.println("	            <input class=\"block\" type=\"button\" id=\"Clear\" value=\"Clear\" align=\"center\" onclick=\"return clearAll()\">");
+    out.println("             </div>");
 
-    out.println("    </div>");
-    out.println(" </div>");
-    out.println("</form>");
-    out.println("</div>");
+    out.println("         </div>");
+    out.println("       </div>");
+    out.println("    </form>");
+    out.println("  </div>");
 
    out.println("");
    out.println("</body>");
