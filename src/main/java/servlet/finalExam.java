@@ -117,8 +117,8 @@ private void PrintBody (PrintWriter out, String result)
 
     //buttons
     out.println("       <div class=\"buttons-container\">");
-    out.println("           <label class=\"block\"> <input type=\"radio\" />   Ascending </label>");
-    out.println("           <label class=\"block\"> <input type=\"radio\" /> Descending </label>");
+    out.println("           <label class=\"block\"> <input type=\"radio\" name=\radioAD\" />   Ascending </label>");
+    out.println("           <label class=\"block\"> <input type=\"radio\" name=\radioAD\" /> Descending </label>");
     out.println("           <button> Submit </button>");
     out.println("       </div>");
 
