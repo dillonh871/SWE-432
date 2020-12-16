@@ -107,8 +107,8 @@ private void PrintHead (PrintWriter out)
         out.println("	}");
 
         out.println("	function checkForm(){");
-        out.println("		var sinput = document.getElementById(\"stringsID\")");
-        out.println("		if (sinput.value.equals(\"\")){");
+        out.println("		var sinput = document.getElementById(\"stringsID\");");
+        out.println("		if (sinput.value == \'\'){");
         out.println("		    alert (\"Please Enter String(s) to be sorted!\");");
         out.println("           return (false);");
         out.println("       }");
