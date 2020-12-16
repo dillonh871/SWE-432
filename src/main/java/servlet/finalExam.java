@@ -46,7 +46,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
     //move strings to array list 
 
     //numerical
-    if(userStrings.matches(".*\\d.*")){
+    if(containsNum(userStrings) == true){
         numerical = 1;
         Arrays.sort(cleanedList, new Comparator<String>(){
             public int compare(String s1, String s2){
@@ -59,6 +59,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
     }
     //alphabetical sorting
     if(numerical == 0){
+        
         if(sortOption.equals("alpha")){
             Collections.sort(stringList);
             if(orderOption.equals("desc")){
@@ -268,5 +269,20 @@ private void PrintTail (PrintWriter out)
    out.println("</html>");
 } // End PrintTail
 
+/** *****************************************************
+ *  check if there is a number in the string
+********************************************************* */
+
+public final boolean containsNum(String s) {
+    boolean containsNum = false;
+    if (s != null && !s.isEmpty()) {
+        for (char c : s.toCharArray()) {
+            if (containsNum = Character.isDigit(c)) {
+                break;
+            }
+        }
+    }
+    return containsNum;
+}
 
 } 
