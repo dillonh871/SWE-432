@@ -100,10 +100,9 @@ private void PrintHead (PrintWriter out)
     out.println("  <style>.block {display: block;}</style>");
 
         out.println("<script>");
-        out.println("	function checkForm(){");
+        out.println("	function clearAll(){");
         out.println("		var srlt = getElementById(\"stringsResultID\");");
         out.println("		var sinput = getElementById(\"stringsID\");");
-        out.println("		var clearBtn = getElementById(\"Clear\");");
         out.println("		srlt.value = ""; sinput.value = "";");
         out.println("	}");
         out.println("</script>");
@@ -153,7 +152,7 @@ private void PrintBody (PrintWriter out, String sortedList)
     out.println("           <label class=\"block\"> <input type=\"radio\" name=\"radioAD\" value=\"asc\"/>   Ascending </label>");
     out.println("           <label class=\"block\"> <input type=\"radio\" name=\"radioAD\" value=\"desc\" /> Descending </label>");
     out.println("	        <input class=\"block\" type=\"submit\" value=\"Submit\" align=\"center\">");
-    out.println("	        <input class=\"block\" type=\"submit\" id=\"Clear\" value=\"Clear\" onclick=\"return clearAll()\">");
+    out.println("	        <input class=\"block\" type=\"submit\" value=\"Clear\" onclick=\"return clearAll()\">");
     out.println("       </div>");
 
     out.println("    </div>");
