@@ -57,6 +57,12 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
     for(int i = 0; i < cleanedList.length; i++){
         stringList.add(cleanedList[i]);
     }
+
+    if(numerical == 1){
+        if(orderOption.equals("desc")){
+            Collections.reverse(stringList);
+        }
+    }
     //alphabetical sorting
     if(numerical == 0){
 
