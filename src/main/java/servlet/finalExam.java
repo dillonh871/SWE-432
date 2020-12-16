@@ -198,7 +198,9 @@ private void PrintBody (PrintWriter out, String sortedList)
     out.println("    <br>");
     out.println("    2.Alphabetical/Numerical  Descending - alphabetical ordering going from Z-A or Numerical from largest to smallest");
     out.println("    <br>");
-    out.println("    Note: Do not mix integers and characters/words. Keep the list strictly to either numbers or characters/words. For example, [1, happy, day] is invalid.</p>");
+    out.println("    Note: Do not mix integers and characters/words. Keep the list strictly to either numbers or characters/words.");
+    out.println("    <br>");
+    out.println("    Examples: [1, happy, day] is invalid. [1,2,50,4] and [apple,banana,orange,orange] are valid.</p>")
 
     out.println("    <h4>String Length Ordering</h4>");
     out.println("    <p>1.String Length Ascending - least number of characters to most");
