@@ -69,6 +69,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
 
     String sortedList = "";
     if(uniqueOption.equals("unique")){
+        //linkedHashSet removes duplicates and perserves the order of the list
         LinkedHashSet<String> uniqueStrings = new LinkedHashSet<String>(stringList);
         for(String s : uniqueStrings){
             sortedList += s + "\n";
@@ -157,6 +158,17 @@ private void PrintHead (PrintWriter out)
 private void PrintBody (PrintWriter out, String sortedList)
 {
     out.println("<body>");
+
+        out.println("<h3>Additional notes on how program works</h3>");
+        out.println("<p>Alphabetical Ordering</p>");
+        out.println("<p>1.Alphabetical Ascending -  alphabetical ordering going from A-Z</p>");
+        out.println("<p>2.Alphabetical Descending - alphabetical ordering going from Z-A</p>");
+
+        out.println("<p>String Length Ordering</p>");
+        out.println("<p>1.String Length Ascending - least number of characters to most</p>");
+        out.println("<p>2.String Length Descending -  most number of characters to least</p>");
+        out.println("<p>Note: In the case that multiple strings have the same length the program will randomly decide which one goes first</p>");
+
     out.println("<div>");
 
     out.println(" <div class=\"title\">");
