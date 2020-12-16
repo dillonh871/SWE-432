@@ -48,6 +48,11 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
         Collections.reverse(stringList);
     }
 
+    String sortedList = "";
+    for(String s : stringList){
+        sortedList += s + "\n";
+    }
+
    response.setContentType("text/html");
    PrintWriter out = response.getWriter();
 
