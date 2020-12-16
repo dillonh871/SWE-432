@@ -40,7 +40,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
     // sorts the list alphabetically 
     String[] cleanedList = userStrings.split("\\r?\\n");
     ArrayList<String> stringList = new ArrayList<>();
-    for(int i = 0; i < cleanedList.length(); i++){
+    for(int i = 0; i < cleanedList.length; i++){
         stringList.add(cleanedList[i]);
     }
     Collections.sort(stringList);
