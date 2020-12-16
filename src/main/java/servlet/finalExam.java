@@ -207,7 +207,7 @@ private void PrintBody (PrintWriter out, String sortedList)
     out.println("    <br>");
     out.println("    2.String Length Descending -  most number of characters to least");
     out.println("    <br>");
-    out.println("    Note: In the case that multiple strings have the same length the program will randomly decide which one goes first</p>");
+    out.println("    Note: In the case that multiple strings have the same length the program will randomly decide which one goes first.</p>");
     out.println("    <br>");
 
     out.println("    <form method=\"post\" action=\"/finalExam\" name=\"myForm\">");
