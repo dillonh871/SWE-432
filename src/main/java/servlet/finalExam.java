@@ -69,7 +69,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
 
     String sortedList = "";
     if(uniqueOption.equals("unique")){
-        Set<String> uniqueStrings = new HashSet<String>(stringList);
+        LinkedHashSet<String> uniqueStrings = new LinkedHashSet<String>(stringList);
         for(String s : uniqueStrings){
             sortedList += s + "\n";
         }
