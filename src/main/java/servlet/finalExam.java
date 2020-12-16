@@ -38,14 +38,15 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
     String sortOption = request.getParameter("radioAS");// get the sort option (alphabetical or string length)
     String orderOption = request.getParameter("radioAD");  // get the order option (Ascend or Descend)
     String uniqueOption = request.getParameter("radioUniq"); // get unqiue option (Unique strings only?)
-    int numerical = 0;
+    int numerical = 0; // checks if the string contains numbers
+
     //removes newline from strings
     String[] cleanedList = userStrings.split("\\r?\\n");
 
     ArrayList<String> stringList = new ArrayList<>();
     //move strings to array list 
 
-    //numerical
+    // numerical sorting
     if(containsNum(userStrings) == true){
         numerical = 1;
         Arrays.sort(cleanedList, new Comparator<String>(){
@@ -54,18 +55,20 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
             }});
     }
 
+    // moves contents from array to array list 
     for(int i = 0; i < cleanedList.length; i++){
         stringList.add(cleanedList[i]);
     }
 
+    // reverse numerical list if needed
     if(numerical == 1){
         if(orderOption.equals("desc")){
             Collections.reverse(stringList);
         }
     }
-    //alphabetical sorting
-    if(numerical == 0){
 
+    if(numerical == 0){
+        //alphabetical sorting
         if(sortOption.equals("alpha")){
             Collections.sort(stringList);
             if(orderOption.equals("desc")){
@@ -84,6 +87,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
         }
     }
 
+    // Puts contents in the list into string and removes unique strings if needed
     String sortedList = "";
     if(uniqueOption.equals("unique")){
         //linkedHashSet removes duplicates and perserves the order of the list
@@ -170,9 +174,9 @@ private void PrintHead (PrintWriter out)
     out.println("    }");
     out.println("  </script>");
 
-   out.println("  <title>Long Hoang Final Exam</title>");
-   out.println("</head>");
-   out.println("");
+    out.println("  <title>Long Hoang Final Exam</title>");
+    out.println("</head>");
+    out.println("");
 } // End PrintHead
 
 /** *****************************************************
