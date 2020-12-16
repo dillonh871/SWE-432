@@ -101,14 +101,14 @@ private void PrintHead (PrintWriter out)
 
         out.println("<script>");
         out.println("	function clearAll(){");
-        out.println("		var srlt = getElementById(\"stringsResultID\");");
-        out.println("		var sinput = getElementById(\"stringsID\");");
+        out.println("		var srlt = document.getElementById(\"stringsResultID\");");
+        out.println("		var sinput = document.getElementById(\"stringsID\");");
         out.println("		srlt.value = \'\'; sinput.value = \'\';");
         out.println("	}");
 
         out.println("	function checkForm(){");
-        out.println("		var srlt = getElementById(\"stringsID\")");
-        out.println("		if (srlt.value.equals(\"\")){");
+        out.println("		var sinput = document.getElementById(\"stringsID\")");
+        out.println("		if (sinput.value.equals(\"\")){");
         out.println("		    alert (\"Please Enter String(s) to be sorted!\");");
         out.println("           return (false);");
         out.println("       }");
