@@ -158,15 +158,15 @@ private void PrintBody (PrintWriter out, String sortedList)
     //buttons
     out.println("       <div class=\"buttons-container\">");
 
-    //ascending or descending
-    out.println("           <div class=\"boxone-title\">Pick how you want the list should be ordered: </div>");
-    out.println("           <label > <input type=\"radio\" name=\"radioAD\" value=\"asc\" checked/>   Ascending </label>");
-    out.println("           <label > <input type=\"radio\" name=\"radioAD\" value=\"desc\" /> Descending </label>");
-
     //Alpbetical or string length
     out.println("           <div class=\"boxone-title\">Pick how you want to sort the list: </div>");
     out.println("           <label > <input type=\"radio\" name=\"radioAS\" value=\"alpha\" checked/> Alphabetical </label>");
     out.println("           <label > <input type=\"radio\" name=\"radioAS\" value=\"slength\" /> String Length </label>");
+
+    //ascending or descending
+    out.println("           <div class=\"boxone-title\">Pick how you want the list should be ordered: </div>");
+    out.println("           <label > <input type=\"radio\" name=\"radioAD\" value=\"asc\" checked/>   Ascending </label>");
+    out.println("           <label > <input type=\"radio\" name=\"radioAD\" value=\"desc\" /> Descending </label>");
 
     // unique strings only?
     out.println("           <div class=\"boxone-title\">Unique Strings Only?</div>");
