@@ -73,12 +73,12 @@ private void PrintHead (PrintWriter out)
    out.println("  <style>.sub-container{display: flex;flex-direction: row;align-items: center;justify-content: space-evenly;}</style>");
    out.println("  <style>.textbox{align-items: center;display: flex;flex-direction: column;width: 300px;height: 450px;}</style>");
     out.println("  <style>.box-title{text-align: center;}</style>");
-   out.println("  <style>textarea {align-items: center;display: flex;flex-direction: column;width: 200px;height: 300px;border-radius: 15px;overflow: auto;}</style>");
+   out.println("  <style>textarea {align-items: center;display: flex;flex-direction: column;width: 250px;height: 400px;border-radius: 15px;overflow: auto;}</style>");
 
 
-  // out.println("  <style>.buttons-container{display: flex; flex-Direction: column;align-items: center;justify-content: center;}</style>");
-   //out.println("  <style>button {display: block;}</style>");
-   //out.println("  <style>.block {display: block;}</style>");
+    out.println("  <style>.buttons-container{display: flex; flex-Direction: column;align-items: center;justify-content: center;}</style>");
+    out.println("  <style>button {display: block;}</style>");
+    out.println("  <style>.block {display: block;}</style>");
 
    out.println("  <title>Long Hoang Final Exam</title>");
    out.println("</head>");
@@ -101,7 +101,7 @@ private void PrintBody (PrintWriter out, String result)
 
 
     out.println(" <div class=\"container\">");
-    out.println("    <div class=\"subcontainer\">");
+    out.println("    <div class=\"sub-container\">");
     
     // Strings textbox
     out.println("       <div class=\"textbox\">");
@@ -116,11 +116,11 @@ private void PrintBody (PrintWriter out, String result)
     out.println("       </div>");
 
     //buttons
-   /* out.println("       <div class=\"buttons-container\">");
+    out.println("       <div class=\"buttons-container\">");
     out.println("           <label class=\"block\"> <input type=\"radio\" /> Ascending </label>");
     out.println("           <label class=\"block\"> <input type=\"radio\" /> Descending </label>");
     out.println("           <button> Submit </button>");
-    out.println("       </div>");*/
+    out.println("       </div>");
 
     out.println("    </div>");
     out.println(" </div>");
