@@ -117,6 +117,7 @@ private void PrintBody (PrintWriter out, String sortedList)
     out.println("    <h1>Long Hoang Final Exam</h1>");
     out.println(" </div>");
 
+    out.println("<form method=\"post\" action=\"/finalExam\" name=\"myForm\">");
     out.println(" <div class=\"container\">");
     out.println("    <div class=\"sub-container\">");
     
@@ -139,16 +140,16 @@ private void PrintBody (PrintWriter out, String sortedList)
 
     //buttons
     out.println("       <div class=\"buttons-container\">");
-    out.println("       <form method=\"post\" action=\"/finalExam\" name=\"myForm\">");
+    
     out.println("           <label class=\"block\"> <input type=\"radio\" name=\radioAD\" value=\"asc\"/>   Ascending </label>");
     out.println("           <label class=\"block\"> <input type=\"radio\" name=\radioAD\" value=\"desc\" /> Descending </label>");
     out.println("	        <input class=\"block\" type=\"submit\" value=\"Submit\" align=\"center\">");
-    out.println("       </form>");
+
     out.println("       </div>");
 
     out.println("    </div>");
     out.println(" </div>");
-
+    out.println("</form>");
     out.println("</div>");
 
    out.println("");
