@@ -144,7 +144,7 @@ private void PrintBody (PrintWriter out, String sortedList)
     out.println("           <label class=\"block\"> <input type=\"radio\" name=\"radioAD\" value=\"asc\"/>   Ascending </label>");
     out.println("           <label class=\"block\"> <input type=\"radio\" name=\"radioAD\" value=\"desc\" /> Descending </label>");
     out.println("	        <input class=\"block\" type=\"submit\" value=\"Submit\" align=\"center\">");
-
+    out.println("	        <input class=\"block\" type=\"reset\" value=\"Reset\" align=\"center\">");
     out.println("       </div>");
 
     out.println("    </div>");
