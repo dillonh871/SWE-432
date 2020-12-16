@@ -200,7 +200,7 @@ private void PrintBody (PrintWriter out, String sortedList)
     out.println("    <br>");
     out.println("    Note: Do not mix integers and characters/words. Keep the list strictly to either numbers or characters/words.");
     out.println("    <br>");
-    out.println("    Examples: [1, happy, day] is invalid. [1,2,50,4] and [apple,banana,orange,orange] are valid.</p>")
+    out.println("    Examples: [SWE, 432, AWSOME, 5] is invalid. [1,2,50,4] and [apple,banana,orange,orange] are both valid.</p>");
 
     out.println("    <h4>String Length Ordering</h4>");
     out.println("    <p>1.String Length Ascending - least number of characters to most");
