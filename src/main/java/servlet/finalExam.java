@@ -26,9 +26,6 @@ public class finalExam extends HttpServlet
 {
 /** *****************************************************
  *  Overrides HttpServlet's doPost().
- *  Extracts the three strings
- *  Extracts the ordering for the concatenation
- *  Concatenates and sends the string back to the client
 ********************************************************* */
 @Override
 public void doPost (HttpServletRequest request, HttpServletResponse response)
