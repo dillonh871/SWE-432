@@ -127,6 +127,7 @@ private void PrintHead (PrintWriter out)
     out.println("  <style>button {display: block;}</style>");
     out.println("  <style>.block {display: block;}</style>");
     out.println("  <style>h4 {margin-bottom: 0px;}</style>");
+    out.println("  <style>p {margin-top: 0px;}</style>");
 
 
         //clear the lists
