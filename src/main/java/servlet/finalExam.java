@@ -35,7 +35,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    throws ServletException, IOException
 {
     String userStrings = request.getParameter("stringsTA"); // get strings from user input
-    String sortOption = request.getParameter("radioAS")// get the sort option (alphabetical or string length)
+    String sortOption = request.getParameter("radioAS");// get the sort option (alphabetical or string length)
     String orderOption = request.getParameter("radioAD");  // get the order option (Ascend or Descend)
     String uniqueOption = request.getParameter("radioUniq"); // get unqiue option (Unique strings only?)
     
