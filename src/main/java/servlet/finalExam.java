@@ -56,9 +56,8 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    response.setContentType("text/html");
    PrintWriter out = response.getWriter();
 
-   String result = "";
    PrintHead(out);
-   PrintBody(out, result);
+   PrintBody(out, sortedList);
    PrintTail(out);
 }
 
@@ -109,7 +108,7 @@ private void PrintHead (PrintWriter out)
  *  Prints the <BODY> of the HTML page with the form data
  *  values from the parameters.
 ********************************************************* */
-private void PrintBody (PrintWriter out, String result)
+private void PrintBody (PrintWriter out, String sortedList)
 {
     out.println("<body>");
     out.println("<div>");
@@ -117,8 +116,6 @@ private void PrintBody (PrintWriter out, String result)
     out.println(" <div class=\"title\">");
     out.println("    <h1>Long Hoang Final Exam</h1>");
     out.println(" </div>");
-
-
 
     out.println(" <div class=\"container\">");
     out.println("    <div class=\"sub-container\">");
@@ -132,7 +129,12 @@ private void PrintBody (PrintWriter out, String result)
     //sorted list textbox
     out.println("       <div class=\"textbox\">");
     out.println("           <div class=\"boxone-title\">Sorted List of Strings</div>");
-    out.println("           <textarea readonly name=\"stringsResultTA\"></textarea>");
+    if(!sortedList.isEmpty()){
+        out.println("           <textarea readonly name=\"stringsResultTA\">" + sortedList + "</textarea>");
+    }
+    else{
+        out.println("           <textarea readonly name=\"stringsResultTA\"></textarea>");
+    }
     out.println("       </div>");
 
     //buttons
