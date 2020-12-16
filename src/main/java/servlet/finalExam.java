@@ -190,7 +190,7 @@ private void PrintBody (PrintWriter out, String sortedList)
     out.println("    </div>");
 
     out.println("    <h3>Additional notes on how program works</h3>");
-    out.println("    <h4>Alphabetical/Numerical Ordering</h4>");
+    out.println("    <h4>Alphabetical/Numerical Ordering (Default ordering)</h4>");
     out.println("    <p>1.Alphabetical/Numerical  Ascending -  alphabetical ordering going from A-Z or Numerical from smallest to largest");
     out.println("    <br>");
     out.println("    2.Alphabetical/Numerical  Descending - alphabetical ordering going from Z-A or Numerical from largest to smallest");
@@ -199,7 +199,7 @@ private void PrintBody (PrintWriter out, String sortedList)
     out.println("    <br>");
     out.println("    Examples: [SWE, 432, AWSOME, 5] is invalid. [1,2,50,4] and [apple,banana,orange,orange] are both valid.</p>");
 
-    out.println("    <h4>String Length Ordering</h4>");
+    out.println("    <h4>String Length Ordering (Alternate sort)</h4>");
     out.println("    <p>1.String Length Ascending - least number of characters to most");
     out.println("    <br>");
     out.println("    2.String Length Descending -  most number of characters to least");
