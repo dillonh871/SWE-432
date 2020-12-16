@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.*;
 import java.io.*;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
@@ -33,6 +34,17 @@ public class finalExam extends HttpServlet
 public void doPost (HttpServletRequest request, HttpServletResponse response)
    throws ServletException, IOException
 {
+    String userStrings = request.getParameter("stringsTA"); // get strings from user input
+    String sortOption = request.getParameter("radioAD");  // get the sort option
+
+    // sorts the list alphabetically 
+    String[] cleanedList = userStrings.split("\\r?\\n");
+    ArrayList<String> stringList = Arrays.asList(cleanedList);
+    Collections.sort(stringList);
+    if(sortOption.equals("desc")){
+        Collections.reverse(stringList);
+    }
+
    response.setContentType("text/html");
    PrintWriter out = response.getWriter();
 
@@ -118,8 +130,8 @@ private void PrintBody (PrintWriter out, String result)
     //buttons
     out.println("       <div class=\"buttons-container\">");
     out.println("       <form method=\"post\" action=\"/finalExam\" name=\"myForm\">");
-    out.println("           <label class=\"block\"> <input type=\"radio\" name=\radioAD\" />   Ascending </label>");
-    out.println("           <label class=\"block\"> <input type=\"radio\" name=\radioAD\" /> Descending </label>");
+    out.println("           <label class=\"block\"> <input type=\"radio\" name=\radioAD\" value=\"asc\"/>   Ascending </label>");
+    out.println("           <label class=\"block\"> <input type=\"radio\" name=\radioAD\" value=\"desc\" /> Descending </label>");
     out.println("	        <input class=\"block\" type=\"submit\" value=\"Submit\" align=\"center\">");
     out.println("       </form>");
     out.println("       </div>");
