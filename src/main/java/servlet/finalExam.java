@@ -99,6 +99,7 @@ private void PrintHead (PrintWriter out)
     out.println("  <style>button {display: block;}</style>");
     out.println("  <style>.block {display: block;}</style>");
 
+        //clear the lists
         out.println("<script>");
         out.println("	function clearAll(){");
         out.println("		var srlt = document.getElementById(\"stringsResultID\");");
@@ -106,6 +107,7 @@ private void PrintHead (PrintWriter out)
         out.println("		srlt.value = \'\'; sinput.value = \'\';");
         out.println("	}");
 
+        //input validation
         out.println("	function checkForm(){");
         out.println("		var sinput = document.getElementById(\"stringsID\");");
         out.println("		if (sinput.value == \'\'){");
@@ -162,16 +164,19 @@ private void PrintBody (PrintWriter out, String sortedList)
     out.println("           <div class=\"boxone-title\">Pick how you want to sort the list: </div>");
     out.println("           <label > <input type=\"radio\" name=\"radioAS\" value=\"alpha\" checked/> Alphabetical </label>");
     out.println("           <label > <input type=\"radio\" name=\"radioAS\" value=\"slength\" /> String Length </label>");
+    out.println("<br>");
 
     //ascending or descending
     out.println("           <div class=\"boxone-title\">Pick how you want the list should be ordered: </div>");
     out.println("           <label > <input type=\"radio\" name=\"radioAD\" value=\"asc\" checked/>   Ascending </label>");
     out.println("           <label > <input type=\"radio\" name=\"radioAD\" value=\"desc\" /> Descending </label>");
+    out.println("<br>");
 
     // unique strings only?
     out.println("           <div class=\"boxone-title\">Unique Strings Only?</div>");
     out.println("           <label > <input type=\"radio\" name=\"radioUniq\" value=\"notunique\" checked/> No </label>");
     out.println("           <label > <input type=\"radio\" name=\"radioUniq\" value=\"unique\" /> Yes </label>");
+    out.println("<br>");
 
     out.println("	        <input class=\"block\" type=\"submit\" value=\"Submit\" align=\"center\" onclick=\"return checkForm()\">");
     out.println("	        <input class=\"block\" type=\"button\" id=\"Clear\" value=\"Clear\" align=\"center\" onclick=\"return clearAll()\">");
