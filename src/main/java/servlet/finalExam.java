@@ -48,7 +48,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
     //move strings to array list 
 
     //numerical
-    if(isNumeric(cleanedList[0])){
+    if(userStrings.matches(".*\\d.*")){
         numerical = 1;
         Arrays.sort(cleanedList, new Comparator<String>(){
             public int compare(String s1, String s2){
