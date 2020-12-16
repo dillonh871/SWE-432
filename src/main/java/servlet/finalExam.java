@@ -126,6 +126,8 @@ private void PrintHead (PrintWriter out)
     out.println("  <style>.buttons-container{display: flex; flex-Direction: column;align-items: center;justify-content: center;}</style>");
     out.println("  <style>button {display: block;}</style>");
     out.println("  <style>.block {display: block;}</style>");
+    out.println("  <style>h4 {margin-bottom: 0px;}</style>");
+
 
         //clear the lists
         out.println("<script>");
@@ -164,7 +166,7 @@ private void PrintBody (PrintWriter out, String sortedList)
     out.println("    <h1>Long Hoang Final Exam</h1>");
     out.println(" </div>");
 
-            out.println("<h3>Additional notes on how program works</h3>");
+        out.println("<h3>Additional notes on how program works</h3>");
         out.println("<h4>Alphabetical Ordering</h4>");
         out.println("<p>1.Alphabetical Ascending -  alphabetical ordering going from A-Z");
         out.println("<br>");
