@@ -99,6 +99,15 @@ private void PrintHead (PrintWriter out)
     out.println("  <style>button {display: block;}</style>");
     out.println("  <style>.block {display: block;}</style>");
 
+        out.println("<script>");
+        out.println("	function checkForm(){");
+        out.println("		var srlt = getElementById(\"stringsResultID\");");
+        out.println("		var sinput = getElementById(\"stringsID\");");
+        out.println("		var clearBtn = getElementById(\"Clear\");");
+        out.println("		srlt.value = ""; sinput.value = "";");
+        out.println("	}");
+        out.println("</script>");
+
    out.println("  <title>Long Hoang Final Exam</title>");
    out.println("</head>");
    out.println("");
@@ -124,17 +133,17 @@ private void PrintBody (PrintWriter out, String sortedList)
     // Strings textbox
     out.println("       <div class=\"textbox\">");
     out.println("           <div class=\"boxone-title\">Enter Strings(Separate with new line).</div>");
-    out.println("           <textarea name=\"stringsTA\"></textarea>");
+    out.println("           <textarea id=\"stringsID\" name=\"stringsTA\"></textarea>");
     out.println("       </div>");
 
     //sorted list textbox
     out.println("       <div class=\"textbox\">");
     out.println("           <div class=\"boxone-title\">Sorted List of Strings</div>");
     if(!sortedList.isEmpty()){
-        out.println("           <textarea readonly name=\"stringsResultTA\">" + sortedList + "</textarea>");
+        out.println("           <textarea readonly name=\"stringsResultTA\" id=\"stringsResultID\">" + sortedList + "</textarea>");
     }
     else{
-        out.println("           <textarea readonly name=\"stringsResultTA\"></textarea>");
+        out.println("           <textarea readonly name=\"stringsResultTA\" id=\"stringsResultID\"></textarea>");
     }
     out.println("       </div>");
 
@@ -144,7 +153,7 @@ private void PrintBody (PrintWriter out, String sortedList)
     out.println("           <label class=\"block\"> <input type=\"radio\" name=\"radioAD\" value=\"asc\"/>   Ascending </label>");
     out.println("           <label class=\"block\"> <input type=\"radio\" name=\"radioAD\" value=\"desc\" /> Descending </label>");
     out.println("	        <input class=\"block\" type=\"submit\" value=\"Submit\" align=\"center\">");
-    out.println("	        <input class=\"block\" type=\"reset\" value=\"Reset\" align=\"center\">");
+    out.println("	        <input class=\"block\" type=\"submit\" id=\"Clear\" value=\"Clear\" onclick=\"return clearAll()\">");
     out.println("       </div>");
 
     out.println("    </div>");
