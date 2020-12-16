@@ -59,7 +59,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
     }
     //alphabetical sorting
     if(numerical == 0){
-        
+
         if(sortOption.equals("alpha")){
             Collections.sort(stringList);
             if(orderOption.equals("desc")){
@@ -185,8 +185,9 @@ private void PrintBody (PrintWriter out, String sortedList)
         out.println("<h4>Alphabetical/Numerical Ordering</h4>");
         out.println("<p>1.Alphabetical/Numerical  Ascending -  alphabetical ordering going from A-Z or Numerical from smallest to largest");
         out.println("<br>");
-        out.println("2.Alphabetical/Numerical  Descending - alphabetical ordering going from Z-A or Numerical from largest to smallest</p>");
-        out.println("Note: Do not mix integers and characters. For example, [1,happy, day] is invalid/p>");
+        out.println("2.Alphabetical/Numerical  Descending - alphabetical ordering going from Z-A or Numerical from largest to smallest");
+        out.println("<br>");
+        out.println("Note: Do not mix integers and characters. For example, [1,happy, day] is invalid</p>");
 
         out.println("<h4>String Length Ordering</h4>");
         out.println("<p>1.String Length Ascending - least number of characters to most");
