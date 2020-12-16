@@ -158,22 +158,24 @@ private void PrintHead (PrintWriter out)
 private void PrintBody (PrintWriter out, String sortedList)
 {
     out.println("<body>");
-
-        out.println("<h3>Additional notes on how program works</h3>");
-        out.println("<p>Alphabetical Ordering</p>");
-        out.println("<p>1.Alphabetical Ascending -  alphabetical ordering going from A-Z</p>");
-        out.println("<p>2.Alphabetical Descending - alphabetical ordering going from Z-A</p>");
-
-        out.println("<p>String Length Ordering</p>");
-        out.println("<p>1.String Length Ascending - least number of characters to most</p>");
-        out.println("<p>2.String Length Descending -  most number of characters to least</p>");
-        out.println("<p>Note: In the case that multiple strings have the same length the program will randomly decide which one goes first</p>");
-
     out.println("<div>");
 
     out.println(" <div class=\"title\">");
     out.println("    <h1>Long Hoang Final Exam</h1>");
     out.println(" </div>");
+
+            out.println("<h3>Additional notes on how program works</h3>");
+        out.println("<h4>Alphabetical Ordering</h4>");
+        out.println("<p>1.Alphabetical Ascending -  alphabetical ordering going from A-Z");
+        out.println("<br>");
+        out.println("2.Alphabetical Descending - alphabetical ordering going from Z-A</p>");
+
+        out.println("<h4>String Length Ordering</h4>");
+        out.println("<p>1.String Length Ascending - least number of characters to most");
+        out.println("<br>");
+        out.println("2.String Length Descending -  most number of characters to least");
+        out.println("<br>");
+        out.println("Note: In the case that multiple strings have the same length the program will randomly decide which one goes first</p>");
 
     out.println("<form method=\"post\" action=\"/finalExam\" name=\"myForm\">");
     out.println(" <div class=\"container\">");
